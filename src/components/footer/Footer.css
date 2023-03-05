@@ -1,0 +1,40 @@
+.footer {
+  max-width: 1440px;
+  padding: 2%;
+  background-color: black;
+  margin: 15px auto 0px auto;
+  align-items: center;
+}
+.footer_Content {
+  display: flex;
+}
+.right_Footer {
+  width: 30%;
+  text-align: center;
+}
+.cooperate {
+  padding: 5px 10px 5px 10px;
+  border: 1px solid #e39797;
+  border-radius: 6px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.left_Footer{
+ width: 70%;
+}
+.footer_List {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer_List li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+.by p{
+  color: #ffffff;
+  text-align: center;
+}
