@@ -1,30 +1,39 @@
+
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import Input from "../components/input/Input";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  let navigate = useNavigate();
+
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+   const handleInputChange = (
+     event:
+       | React.ChangeEvent<HTMLInputElement>
+       | React.ChangeEvent<HTMLSelectElement>
+   ) => {
+     const { name, value } = event.target;
+     setUser({ ...user, [name]: value });
+   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await api.post(process.env.REACT_APP_API_BASE_URL+`/api/auth/login`, {
-        username,
-        password,
-      });
+      const response = await api.post(
+        process.env.REACT_APP_API_BASE_URL + `/api/auth/login`,
+        user
+      );
       if (response.status === 200) {
-        setIsLoggedIn(true);
+        // success move to home page
+        navigate("/");
+
       } else {
         setErrorMessage("Invalid credentials");
       }
@@ -34,33 +43,20 @@ const LoginPage = () => {
     }
   };
 
-  if (isLoggedIn) {
-    console.log("oki la");
-    
-  }
-
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-      </div>
+      <Input
+        type="text"
+        name="email"
+        value={user.email}
+        function={handleInputChange}
+      />
+      <Input
+        type="password"
+        name="password"
+        value={user.password}
+        function={handleInputChange}
+      />
       {errorMessage && <div className="error">{errorMessage}</div>}
       <button type="submit">Login</button>
     </form>

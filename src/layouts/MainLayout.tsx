@@ -16,7 +16,7 @@ const MainLayout = () => {
   return (
     <div>
       <Header />
-      <header style={myStyles}>
+      {/* <header style={myStyles}>
         <nav>
           <ul>
             <li>
@@ -34,7 +34,7 @@ const MainLayout = () => {
             </li>
           </ul>
         </nav>
-      </header>
+      </header> */}
       <main style={mainStyles}>
         <Outlet />
       </main>

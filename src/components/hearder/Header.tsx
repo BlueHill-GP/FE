@@ -36,9 +36,9 @@ function Header() {
           <i className="fa-solid fa-user"></i>
           Đăng Nhập
         </Link>
-        <a href="#" className="signup_Btn">
+        <Link to="/register" className="signup_Btn">
           Đăng Kí
-        </a>
+        </Link>
       </div>
     </header>
   );
