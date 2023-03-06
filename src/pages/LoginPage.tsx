@@ -1,39 +1,34 @@
-
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../api/api";
+import { LoginData, loginApi } from "../api/authApi";
 import Input from "../components/input/Input";
 
 const LoginPage = () => {
   let navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<LoginData>({
     email: "",
     password: "",
   });
 
-   const handleInputChange = (
-     event:
-       | React.ChangeEvent<HTMLInputElement>
-       | React.ChangeEvent<HTMLSelectElement>
-   ) => {
-     const { name, value } = event.target;
-     setUser({ ...user, [name]: value });
-   };
+  const handleInputChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value });
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await api.post(
-        process.env.REACT_APP_API_BASE_URL + `/api/auth/login`,
-        user
-      );
+      const response = await loginApi(user);
       if (response.status === 200) {
         // success move to home page
         navigate("/");
-
       } else {
         setErrorMessage("Invalid credentials");
       }

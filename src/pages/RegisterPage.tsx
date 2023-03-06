@@ -2,13 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/input/Input";
+import { registerApi, RegisterData, verifyOtpApi } from "../api/authApi";
 type RegistrationFormProps = {
   onRegistrationSuccess: () => void;
 };
 
 export const RegisterPage = () => {
   let navigate = useNavigate();
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<RegisterData>({
     username: "",
     password: "",
     email: "",
@@ -39,10 +40,7 @@ export const RegisterPage = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/register",
-        user
-      );
+      const response = await registerApi(user);
       if (response.status === 200) {
         setErrorMessage("");
         setShowOtpInput(true);
@@ -57,10 +55,7 @@ export const RegisterPage = () => {
 
   const handleOtpVerification = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/register/otp",
-        { email: user.email, otp }
-      );
+      const response = await verifyOtpApi({ email: user.email, otp })
       if (response.status === 200) {
         setErrorMessage("");
         navigate("/login");
