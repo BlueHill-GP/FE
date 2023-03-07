@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LoginData, loginApi } from "../api/authApi";
 import Input from "../components/input/Input";
+import { login } from "../redux/slide/profileSlice";
+import store from "../redux/store";
 
 const LoginPage = () => {
   let navigate = useNavigate();
 
+  const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [user, setUser] = useState<LoginData>({
     email: "",
@@ -36,6 +40,18 @@ const LoginPage = () => {
       console.error(error);
       setErrorMessage("An error occurred while logging in");
     }
+    console.log("what");
+
+    // try {
+    //   await login({
+        
+    //   });
+    //   console.log('13213');
+      
+    //   // Success logic here
+    // } catch (error) {
+    //   // Error handling here
+    // }
   };
 
   return (
