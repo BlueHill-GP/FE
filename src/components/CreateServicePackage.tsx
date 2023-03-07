@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import ServicePackage from "./servicePackage";
 import api from "../api/api";
+import { createServicePackage } from "../api/servicePackage";
 
 interface IPost {
   _id: string;
@@ -35,26 +36,21 @@ function CreateServicePackage() {
     formData.append("description", description);
     formData.append("title", title);
     formData.append("price", price);
-    await api
-      .post("http://localhost:4000/api/service-packages/", formData)
-      .then((response) => {
-        console.log(response);
+    try {
+      const response = await createServicePackage(formData);
+      if (response.status === 200) {
+        setFiles([]);
+        setTitle("");
+        setPrice("");
+        setDescription("");
 
-        if (response.status === 200) {
-          setFiles([]);
-          setTitle("");
-          setPrice("");
-          setDescription("");
-
-          setPost(response.data.newServicePackage);
-          console.log("trả về: ", response.data);
-        } else {
-          throw new Error("Error in request.");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        setPost(response.data.newServicePackage);
+      } else {
+        throw new Error("Error in request.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

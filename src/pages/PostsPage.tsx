@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Post from "../components/Post";
+import { getPost } from "../api/postApi";
 
 const PostsPage = () => {
   const [posts, setPosts] = useState([]);
   console.log(posts);
-  
+
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/posts")
-      .then((response) => {
-        console.log(response.data.posts);
-        
-        
+    async function fetchData() {
+      const response = await getPost();
+      if (response.data) {
         setPosts(response.data.posts);
-      })
-      .catch((error) => console.error(error));
+      }
+    }
+
+    fetchData();
+
+    return () => {
+      // Cleanup function
+      setPosts([]); // Reset the state to an empty array
+    };
   }, []);
 
   return (
