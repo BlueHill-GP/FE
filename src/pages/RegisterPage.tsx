@@ -1,14 +1,19 @@
 import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Input from "../components/input/Input";
-import { registerApi, RegisterData, verifyOtpApi } from "../api/authApi";
-type RegistrationFormProps = {
-  onRegistrationSuccess: () => void;
-};
+import {
+  registerApi,
+  RegisterData,
+  ResendOtpData,
+  VerifyOtpData,
+} from "../api/authApi";
 
-export const RegisterPage = () => {
-  let navigate = useNavigate();
+interface IProp {
+  verifyOtpRegister: (data: VerifyOtpData) => void;
+  changeRoute: (route: string) => void;
+  resendOtp: (email: ResendOtpData) => void;
+}
+export const RegisterPage = (props: IProp) => {
+  const { verifyOtpRegister, changeRoute, resendOtp } = props;
   const [user, setUser] = useState<RegisterData>({
     username: "",
     password: "",
@@ -44,7 +49,7 @@ export const RegisterPage = () => {
       if (response.status === 200) {
         setErrorMessage("");
         setShowOtpInput(true);
-        setOtp(response.data.otp);
+        // setOtp(response.data.otp);
       } else {
         setErrorMessage("Something went wrong, please try again later");
       }
@@ -54,63 +59,62 @@ export const RegisterPage = () => {
   };
 
   const handleOtpVerification = async () => {
-    try {
-      const response = await verifyOtpApi({ email: user.email, otp })
-      if (response.status === 200) {
-        setErrorMessage("");
-        navigate("/login");
-      } else {
-        setErrorMessage("OTP verification failed, please try again");
-      }
-    } catch (error) {
-      setErrorMessage("Something went wrong, please try again later");
-    }
+    verifyOtpRegister({ email: user.email, otp });
   };
+
+  const handleResendOtp = async () => {
+    resendOtp({email :user.email})
+  }
 
   return (
     <>
       {!showOtpInput ? (
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            name="username"
-            value={user.username}
-            function={handleInputChange}
-          />
-          <Input
-            type="text"
-            name="email"
-            value={user.email}
-            function={handleInputChange}
-          />
-          <Input
-            type="text"
-            name="phone"
-            value={user.phone}
-            function={handleInputChange}
-          />
-          <Input
-            type="password"
-            name="password"
-            value={user.password}
-            function={handleInputChange}
-          />
-          <div>
-            <label htmlFor="userType">User Type:</label>
-            <select
-              name="userType"
-              id="userType"
-              value={user.userType}
-              onChange={handleInputChange}
-            >
-              <option value="photographer">Photographer</option>
-              <option value="makeup">Makeup</option>
-              <option value="couple">Couple</option>
-            </select>
-          </div>
-          {errorMessage && <div>{errorMessage}</div>}
-          <button type="submit">Register</button>
-        </form>
+        <div className="">
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              name="username"
+              value={user.username}
+              function={handleInputChange}
+            />
+            <Input
+              type="text"
+              name="email"
+              value={user.email}
+              function={handleInputChange}
+            />
+            <Input
+              type="text"
+              name="phone"
+              value={user.phone}
+              function={handleInputChange}
+            />
+            <Input
+              type="password"
+              name="password"
+              value={user.password}
+              function={handleInputChange}
+            />
+            <div>
+              <label htmlFor="userType">User Type:</label>
+              <select
+                name="userType"
+                id="userType"
+                value={user.userType}
+                onChange={handleInputChange}
+              >
+                <option value="photographer">Photographer</option>
+                <option value="makeup">Makeup</option>
+                <option value="couple">Couple</option>
+              </select>
+            </div>
+            {errorMessage && <div>{errorMessage}</div>}
+            <button type="submit">Register</button>
+          </form>
+          <button type="button" onClick={() => changeRoute("login")}>
+            login
+          </button>
+        </div>
       ) : (
         <div>
           <Input
@@ -121,6 +125,18 @@ export const RegisterPage = () => {
           />
           <button type="button" onClick={handleOtpVerification}>
             Verify OTP
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setShowOtpInput(!showOtpInput);
+              setOtp("");
+            }}
+          >
+            Back
+          </button>
+          <button type="button" onClick={handleResendOtp}>
+            Resend OTP
           </button>
         </div>
       )}

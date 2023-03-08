@@ -12,18 +12,18 @@ interface ApiConfig extends AxiosRequestConfig {
     [key: string]: string;
   };
 }
-
-const apiConfig: ApiConfig = {
-  baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:4000",
+// process.env.REACT_APP_API_BASE_URL || 
+export const apiConfig: ApiConfig = {
+  baseURL: "http://localhost:4000",
   timeout: 10000,
 };
 
 const api = axios.create(apiConfig);
+console.log(apiConfig.baseURL);
+
 
 api.interceptors.request.use(async (config) => {
   const accessToken = getAccessToken();
-  console.log(accessToken);
-
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
@@ -33,8 +33,9 @@ api.interceptors.request.use(async (config) => {
 api.interceptors.response.use(
   async (response: AxiosResponse) => {
     try {
-      const token = response.data.data;
+      const token = response.data.data.token;
       console.log(token);
+  
 
       if (token.accessToken) {
         setAccessToken(token.accessToken);

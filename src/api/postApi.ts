@@ -1,4 +1,4 @@
-import api from "./api"
+import api, { apiConfig } from "./api"
 
 const POST_URL = '/api/posts'
 
@@ -9,9 +9,9 @@ export interface PostData {
 
 
 export const createPost = async (data: FormData) => {
-  return await api.post(process.env.REACT_APP_API_BASE_URL + POST_URL, data);
+  return await api.post(apiConfig.baseURL+ POST_URL, data);
 };
 
 export const getPost = async () => {
-  return await api.get(process.env.REACT_APP_API_BASE_URL + POST_URL);
+  return await api.get(apiConfig.baseURL+ POST_URL);
 };

@@ -2,12 +2,33 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import ChooseTime from "../components/ChooseTime";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
-import LoginPage from "../pages/LoginPage";
+import LoginPage from "../container/LoginPageContainer";
 import PostsPage from "../pages/PostsPage";
 import ProfilePage from "../pages/ProfilePage";
-import { RegisterPage } from "../pages/RegisterPage";
+import RegisterPage  from "../container/RegisterPageContainer";
+import { getAccessToken } from "../utils/storage";
+import { useEffect } from "react";
 
-export const Router = () => {
+interface IProps {
+  route: string;
+  changeRoute: (route: string) => void;
+}
+const Router = (props: IProps) => {
+  const { route } = props;
+  const navigate = useNavigate();
+  useEffect(() => {
+    const accessToken = getAccessToken();
+    if (accessToken) {
+      if (route === "home") {
+        navigate("/");
+      }
+    } else {
+      navigate("/login");
+      if (route === "register") {
+        navigate("/register");
+      }
+    }
+  }, [navigate, route]);
   return (
     <Routes>
       <Route path="" element={<MainLayout />}>
@@ -23,3 +44,5 @@ export const Router = () => {
     </Routes>
   );
 };
+
+export default Router;

@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { logoblack } from "../../assets";
 import "./Header.css";
-function Header() {
+interface IProp {
+  logout: () => void;
+}
+function Header(props: IProp) {
+  const { logout } = props;
   return (
     <header className="header">
       <div className="logo">
@@ -39,6 +43,7 @@ function Header() {
         <Link to="/register" className="signup_Btn">
           Đăng Kí
         </Link>
+        <div onClick={() => logout()}>Đăng xuất </div>
       </div>
     </header>
   );

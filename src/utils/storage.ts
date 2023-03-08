@@ -10,3 +10,7 @@ export const setAccessToken = (token: string): void => {
 export const clearAccessToken = (): void => {
   localStorage.removeItem("la");
 };
+
+export const clearAllStorage = (): void => {
+  localStorage.clear()
+};
