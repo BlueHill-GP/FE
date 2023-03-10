@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../container/LoginPageContainer";
 import PostsPage from "../pages/PostsPage";
-import ProfilePage from "../pages/ProfilePage";
+import ProfilePage from "../container/ProfilePageContainer";
 import RegisterPage  from "../container/RegisterPageContainer";
 import { getAccessToken } from "../utils/storage";
 import { useEffect } from "react";
@@ -21,7 +21,12 @@ const Router = (props: IProps) => {
     if (accessToken) {
       if (route === "home") {
         navigate("/");
-      }
+      } else if (route === "profile") {
+        navigate("/profile");
+      } else if (route === "new") {
+        navigate("/new");
+       }
+        
     } else {
       navigate("/login");
       if (route === "register") {

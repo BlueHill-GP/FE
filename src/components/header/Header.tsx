@@ -4,9 +4,10 @@ import { logoblack } from "../../assets";
 import "./Header.css";
 interface IProp {
   logout: () => void;
+  changeRoute:(route:string)=> void;
 }
 function Header(props: IProp) {
-  const { logout } = props;
+  const { logout, changeRoute } = props;
   return (
     <header className="header">
       <div className="logo">
@@ -14,7 +15,7 @@ function Header(props: IProp) {
       </div>
       <ul className="menu">
         <li>
-          <Link to="/new">Bản tin</Link>
+          <div onClick={() => changeRoute("new")}>Bản tin</div>
         </li>
         <li>
           <div className="search">
@@ -25,7 +26,9 @@ function Header(props: IProp) {
           </div>
         </li>
         <li>
-          <Link to="/profile">Hợp Tác Với Chúng Tôi</Link>
+          <div onClick={() => changeRoute("profile")}>
+            Hợp Tác Với Chúng Tôi
+          </div>
         </li>
         <li>
           <Link to="/set-time">Đặt Lịch Của Tôi</Link>

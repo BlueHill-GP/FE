@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ServicePackage from "./servicePackage";
+import ServicePackage from "../container/servicePackageContainer";
 import api from "../api/api";
 import { createServicePackage } from "../api/servicePackage";
 
@@ -24,8 +24,8 @@ function CreateServicePackage() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("0");
   const [description, setDescription] = useState("");
-  const [post, setPost] = useState<IPost | null>(null);
-  console.log("service package", post);
+  const [servicePackages, setServicePackages] = useState<IPost[] | null[]>([]);
+  console.log("service package", servicePackages);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,7 +44,7 @@ function CreateServicePackage() {
         setPrice("");
         setDescription("");
 
-        setPost(response.data.newServicePackage);
+        setServicePackages([response.data.newServicePackage, ...servicePackages]);
       } else {
         throw new Error("Error in request.");
       }
@@ -124,8 +124,10 @@ function CreateServicePackage() {
         </div>
         <button type="submit">Submit</button>
       </form>
-
-      {post && <ServicePackage post={post} />}
+      {servicePackages &&
+        servicePackages.map((servicePackage: any, index: number) => (
+          <ServicePackage servicePackage={servicePackage} key={index} />
+        ))}
     </div>
   );
 }

@@ -11,7 +11,8 @@ interface UserState {
 const initialState = {
   userId: "",
   name: "",
-  email: ""
+  email: "",
+  userType: ""
 };
 
 
@@ -21,8 +22,10 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUserReducer(state, action) {
-      state.userId = action.payload.userId;
-      state.email = action.payload.email; 
+      state.userId = action.payload.userId._id;
+      state.email = action.payload.userId.email; 
+      state.name = action.payload.username;
+      state.userType = action.payload.userType;
     },
   },
 });
@@ -33,7 +36,7 @@ const { setUserReducer } = userSlice.actions;
 export const setUser = (userId: string) => async (dispatch: Function) => {
   try {
     const response = await getUserByIdpApi(userId);
-    console.log(response.data.data);
+    console.log("data pprom setuser",response.data.data);
     dispatch(setUserReducer(response.data.data));
   } catch (error) {
     console.log(error);

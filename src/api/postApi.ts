@@ -1,6 +1,6 @@
 import api, { apiConfig } from "./api"
 
-const POST_URL = '/api/posts'
+const POST_URL = '/api/posts/'
 
 export interface PostData {
   images: string[];
@@ -14,4 +14,8 @@ export const createPost = async (data: FormData) => {
 
 export const getPost = async () => {
   return await api.get(apiConfig.baseURL+ POST_URL);
+};
+
+export const getPostByUser = async (userId: string) => {
+  return await api.get(apiConfig.baseURL + POST_URL + userId);
 };

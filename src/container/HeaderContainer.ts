@@ -5,7 +5,8 @@ import Header from "../components/header/Header";
 import { logout } from "../redux/slide/authSlice";
 
 const mapActionToLogin = {
-    logout
+  logout,
+  changeRoute,
 };
 const mapStateToProps = (state: RootState) => {
   return {};

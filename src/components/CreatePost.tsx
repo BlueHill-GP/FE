@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Post from "./Post";
+import Post from "../container/PostContainer"
 import api from "../api/api";
 import { createPost } from "../api/postApi";
 
 function CreatePost() {
   const [files, setFiles] = useState<File[]>([]);
   const [description, setDescription] = useState("");
-  const [post, setPost] = useState<any>(null);
+  const [posts, setPosts] = useState<any[]>([]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,14 +17,12 @@ function CreatePost() {
     }
     formData.append("description", description);
     try {
-      const response =await createPost(formData);
+      const response = await createPost(formData);
 
       if (response.status === 200) {
         setFiles([]);
         setDescription("");
-        console.log(response.data.post);
-
-        setPost(response.data.post);
+        setPosts([response.data.post, ...posts]);
       } else {
         console.log(response.data.message);
       }
@@ -85,7 +83,16 @@ function CreatePost() {
         <button type="submit">Submit</button>
       </form>
 
-      {post && <Post post={post} />}
+      {/* {posts
+        ? posts.map((post: any, index: number) => (
+            <Post post={post} key={index} />
+          ))
+        : ""} */}
+
+      {posts &&
+        posts.map((post: any, index: number) => (
+          <Post post={post} key={index} />
+        ))}
     </div>
   );
 }
