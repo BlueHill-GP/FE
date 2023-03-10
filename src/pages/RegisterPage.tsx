@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Input from "../components/input/Input";
+import "../../src/assets/css/register.css"
+
 import {
   registerApi,
   RegisterData,
@@ -67,54 +69,63 @@ export const RegisterPage = (props: IProp) => {
   }
 
   return (
+    <div className={"container-register"}>
     <>
       {!showOtpInput ? (
-        <div className="">
-          <form onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              name="username"
-              value={user.username}
-              function={handleInputChange}
-            />
-            <Input
-              type="text"
-              name="email"
-              value={user.email}
-              function={handleInputChange}
-            />
-            <Input
-              type="text"
-              name="phone"
-              value={user.phone}
-              function={handleInputChange}
-            />
-            <Input
-              type="password"
-              name="password"
-              value={user.password}
-              function={handleInputChange}
-            />
-            <div>
-              <label htmlFor="userType">User Type:</label>
-              <select
-                name="userType"
-                id="userType"
-                value={user.userType}
-                onChange={handleInputChange}
-              >
-                <option value="photographer">Photographer</option>
-                <option value="makeup">Makeup</option>
-                <option value="couple">Couple</option>
-              </select>
+          <section className={"register-section"}>
+            <div className={"form_header"}>
+              <h1 className={"form_header_welcome"}> Chào mừng đến Cuoidi Cuoidi</h1>
+              <p> Hãy tận hưởng đám cưới của bạn</p>
+              <h1 className={"form_header_register-text"}>Đăng ký</h1>
             </div>
-            {errorMessage && <div>{errorMessage}</div>}
-            <button type="submit">Register</button>
-          </form>
-          <button type="button" onClick={() => changeRoute("login")}>
-            login
-          </button>
-        </div>
+
+            <form onSubmit={handleSubmit}>
+              <Input
+                type="text"
+                name="username"
+                value={user.username}
+                function={handleInputChange}
+              />
+              <Input
+                type="text"
+                name="email"
+                value={user.email}
+                function={handleInputChange}
+              />
+              <Input
+                type="text"
+                name="phone"
+                value={user.phone}
+                function={handleInputChange}
+              />
+              <Input
+                type="password"
+                name="password"
+                value={user.password}
+                function={handleInputChange}
+              />
+              <div>
+                <label htmlFor="userType">User Type:</label>
+                <select
+                  name="userType"
+                  id="userType"
+                  value={user.userType}
+                  onChange={handleInputChange}
+                >
+                  <option value="photographer">Photographer</option>
+                  <option value="makeup">Makeup</option>
+                  <option value="couple">Couple</option>
+                </select>
+              </div>
+              {errorMessage && <div>{errorMessage}</div>}
+              <button type="submit">Register</button>
+            </form>
+            <button type="button" onClick={() => changeRoute("login")}>
+              login
+            </button>
+          </section>
+
+
       ) : (
         <div>
           <Input
@@ -141,5 +152,6 @@ export const RegisterPage = (props: IProp) => {
         </div>
       )}
     </>
+    </div>
   );
 };

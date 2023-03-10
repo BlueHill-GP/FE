@@ -1,0 +1,54 @@
+.container-register {
+    min-height: 100vh;
+    background-image: url("/home/linhanna/Desktop/FE/src/assets/images/hinhnen.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.register-login-label{
+}
+
+.register-section {
+    width: 150%;
+    max-width: 650px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(3, 0, 0, 0.4);
+    /*margin: 0;*/
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    margin: 0 150px;
+}
+
+.form_header {
+    text-align: center;
+    font-size: 1rem;
+}
+.form_header_welcome {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: pink;
+}
+.form_header_register-text {
+    margin-block: 1rem;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 6;
+    padding-bottom: 1rem;
+    margin-inline: 1.5rem;
+}
+
+
+a,
+a:visited {
+    color: #fff;
+}
