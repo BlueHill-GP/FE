@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LoginData } from "../api/authApi";
 import Input from "../components/input/Input";
+import "../../src/assets/css/register.css"
 
 interface LoginState {
   login: (user: LoginData) => void;
@@ -32,21 +33,37 @@ const LoginPage = (props: LoginState) => {
   changeRoute("register")
 }
   return (
-    <div >
-      <Input
-        type="text"
-        name="email"
-        value={user.email}
-        function={handleInputChange}
-      />
-      <Input
-        type="password"
-        name="password"
-        value={user.password}
-        function={handleInputChange}
-      />
-      <button onClick={handleSubmit}>Login</button>
-      <button onClick={moveRegister}>Register</button>
+
+      <div className={"container-register"}>
+          <section className={"register-section"}>
+              <div className={"form_header"}>
+                  <h1 className={"form_header_welcome"}> Chao mung den Cuoidi Cuoidi</h1>
+                  <p> Hay tan huong dam cuoi cua ban</p>
+                  <h1 className={"form_header_register-text"}>Đăng nhập</h1>
+              </div>
+              <div className={"inputForm"}>
+              <Input
+                type="text"
+                name="email"
+                value={user.email}
+                function={handleInputChange}
+              />
+              </div>
+
+              <div className={"inputForm"}>
+              <Input
+                type="password"
+                name="password"
+                value={user.password}
+                function={handleInputChange}
+              />
+              </div>
+
+              <button className={"btn-login"} onClick={handleSubmit}>Login</button>
+              <div className={"Login-Btn"}>
+              <button className="line" onClick={moveRegister}>Register</button>
+              </div>
+          </section>
     </div>
   );
 };

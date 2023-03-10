@@ -82,46 +82,57 @@ export const RegisterPage = (props: IProp) => {
             <form onSubmit={handleSubmit}>
               <Input
                 type="text"
-                name="username"
+                name="Họ và tên"
                 value={user.username}
                 function={handleInputChange}
               />
+
+
               <Input
                 type="text"
                 name="email"
                 value={user.email}
                 function={handleInputChange}
               />
+
+
+
               <Input
                 type="text"
-                name="phone"
+                name="Số điện thoại"
                 value={user.phone}
                 function={handleInputChange}
               />
+
+
               <Input
                 type="password"
-                name="password"
+                name="Mật khẩu"
                 value={user.password}
                 function={handleInputChange}
               />
-              <div>
-                <label htmlFor="userType">User Type:</label>
-                <select
+
+
+
+                <label htmlFor="userType">Loại người dùng:</label>
+                <select className={"userType"}
                   name="userType"
                   id="userType"
                   value={user.userType}
                   onChange={handleInputChange}
                 >
-                  <option value="photographer">Photographer</option>
-                  <option value="makeup">Makeup</option>
-                  <option value="couple">Couple</option>
+                  <option value="photographer">Nhiếp ảnh</option>
+                  <option value="makeup">Trang điểm</option>
+                  <option value="couple">Cặp đôi</option>
                 </select>
-              </div>
+
+
               {errorMessage && <div>{errorMessage}</div>}
-              <button type="submit">Register</button>
+              <button className={"btn-login"} type="submit">Đăng ký</button>
             </form>
-            <button type="button" onClick={() => changeRoute("login")}>
-              login
+
+            <button className="line" type="button" onClick={() => changeRoute("login")}>
+              Đăng nhập
             </button>
           </section>
 
@@ -135,7 +146,7 @@ export const RegisterPage = (props: IProp) => {
             function={handleOTPInputChange}
           />
           <button type="button" onClick={handleOtpVerification}>
-            Verify OTP
+            Xác thực mã OTP
           </button>
           <button
             type="button"
@@ -144,10 +155,10 @@ export const RegisterPage = (props: IProp) => {
               setOtp("");
             }}
           >
-            Back
+            Quay lại
           </button>
           <button type="button" onClick={handleResendOtp}>
-            Resend OTP
+            Gửi lại mã OTP
           </button>
         </div>
       )}

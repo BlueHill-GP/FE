@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+html {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    color: #fff;
+}
+
 .container-register {
     min-height: 100vh;
     background-image: url("/home/linhanna/Desktop/FE/src/assets/images/hinhnen.png");
@@ -12,7 +19,7 @@
 .register-section {
     width: 150%;
     max-width: 650px;
-    min-height: 500px;
+    height: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,10 +52,89 @@ form {
     flex-grow: 6;
     padding-bottom: 1rem;
     margin-inline: 1.5rem;
+
+
+    /*max-width: 800px; !* hoặc bất kỳ giá trị nào bạn muốn *!*/
+    /*margin: 0 auto; !* căn giữa form *!*/
+    /*position: fixed; !* giữ form cố định khi cuộn trang *!*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*overflow-y: auto;*/
 }
 
 
 a,
 a:visited {
     color: #fff;
+}
+.userType{
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.3rem;
+    outline: none;
+    border: transparent 2px solid;
+}
+input[type='text'],
+input[type='password'] {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.3rem;
+    outline: none;
+    border: transparent 2px solid;
+    /*background-color: aqua;*/
+}
+.btn-login {
+    background-color: #ffabb8;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+.btn-login{
+    margin-top: 1rem;
+}
+
+/*button {*/
+/*    margin-top: 1rem;*/
+/*}*/
+.btn-login{
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.line {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 25px;
+    font-size: 24px;
+    width: 390px;
+    cursor: pointer;
+    /*text-align: center;*/
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ffabb8;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px #999;
+
+}
+
+.line:hover {
+    color: black;
+    background-color: blanchedalmond;
+}
+inputForm{
+    position: relative;
+}
+.inputForm input {
+    margin-block: 1rem;
+    float: left;
+    width: 600px;
+}
+.Login-Btn{
+    line-height: 15px;
 }

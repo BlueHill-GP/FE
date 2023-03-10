@@ -14,6 +14,7 @@ const Input = (props: InputInterface) => {
   return (
     <div>
       <label htmlFor={props.name}>{props.name}:</label>
+        <div className={"inputForm"}>
       <input
         type={props.type}
         id={props.name}
@@ -21,6 +22,7 @@ const Input = (props: InputInterface) => {
         value={props.value}
         onChange={props.function}
       />
+        </div>
     </div>
   );
 }
