@@ -1,0 +1,16 @@
+.photographer_Info {
+  
+}
+
+.avt {
+  display: flex;
+  justify-content: center;
+}
+
+.avt img {
+  width: 200px;
+  height: 200px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.375);
+}

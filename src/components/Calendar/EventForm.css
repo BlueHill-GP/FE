@@ -1,0 +1,26 @@
+.event-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.event-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.event-form input {
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.event-form button {
+  padding: 5px 10px;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

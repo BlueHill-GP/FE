@@ -1,17 +1,21 @@
-import React from 'react'
-import CreatePost from '../components/CreatePost'
-import CreateServicePackage from '../components/CreateServicePackage';
-
+import CreatePost from "../components/CreatePost";
+import CreateServicePackage from "../components/CreateServicePackage";
+import PhotographerInfo from "../components/PhotographerInfo";
+import "../assets/css/ProfilePage.css"
 const ProfilePage = () => {
-    return (
-      <div className="">
-        <div>ProfilePage</div>
-        <div>Tạo Post</div>
+  return (
+    <div className="profilePage-container">
+      <div>
+        <PhotographerInfo />
+      </div>
+      <div>
         <CreatePost />
-        <div>Tạo service package</div>
+      </div>
+      <div>
         <CreateServicePackage />
       </div>
-    );
-}
+    </div>
+  );
+};
 
-export default ProfilePage
+export default ProfilePage;
