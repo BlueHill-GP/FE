@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Input from "../components/input/Input";
 import "../../src/assets/css/register.css"
 
@@ -80,14 +80,15 @@ export const RegisterPage = (props: IProp) => {
             </div>
 
             <form onSubmit={handleSubmit}>
+              <label >Tên đầy đủ:</label>
               <Input
                 type="text"
-                name="Họ và tên"
+                name="username"
                 value={user.username}
                 function={handleInputChange}
               />
 
-
+              <label >email:</label>
               <Input
                 type="text"
                 name="email"
@@ -96,18 +97,18 @@ export const RegisterPage = (props: IProp) => {
               />
 
 
-
+              <label >Số điện thoại:</label>
               <Input
                 type="text"
-                name="Số điện thoại"
+                name="phone"
                 value={user.phone}
                 function={handleInputChange}
               />
 
-
+              <label htmlFor="password">Mật khẩu:</label>
               <Input
                 type="password"
-                name="Mật khẩu"
+                name="password"
                 value={user.password}
                 function={handleInputChange}
               />

@@ -41,25 +41,25 @@ const LoginPage = (props: LoginState) => {
                   <p> Hay tan huong dam cuoi cua ban</p>
                   <h1 className={"form_header_register-text"}>Đăng nhập</h1>
               </div>
-              <div className={"inputForm"}>
+              <div className={"form-login"}>
+              <label htmlFor="password">Email:</label>
               <Input
                 type="text"
                 name="email"
                 value={user.email}
                 function={handleInputChange}
               />
-              </div>
 
-              <div className={"inputForm"}>
+              <label htmlFor="password">Mật khẩu:</label>
               <Input
                 type="password"
                 name="password"
                 value={user.password}
                 function={handleInputChange}
               />
-              </div>
 
               <button className={"btn-login"} onClick={handleSubmit}>Login</button>
+              </div>
               <div className={"Login-Btn"}>
               <button className="line" onClick={moveRegister}>Register</button>
               </div>

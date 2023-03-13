@@ -64,7 +64,14 @@ form {
     /*overflow-y: auto;*/
 }
 
+.form-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+    margin-inline: 1.5rem;
 
+}
 a,
 a:visited {
     color: #fff;

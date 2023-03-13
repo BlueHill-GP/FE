@@ -13,7 +13,7 @@ interface InputInterface {
 const Input = (props: InputInterface) => {
   return (
     <div>
-      <label htmlFor={props.name}>{props.name}:</label>
+      {/*<label htmlFor={props.name}>{props.name}:</label>*/}
         <div className={"inputForm"}>
       <input
         type={props.type}
