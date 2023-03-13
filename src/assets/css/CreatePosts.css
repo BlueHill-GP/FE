@@ -1,0 +1,38 @@
+.create-post {
+  
+}
+.caption {
+  display: flex;
+}
+.caption textarea {
+  width: 80%;
+  min-height: 100px;
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  background-color: #e397973f;
+}
+.choose-img {
+  display: none;
+}
+.fa-image {
+  color: var(--main-color);
+  font-size: 40px;
+  cursor: pointer;
+}
+.create-btn {
+  margin-top: 20px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  width: 80%;
+  height: 40px;
+  cursor: pointer;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 10px;
+}
+.preview img {
+  width: 80%;
+  max-height: 800px;
+  margin-top: 20px;
+}

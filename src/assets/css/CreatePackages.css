@@ -1,0 +1,133 @@
+@import url(styles.css);
+
+.packages {
+}
+.create-package {
+  display: flex;
+  justify-content: space-between;
+}
+.fa-square-plus {
+  height: 20px;
+  width: 20px;
+}
+.package_Item {
+  display: flex;
+}
+
+.package_Img img {
+  width: 120px;
+  height: 170px;
+}
+.package_Content {
+  margin-left: 10px;
+}
+.desc_Package {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* Modal */
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  height: 600px;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: -270px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.modal-form input {
+  display: flex;
+}
+
+.create_TitlePackage input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.desc-input {
+  width: 200px;
+  height: 50px;
+}
+.chooseImg-package {
+  display: none;
+}
+.fa-image{
+  margin-top: 10px;
+}
+.fa-image:hover {
+  
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.title_Package {
+  padding: 10px;
+  width: 100%;
+
+  border-radius: 5px;
+  font-size: 16px;
+}
+.price_Package {
+  padding: 10px;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+}
+button {
+  border: none;
+  margin-top: 10px;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

@@ -9,7 +9,9 @@ const mapActionToLogin = {
   changeRoute,
 };
 const mapStateToProps = (state: RootState) => {
-  return {};
+  return {
+    user: state.user
+  };
 };
 
 export default connect(mapStateToProps, mapActionToLogin)(Header);

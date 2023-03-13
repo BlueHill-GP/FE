@@ -1,0 +1,38 @@
+
+.calendar{
+  border: 1px solid var(--main-color) ;
+}
+.categories_Container {
+  max-width: 1440px;
+  margin: 0 auto;
+  
+}
+.categories_List {
+  width: 250px;
+  padding: 15px 10px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.303) 0px 4px 12px;
+}
+.categories_Item {
+  list-style: none;
+}
+.categories_Item:hover{
+  background-color: #ffffff;
+  
+}
+.categories_Item a {
+  text-decoration: none;
+  gap: 20px;
+  display: flex;
+  color: #ffffff;
+  font-size: 18px;
+  margin-left: 10px;
+}
+.categories_Item a i{
+  margin-top: 4px;
+}
+.categories_Item a:hover{
+  color: var(--main-color);
+  
+}
