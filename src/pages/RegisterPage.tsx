@@ -6,13 +6,16 @@ import {
   ResendOtpData,
   VerifyOtpData,
 } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 
 interface IProp {
-  verifyOtpRegister: (data: VerifyOtpData) => void;
+  verifyOtpRegister: (data: VerifyOtpData, navigate: Function) => void;
   changeRoute: (route: string) => void;
   resendOtp: (email: ResendOtpData) => void;
 }
 export const RegisterPage = (props: IProp) => {
+  const navigate = useNavigate();
+
   const { verifyOtpRegister, changeRoute, resendOtp } = props;
   const [user, setUser] = useState<RegisterData>({
     username: "",
@@ -59,7 +62,7 @@ export const RegisterPage = (props: IProp) => {
   };
 
   const handleOtpVerification = async () => {
-    verifyOtpRegister({ email: user.email, otp });
+    verifyOtpRegister({ email: user.email, otp }, navigate);
   };
 
   const handleResendOtp = async () => {
@@ -111,7 +114,7 @@ export const RegisterPage = (props: IProp) => {
             {errorMessage && <div>{errorMessage}</div>}
             <button type="submit">Register</button>
           </form>
-          <button type="button" onClick={() => changeRoute("login")}>
+          <button type="button" onClick={() => navigate("/")}>
             login
           </button>
         </div>

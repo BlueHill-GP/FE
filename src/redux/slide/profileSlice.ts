@@ -36,7 +36,6 @@ const { setUserReducer } = userSlice.actions;
 export const setUser = (userId: string) => async (dispatch: Function) => {
   try {
     const response = await getUserByIdpApi(userId);
-    console.log("data pprom setuser",response.data.data);
     dispatch(setUserReducer(response.data.data));
   } catch (error) {
     console.log(error);

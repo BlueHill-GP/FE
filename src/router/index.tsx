@@ -4,48 +4,56 @@ import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../container/LoginPageContainer";
 import PostsPage from "../pages/PostsPage";
-import ProfilePage from "../container/ProfilePageContainer";
-import RegisterPage  from "../container/RegisterPageContainer";
+import ProfilePartnerPage from "../container/ProfilePageContainer";
+import RegisterPage from "../container/RegisterPageContainer";
 import { getAccessToken } from "../utils/storage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ProfilePage from "../pages/ProfilePage";
+import ErrorPage from "../pages/ErrorPage";
+import BookingForm from "../components/Booking";
+import VNPay from "../pages/Bayment";
+import MyBooking from "../container/MyBookingContainer";
 
 interface IProps {
-  route: string;
-  changeRoute: (route: string) => void;
+  isLogin: boolean;
+  userType: string;
+  setLoginState: () => void;
 }
 const Router = (props: IProps) => {
-  const { route } = props;
-  const navigate = useNavigate();
+  const { isLogin, setLoginState, userType } = props;
+
   useEffect(() => {
     const accessToken = getAccessToken();
     if (accessToken) {
-      if (route === "home") {
-        navigate("/");
-      } else if (route === "profile") {
-        navigate("/profile");
-      } else if (route === "new") {
-        navigate("/new");
-       }
-        
-    } else {
-      navigate("/login");
-      if (route === "register") {
-        navigate("/register");
-      }
+      setLoginState();
     }
-  }, [navigate, route]);
+  }, []);
   return (
     <Routes>
-      <Route path="" element={<MainLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/new" element={<PostsPage />} />
-        <Route path="/set-time" element={<ChooseTime />} />
-        <Route path="/profile" element={<ProfilePage />} />
-      </Route>
-      <Route path="">
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-      </Route>
+      {isLogin ? (
+        <>
+          <Route path="" element={<MainLayout />}>
+            <Route path="/" index element={<HomePage />} />
+            <Route path="/new" element={<PostsPage />} />
+            <Route path="/booking" element={<ChooseTime />} />
+            <Route path="/payment" element={<VNPay />} />
+            <Route path="/booking/:id" element={<BookingForm />} />
+            {userType === "photographer" || userType === "makeup" ? (
+              <>
+                <Route path="/profile" element={<ProfilePartnerPage />} />
+                <Route path="/my-booking" element={<MyBooking />} />
+              </>
+            ) : null}
+            <Route path="/profile/:id" element={<ProfilePage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+        </>
+      ) : (
+        <>
+          <Route path="*" element={<LoginPage />} index />
+          <Route path="register" element={<RegisterPage />} />
+        </>
+      )}
     </Routes>
   );
 };

@@ -15,7 +15,7 @@ function Header(props: IProp) {
       </div>
       <ul className="menu">
         <li>
-          <div onClick={() => changeRoute("new")}>Bản tin</div>
+          <Link to="new">Bản tin</Link>
         </li>
         <li>
           <div className="search">
@@ -26,12 +26,13 @@ function Header(props: IProp) {
           </div>
         </li>
         <li>
-          <div onClick={() => changeRoute("profile")}>
-            Hợp Tác Với Chúng Tôi
-          </div>
+          <Link to="profile">Hợp Tác Với Chúng Tôi</Link>
         </li>
         <li>
-          <Link to="/set-time">Đặt Lịch Của Tôi</Link>
+          <Link to="/booking">Đặt Lịch Của Tôi</Link>
+        </li>
+        <li>
+          <Link to="/my-booking">My booking</Link>
         </li>
         <li>
           <a href="#">Đã Lưu</a>

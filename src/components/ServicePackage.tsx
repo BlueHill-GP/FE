@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface servicePackageProps {
+export interface ServicePackageProps {
   post: {
     _id: string;
     title: string;
@@ -14,8 +15,13 @@ interface servicePackageProps {
 }
 
 const ServicePackage = (props: any) => {
-  console.log(props);
-  
+  const navigate = useNavigate();
+
+  const handleBooking = (id: string) => {
+    navigate("/booking/" + id);
+  };
+  // console.log(props.user);
+
   // const handleSubmitDelete = (event: React.FormEvent<HTMLFormElement>) => {
   //   event.preventDefault();
   //   fetch(`http://13.211.252.242/api/service-packages/${servicePackage?._id}`, {
@@ -36,10 +42,15 @@ const ServicePackage = (props: any) => {
 
   return (
     <div>
-      {/* <form onSubmit={handleSubmitDelete}> */}
-      <label>Enter the ID of the post you want to delete:</label>
-      <button type="submit">Delete Post</button>
-      {/* </form> */}
+      <div className="">
+        {props.user && props.user.userType === "couple" ? (
+          <button onClick={() => handleBooking(props.servicePackage._id)}>
+            Booking now
+          </button>
+        ) : (
+          <button>...</button>
+        )}
+      </div>
       <p>{props.servicePackage.title}</p>
       <p>{props.servicePackage.price}</p>
       <p>{props.servicePackage.description}</p>

@@ -25,7 +25,6 @@ function CreateServicePackage() {
   const [price, setPrice] = useState("0");
   const [description, setDescription] = useState("");
   const [servicePackages, setServicePackages] = useState<IPost[] | null[]>([]);
-  console.log("service package", servicePackages);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

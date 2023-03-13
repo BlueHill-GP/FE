@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { LoginData } from "../api/authApi";
 import Input from "../components/input/Input";
 
@@ -7,6 +8,7 @@ interface LoginState {
   changeRoute: (route: string) => void;
 }
 const LoginPage = (props: LoginState) => {
+  const navigate = useNavigate()
   const { login, changeRoute } = props;
   const [user, setUser] = useState<LoginData>({
     email: "",
@@ -29,7 +31,7 @@ const LoginPage = (props: LoginState) => {
   };
   const moveRegister = () => {
 
-  changeRoute("register")
+ navigate("register");
 }
   return (
     <div >

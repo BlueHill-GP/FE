@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ProfilePage from "../pages/ProfilePage";
+import ProfilePage from "../pages/ProfilePartnerPage";
 
 import { RootState } from "../redux/store";
 

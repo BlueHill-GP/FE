@@ -5,10 +5,12 @@ import storage from "redux-persist/lib/storage";
 
 import userReduce from "./slide/profileSlice";
 import routeReducer from "./slide/routeSlice";
+import authReducer from "./slide/authSlice";
 
 const reducer = combineReducers({
   user: userReduce.reducer,
   route: routeReducer.reducer,
+  auth: authReducer.reducer
 });
 
 
