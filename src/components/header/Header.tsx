@@ -7,9 +7,15 @@ import "../../assets/css/Header.css";
 interface IProp {
   logout: () => void;
   changeRoute: (route: string) => void;
+  user: {
+    userId: string;
+    name: string;
+    email: string;
+    userType: string;
+  };
 }
 function Header(props: IProp) {
-  const { logout, changeRoute } = props;
+  const { logout, changeRoute, user } = props;
 
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -58,32 +64,43 @@ function Header(props: IProp) {
           <li>
             <Link to="new">Bản tin</Link>
           </li>
-          
-            <div className="search">
-              <input className="box_Input" />
-              <button type="submit" className="search_Button">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-          
-          <li>
-            <a href="">
-              <Link to="profile">Hợp Tác</Link>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <Link to="/booking">Đặt Lịch</Link>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <Link to="/my-booking">My booking</Link>
-            </a>
-          </li>
-          <li>
-            <a href="#">Đã Lưu</a>
-          </li>
+
+          <div className="search">
+            <input className="box_Input" />
+            <button type="submit" className="search_Button">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
+          {user.userType === "couple" ? (
+            <>
+              <li>
+                <a href="">
+                  <Link to="/booking">Đặt Lịch</Link>
+                </a>
+              </li>
+
+              <li>
+                <a href="">
+                  <Link to="/user-booking">Đặt Lich của tôi</Link>
+                </a>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <a href="">
+                  <Link to="profile">Profile</Link>
+                </a>
+              </li>
+
+              <li>
+                <a href="">
+                  <Link to="/my-booking">My booking</Link>
+                </a>
+              </li>
+            </>
+          )}
         </ul>
 
         {/* menu hide */}
@@ -128,10 +145,11 @@ function Header(props: IProp) {
         <div className="header_Auth">
           <Link to="/login" className="signin_Btn">
             <i className="fa-solid fa-user"></i>
-            Đăng Nhập
+            <p>Hi </p>
+            {user.name}!
           </Link>
-          <Link to="/register" className="signup_Btn">
-            Đăng Kí
+          <Link to="" className="signup_Btn" onClick={() => logout()}>
+            Đăng xuất
           </Link>
           {/* <div onClick={() => logout()}>Đăng xuất </div> */}
         </div>
