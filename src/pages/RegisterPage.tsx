@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import {useState} from 'react';
 import Input from "../components/input/Input";
 import "../../src/assets/css/register.css"
-
 import {
   registerApi,
   RegisterData,
@@ -15,6 +14,8 @@ interface IProp {
   resendOtp: (email: ResendOtpData) => void;
 }
 export const RegisterPage = (props: IProp) => {
+
+  const [isFocused, setIsFocused] = useState(false);
   const { verifyOtpRegister, changeRoute, resendOtp } = props;
   const [user, setUser] = useState<RegisterData>({
     username: "",
@@ -26,6 +27,7 @@ export const RegisterPage = (props: IProp) => {
   const [otp, setOtp] = useState("");
   const [showOtpInput, setShowOtpInput] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
 
   const handleInputChange = (
     event:
@@ -65,7 +67,7 @@ export const RegisterPage = (props: IProp) => {
   };
 
   const handleResendOtp = async () => {
-    resendOtp({email :user.email})
+    resendOtp({email: user.email})
   }
 
   return (
@@ -86,6 +88,7 @@ export const RegisterPage = (props: IProp) => {
                 name="username"
                 value={user.username}
                 function={handleInputChange}
+
               />
 
               <label >email:</label>
@@ -113,7 +116,13 @@ export const RegisterPage = (props: IProp) => {
                 function={handleInputChange}
               />
 
-
+              <label htmlFor="password">Xác nhận mật khẩu:</label>
+              <Input
+                  type="password"
+                  name="password"
+                  value={user.password}
+                  function={handleInputChange}
+              />
 
                 <label htmlFor="userType">Loại người dùng:</label>
                 <select className={"userType"}
@@ -130,11 +139,12 @@ export const RegisterPage = (props: IProp) => {
 
               {errorMessage && <div>{errorMessage}</div>}
               <button className={"btn-login"} type="submit">Đăng ký</button>
+              <button className="line" type="button" onClick={() => changeRoute("login")}>
+                Đăng nhập
+              </button>
             </form>
 
-            <button className="line" type="button" onClick={() => changeRoute("login")}>
-              Đăng nhập
-            </button>
+
           </section>
 
 

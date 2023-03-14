@@ -1,4 +1,5 @@
-import React from 'react'
+import {useEffect, useState} from "react";
+
 
 interface InputInterface {
   name: string;
@@ -14,6 +15,7 @@ const Input = (props: InputInterface) => {
   return (
     <div>
       {/*<label htmlFor={props.name}>{props.name}:</label>*/}
+
         <div className={"inputForm"}>
       <input
         type={props.type}

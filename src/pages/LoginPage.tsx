@@ -35,7 +35,7 @@ const LoginPage = (props: LoginState) => {
   return (
 
       <div className={"container-register"}>
-          <section className={"register-section"}>
+          <section className={"login-section"}>
               <div className={"form_header"}>
                   <h1 className={"form_header_welcome"}> Chao mung den Cuoidi Cuoidi</h1>
                   <p> Hay tan huong dam cuoi cua ban</p>

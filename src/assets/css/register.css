@@ -7,7 +7,7 @@ html {
 
 .container-register {
     min-height: 100vh;
-    background-image: url("/home/linhanna/Desktop/FE/src/assets/images/hinhnen.png");
+    background-image: url("../../../src/assets/images/hinhnen.png");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -16,10 +16,26 @@ html {
 .register-login-label{
 }
 
-.register-section {
+.register-section{
     width: 150%;
     max-width: 650px;
-    height: 900px;
+    height: 950px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    background-color: rgba(3, 0, 0, 0.4);
+    /*margin: 0;*/
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    margin: 0 150px;
+}
+.login-section{
+    width: 150%;
+    max-width: 650px;
+    height: 950px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,6 +48,7 @@ html {
     color: #fff;
     margin: 0 150px;
 }
+
 
 .form_header {
     text-align: center;
@@ -53,15 +70,6 @@ form {
     padding-bottom: 1rem;
     margin-inline: 1.5rem;
 
-
-    /*max-width: 800px; !* hoặc bất kỳ giá trị nào bạn muốn *!*/
-    /*margin: 0 auto; !* căn giữa form *!*/
-    /*position: fixed; !* giữ form cố định khi cuộn trang *!*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    /*overflow-y: auto;*/
 }
 
 .form-login{
@@ -98,24 +106,15 @@ input[type='password'] {
     background-color: #ffabb8;
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
-    padding: 0.25rem;
     border-radius: 0.5rem;
-}
-.btn-login{
-    margin-top: 1rem;
-}
-
-/*button {*/
-/*    margin-top: 1rem;*/
-/*}*/
-.btn-login{
     padding: 0.5rem;
     cursor: pointer;
+    margin-top: 1rem;
 }
 .line {
     display: block;
-    margin: 0 auto;
-    padding: 15px 25px;
+    margin: 11px auto;
+    padding: 10px 25px;
     font-size: 24px;
     width: 390px;
     cursor: pointer;
@@ -127,6 +126,7 @@ input[type='password'] {
     border: none;
     border-radius: 15px;
     box-shadow: 0 4px #999;
+
 
 }
 
