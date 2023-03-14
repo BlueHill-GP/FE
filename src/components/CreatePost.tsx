@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Post from "../container/PostContainer"
 import api from "../api/api";
 import { createPost } from "../api/postApi";
-
+import "../assets/css/CreatePosts.css"
 function CreatePost() {
   const [files, setFiles] = useState<File[]>([]);
   const [description, setDescription] = useState("");
@@ -43,7 +43,7 @@ function CreatePost() {
     }
   };
 
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(e.target.value);
   };
 
@@ -55,14 +55,20 @@ function CreatePost() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="description-input">Description:</label>
-        <input
-          type="text"
-          id="description-input"
-          value={description}
-          onChange={handleDescriptionChange}
-        />
+      <form className="create-post" onSubmit={handleSubmit}>
+        <div className="caption">
+          <textarea
+            name=""
+            placeholder="Type your caption"
+            id="description-input"
+            value={description}
+            onChange={handleDescriptionChange}
+          ></textarea>
+          <label htmlFor="chooseImg">
+            <i className="fa-solid fa-image"></i>
+          </label>
+        </div>
+
         {files.map((file, index) => (
           <div key={index}>
             <span>{file.name}</span>
@@ -72,15 +78,17 @@ function CreatePost() {
           </div>
         ))}
         <div>
-          <label htmlFor="file-input">Upload Images:</label>
           <input
+            className="choose-img"
+            id="chooseImg"
             type="file"
-            id="file-input"
             onChange={handleFileChange}
             multiple
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="create-btn">
+          Create
+        </button>
       </form>
 
       {/* {posts

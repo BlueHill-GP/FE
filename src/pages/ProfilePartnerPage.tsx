@@ -51,23 +51,28 @@ const ProfilePage = (props: IProp) => {
 
 
   return (
-    <div className="">
-      <h1>ProfilePage</h1>
-      <div className="info">
-        <h2 className="">name: {user.name}</h2>
-        <h2 className="">userType: {user.userType}</h2>
+    <div className="profile-container">
+      <div className="profile-page">
+        <div className="info">
+          <h2 className="">name: {user.name}</h2>
+          <h2 className="">userType: {user.userType}</h2>
+        </div>
+        <div>
+          <CreatePost />
+        </div>
+
+        <div>
+          <CreateServicePackage />
+          <div>
+            {servicePackages &&
+              servicePackages.map((servicePackage, index) => (
+                <ServicePackage servicePackage={servicePackage} key={index} />
+              ))}
+          </div>
+        </div>
       </div>
-      <div>Tạo Post</div>
-      <CreatePost />
       <div>
         {posts && posts.map((post, index) => <Post post={post} key={index} />)}
-      </div>
-      <div>Tạo service package</div>
-      <CreateServicePackage />
-      <div>
-        {servicePackages && servicePackages.map((servicePackage, index) => 
-          <ServicePackage servicePackage={servicePackage} key={index} />
-        )}
       </div>
     </div>
   );

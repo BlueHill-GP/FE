@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import Post from "../components/Post";
-import { getPost } from "../api/postApi";
+import { getPosts } from "../api/postApi";
+import "../assets/css/PostsPage.css";
+import Post, { PostProps } from "../components/Post";
 
 const PostsPage = () => {
-  const [posts, setPosts] = useState([]);
-  console.log(posts);
+  const [posts, setPosts] = useState<PostProps[]>([]);
+  console.log("posts: ", posts);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await getPost();
+      const response = await getPosts();
       if (response.data) {
         setPosts(response.data.posts);
       }
@@ -23,7 +24,7 @@ const PostsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="post-container">
       {posts.map((post, index) => (
         <Post post={post} key={index} />
       ))}
