@@ -16,7 +16,7 @@ const Input = (props: InputInterface) => {
     <div>
       {/*<label htmlFor={props.name}>{props.name}:</label>*/}
 
-        <div className={"inputForm"}>
+    <div className={"inputForm"}>
       <input
         type={props.type}
         id={props.name}

@@ -1,4 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
+import {
+  faEye,
+  faEyeSlash,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from "../components/input/Input";
 import "../../src/assets/css/register.css"
 import {
@@ -27,8 +32,7 @@ export const RegisterPage = (props: IProp) => {
   const [otp, setOtp] = useState("");
   const [showOtpInput, setShowOtpInput] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-
+  const [showPwd, setShowPwd] = useState(false);
   const handleInputChange = (
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -105,21 +109,24 @@ export const RegisterPage = (props: IProp) => {
                 type="text"
                 name="phone"
                 value={user.phone}
-                function={handleInputChange}
-              />
+                function={handleInputChange}></Input>
+                <button className={"btn_eye"} type="button" onClick={() => setShowPwd(!showPwd)}>
+                <FontAwesomeIcon icon={showPwd ? faEyeSlash : faEye} />
+                </button>
 
               <label htmlFor="password">Mật khẩu:</label>
               <Input
-                type="password"
+                type={showPwd ? "text" : "password"}
                 name="password"
                 value={user.password}
                 function={handleInputChange}
-              />
+
+            />
 
               <label htmlFor="password">Xác nhận mật khẩu:</label>
               <Input
                   type="password"
-                  name="password"
+                  name="ConfirmPWd"
                   value={user.password}
                   function={handleInputChange}
               />

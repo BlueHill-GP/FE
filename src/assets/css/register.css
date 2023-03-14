@@ -129,6 +129,20 @@ input[type='password'] {
 
 
 }
+.inputForm input[type="password"] {
+    padding-right: 15px; /* Tạo khoảng cách bên phải để chứa icon */
+}
+.btn_eye{
+    position: absolute; /* Tạo vị trí tuyệt đối */
+    border: none; /* Bỏ viền */
+    cursor: pointer; /* Biến con trỏ thành kiểu tay */
+    width: 1000px;
+    height: 45px;
+    margin: 22px 0 ;
+    right: 0;
+    background: none;
+}
+
 
 .line:hover {
     color: black;
