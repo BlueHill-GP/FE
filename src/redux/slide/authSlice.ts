@@ -9,7 +9,7 @@ import {
 } from "../../api/authApi";
 import { setUser } from "./profileSlice";
 import { clearAllStorage } from "../../utils/storage";
-import { messageError, messageSuccess } from "../../utils/notification";
+import { messageError, messageSuccess } from "../../utils/notifi";
 const initialState = {
   isLogin: false,
 };
@@ -37,7 +37,7 @@ export const login = (user: LoginData) => async (dispatch: Function) => {
     } else {
       console.log("loo");
     }
-  } catch (error:any) {
+  } catch (error: any) {
     console.log(error);
     messageError(error);
   }
@@ -46,7 +46,7 @@ export const login = (user: LoginData) => async (dispatch: Function) => {
 export const logout = () => async (dispatch: Function) => {
   clearAllStorage();
   dispatch(setLogOut());
-}
+};
 
 export const verifyOtpRegister =
   (data: VerifyOtpData, navigate: Function) => async (dispatch: Function) => {
@@ -55,7 +55,6 @@ export const verifyOtpRegister =
       if (response.status === 200) {
         navigate("/");
         messageSuccess("Verify OTP successful");
-
       }
     } catch (error) {
       console.log(error);
@@ -68,7 +67,7 @@ export const resendOtp =
     try {
       const response = await resendOtpApi(email);
       if (response.status === 200) {
-        messageSuccess(response.data.message)
+        messageSuccess(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -76,8 +75,8 @@ export const resendOtp =
     }
   };
 
-export const setLoginState = () => async (dispatch: Function) => { 
+export const setLoginState = () => async (dispatch: Function) => {
   dispatch(setLogin());
-}
+};
 
 export default authSlice;

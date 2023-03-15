@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import Input from "../components/input/Input";
 import "../../src/assets/css/register.css";
 import {
@@ -8,6 +8,7 @@ import {
   VerifyOtpData,
 } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
+import { messageError, messageSuccess } from "../utils/notifi";
 
 interface IProp {
   verifyOtpRegister: (data: VerifyOtpData, navigate: Function) => void;
@@ -52,12 +53,10 @@ export const RegisterPage = (props: IProp) => {
       if (response.status === 200) {
         setErrorMessage("");
         setShowOtpInput(true);
-        // setOtp(response.data.otp);
-      } else {
-        setErrorMessage("Something went wrong, please try again later");
+        messageSuccess(response.data.message);
       }
     } catch (error) {
-      setErrorMessage("Something went wrong, please try again later");
+      messageError(error);
     }
   };
 
@@ -66,8 +65,8 @@ export const RegisterPage = (props: IProp) => {
   };
 
   const handleResendOtp = async () => {
-    resendOtp({email: user.email})
-  }
+    resendOtp({ email: user.email });
+  };
 
   return (
     <div className={"container-register"}>
