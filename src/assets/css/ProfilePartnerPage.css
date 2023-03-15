@@ -7,6 +7,6 @@
   width: 100%;
   margin: 300px auto 0px auto;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 25% 50% 25%;
   gap: 20px;
 }

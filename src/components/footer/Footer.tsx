@@ -1,6 +1,6 @@
 import React from "react";
 import { logowhite } from "../../assets";
-import "./Footer.css";
+import "../../assets/css/Footer.css";
 
 function Footer() {
   return (
