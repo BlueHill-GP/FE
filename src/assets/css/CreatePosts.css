@@ -1,11 +1,10 @@
 .create-post {
-  
+  text-align: center;
 }
 .caption {
-  display: flex;
 }
 .caption textarea {
-  width: 80%;
+  width: 90%;
   min-height: 100px;
   border: 1px solid var(--main-color);
   border-radius: 10px;
@@ -14,10 +13,14 @@
 .choose-img {
   display: none;
 }
+
+
+
 .fa-image {
   color: var(--main-color);
   font-size: 40px;
   cursor: pointer;
+  
 }
 .create-btn {
   margin-top: 20px;

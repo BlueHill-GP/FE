@@ -42,7 +42,7 @@ const ServicePackage = (props: any) => {
   // };
 
   return (
-    <div>
+    <div className="packages-container">
       <div className="">
         {props.user ? (
           props.user && props.user.userType === "couple" ? (
@@ -59,17 +59,25 @@ const ServicePackage = (props: any) => {
         )}
         {}
       </div>
-      <p>{props.servicePackage.title}</p>
-      <p>{props.servicePackage.price}</p>
-      <p>{props.servicePackage.description}</p>
-      {props.servicePackage.image.map((imageUrl: string, index: number) => (
-        <img key={index} src={imageUrl} alt={`Post image ${index}`} />
-      ))}
-      <p>Star: {props.servicePackage.star.length}</p>
-      <p>User: {props.servicePackage.user.username || props.user.name}</p>
-      <p>
-        Posted at: {new Date(props.servicePackage.createAt).toLocaleString()}
-      </p>
+      <div className="package_Item">
+        <div className="package_Img">
+          {props.servicePackage.image.map((imageUrl: string, index: number) => (
+            <img key={index} src={imageUrl} alt={`Post image ${index}`} />
+          ))}
+        </div>
+        <div className="package_Content">
+          <p className="package-title">{props.servicePackage.title}</p>
+          <p className="package-price">{props.servicePackage.price} vnd</p>
+          <p className="desc_Package">{props.servicePackage.description}</p>
+
+          <p>Star: {props.servicePackage.star.length}</p>
+          <p className="package-userName">User: {props.servicePackage.user.username || props.user.name}</p>
+          <p className="time-create-package">
+            {" "}
+            {new Date(props.servicePackage.createAt).toLocaleString()}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

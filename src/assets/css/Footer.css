@@ -26,9 +26,10 @@
 .footer_List {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .footer_Item{
-  
+  min-width: 150px;
 }
 .footer_List li a {
   color: #ffffff;

@@ -14,37 +14,73 @@
   display: flex;
 }
 
-.user_Img img {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  border: 3px solid #ffabb8;
-}
 .user_Name {
   color: #000000;
   font-size: 16px;
   font-weight: 500;
   width: 300px;
-  margin-left: 5px;
 }
 .posts_Time {
   position: absolute;
-  margin-left: 60px;
-  margin-top: 40px;
+  margin-top: 30px;
+
   font-size: 14px;
   color: #0000006a;
+}
+
+.post-desc {
+  font-size: 14px;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .add_Icon {
   color: #000000;
   margin-top: 15px;
   margin-left: auto;
- ;
   font-size: 23px;
 }
 
-.post_Img img {
-  max-width: 590px;
+.post-image img {
+  width: 100%;
+  height: 100%;
+}
+.post-image img,
+.post-images img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.post-images {
+  height: 600px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 5px;
+}
+.post-images img {
+  width: 100%;
+  max-height: 600px;
+}
+.post-images-col-1 {
+  height: 100%;
+}
+.post-images-col-1 img {
+  height: 100%;
+}
+.post-images-col-2 {
+  height: 600px;
+  display: grid;
+  grid-auto-rows: 1fr;
+  row-gap: 5px;
+  overflow: hidden;
+}
+.post-images-col-2 img {
+  height: 100%;
+  overflow: hidden;
 }
 
 .footer_Post {
@@ -52,6 +88,6 @@
   justify-content: space-between;
   height: 40px;
 }
+
 .fa-ellipsis {
- 
 }

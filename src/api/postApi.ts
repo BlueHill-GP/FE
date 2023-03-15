@@ -12,7 +12,7 @@ export const createPost = async (data: FormData) => {
   return await api.post(apiConfig.baseURL+ POST_URL, data);
 };
 
-export const getPost = async () => {
+export const getPosts = async () => {
   return await api.get(apiConfig.baseURL+ POST_URL);
 };
 

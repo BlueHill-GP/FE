@@ -7,6 +7,10 @@ import { getUserByIdpApi } from "../api/userApi";
 
 import Post from "../components/Post";
 import ServicePackage from "../container/servicePackageContainer";
+import "../assets/css/ProfilePage.css"
+
+
+
 
 const ProfilePage = () => {
   const { id }: any = useParams();
@@ -63,31 +67,30 @@ const ProfilePage = () => {
 
 
   return (
-    <>
-      {!user.userType || user.userType === ""?(
-      <div className="">User not found</div>
+    <div className="profile-page">
+      {!user.userType || user.userType === "" ? (
+        <div className="">User not found</div>
       ) : (
-      <div className="">
-        <h1>ProfilePage</h1>
-        <div className="info">
-          <h2 className="">name: {user.username}</h2>
-          <h2 className="">userType: {user.userType}</h2>
+        <div className="">
+          <h1>ProfilePage</h1>
+          <div className="info">
+            <h2 className="">name: {user.username}</h2>
+            <h2 className="">userType: {user.userType}</h2>
+          </div>
+          <div>
+            {posts &&
+              posts.map((post, index) => <Post post={post} key={index} />)}
+          </div>
         </div>
-        <div>
-          {posts &&
-            posts.map((post, index) => <Post post={post} key={index} />)}
-        </div>
-        <h1>package</h1>
-        <div>
-          {servicePackages &&
-            servicePackages.map((servicePackage, index) => (
-              <ServicePackage servicePackage={servicePackage} key={index} />
-            ))}
-        </div>
+      )}
+      <h1>package</h1>
+      <div>
+        {servicePackages &&
+          servicePackages.map((servicePackage, index) => (
+            <ServicePackage servicePackage={servicePackage} key={index} />
+          ))}
       </div>
-      ) }
-      
-    </>
+    </div>
   );
 };
 

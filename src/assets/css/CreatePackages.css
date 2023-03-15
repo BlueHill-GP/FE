@@ -1,6 +1,7 @@
 @import url(styles.css);
 
-.packages {
+.packages-container  {
+ 
 }
 .create-package {
   display: flex;
@@ -12,6 +13,7 @@
 }
 .package_Item {
   display: flex;
+  width: 250px;
 }
 
 .package_Img img {
@@ -25,8 +27,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.package-title{
+  font-size: 20px;
+  font-weight: 700;
+}
+.package-price{
+  color: red;
+}
+.package-userName{
+  font-size: 14px;
+}
+
+.time-create-package{
+  font-size: 13px;
 }
 
 /* Modal */

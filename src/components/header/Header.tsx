@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { logoblack } from "../../assets";
 import "../../assets/css/Header.css";
+import HomePage from "../../pages/HomePage";
 
 interface IProp {
   logout: () => void;
@@ -57,12 +58,15 @@ function Header(props: IProp) {
   return (
     <div className="header_container">
       <header className="header">
-        <div className="logo">
+        <Link to="HomePage" className="logo">
+
           <img alt="" src={logoblack} />
-        </div>
+        </Link>
         <ul className="menu">
           <li>
-            <Link to="new">Bản tin</Link>
+            <Link className="menu-item" to="new">
+              Bản tin
+            </Link>
           </li>
 
           <div className="search">
@@ -75,29 +79,29 @@ function Header(props: IProp) {
           {user.userType === "couple" ? (
             <>
               <li>
-                <a href="">
-                  <Link to="/booking">Đặt Lịch</Link>
-                </a>
+                <Link className="menu-item" to="/booking">
+                  Đặt Lịch
+                </Link>
               </li>
 
               <li>
-                <a href="">
-                  <Link to="/user-booking">Đặt Lich của tôi</Link>
-                </a>
+                <Link className="menu-item" to="/user-booking">
+                Lịch của tôi
+                </Link>
               </li>
             </>
           ) : (
             <>
               <li>
-                <a href="">
-                  <Link to="profile">Profile</Link>
-                </a>
+                <Link className="menu-item" to="profile">
+                  Profile
+                </Link>
               </li>
 
               <li>
-                <a href="">
-                  <Link to="/my-booking">My booking</Link>
-                </a>
+                <Link className="menu-item" to="/my-booking">
+                  My booking
+                </Link>
               </li>
             </>
           )}
@@ -118,24 +122,35 @@ function Header(props: IProp) {
               <div className="logo-menu">
                 <img alt="" src={logoblack} />
               </div>
-              <li className="nav_tablets__list-item">
-                <a href="">Bản tin</a>
-              </li>
-              <li className="nav_tablets__list-item">
-                <a href="">Hợp tác</a>
-              </li>
-              <li className="nav_tablets__list-item">
-                <a href="">Đặt lịch</a>
-              </li>
-              <li className="nav_tablets__list-item">
-                <a href="">Đã lưu</a>
-              </li>
-              <li className="nav_tablets__list-item">
-                <a href="">Đăng ký</a>
-              </li>
-              <li className="nav_tablets__list-item">
-                <a href="">Đăng xuất</a>
-              </li>
+              {user.userType === "couple" ? (
+                <>
+                  <li>
+                    <Link className="menu-item" to="/booking">
+                      Đặt Lịch
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link className="menu-item" to="/user-booking">
+                     Lich của tôi
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link className="menu-item" to="profile">
+                      Profile
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link className="menu-item" to="/my-booking">
+                      My booking
+                    </Link>
+                  </li>
+                </>
+              )}
 
               <label htmlFor="nav-tablets-input" className="border-before" />
             </ul>
@@ -145,8 +160,7 @@ function Header(props: IProp) {
         <div className="header_Auth">
           <Link to="/login" className="signin_Btn">
             <i className="fa-solid fa-user"></i>
-            <p>Hi </p>
-            {user.name}!
+            <p>{user.name}</p>
           </Link>
           <Link to="" className="signup_Btn" onClick={() => logout()}>
             Đăng xuất
