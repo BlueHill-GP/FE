@@ -142,16 +142,17 @@ export const RegisterPage = (props: IProp) => {
       ) : (
         <div>
           <div className={"form-verify"}>
-
+            <p className={"OTP-code"}> Nhập Mã OTP </p>
+            <Input
+                type="text"
+                name="otp"
+                value={otp}
+                function={handleOTPInputChange}
+            />
           <button className={"verifi-OTP"} type="button" onClick={handleOtpVerification}>
             Xác thực mã OTP
           </button>
-          <Input
-              type="text"
-              name="otp"
-              value={otp}
-              function={handleOTPInputChange}
-          />
+
           <button className={"verifi-OTP"}
             type="button"
             onClick={() => {
