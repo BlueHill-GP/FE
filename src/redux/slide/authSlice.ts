@@ -7,10 +7,9 @@ import {
   verifyOtpApi,
   VerifyOtpData,
 } from "../../api/authApi";
-import { changeRoute } from "./routeSlice";
 import { setUser } from "./profileSlice";
 import { clearAllStorage } from "../../utils/storage";
-import { useNavigate } from "react-router-dom";
+import { messageError, messageSuccess } from "../../utils/notification";
 const initialState = {
   isLogin: false,
 };
@@ -33,10 +32,14 @@ export const login = (user: LoginData) => async (dispatch: Function) => {
     const response = await loginApi(user);
     if (response.status === 200) {
       dispatch(setUser(response.data.data.userId));
+      messageSuccess("Login successful, welcome");
       dispatch(setLogin());
+    } else {
+      console.log("loo");
     }
-  } catch (error) {
+  } catch (error:any) {
     console.log(error);
+    messageError(error);
   }
 };
 
@@ -51,9 +54,12 @@ export const verifyOtpRegister =
       const response = await verifyOtpApi(data);
       if (response.status === 200) {
         navigate("/");
+        messageSuccess("Verify OTP successful");
+
       }
     } catch (error) {
       console.log(error);
+      messageError(error);
     }
   };
 
@@ -62,9 +68,11 @@ export const resendOtp =
     try {
       const response = await resendOtpApi(email);
       if (response.status === 200) {
+        messageSuccess(response.data.message)
       }
     } catch (error) {
       console.log(error);
+      messageError(error);
     }
   };
 
