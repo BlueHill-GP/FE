@@ -10,8 +10,8 @@ import { getAccessToken } from "../utils/storage";
 import { useEffect, useState } from "react";
 import ProfilePage from "../pages/ProfilePage";
 import ErrorPage from "../pages/ErrorPage";
-import BookingForm from "../components/Booking";
-import VNPay from "../pages/Bayment";
+import BookingForm from "../pages/Bookingpage";
+import VNPay from "../pages/Payment";
 import MyBooking from "../container/MyBookingContainer";
 
 interface IProps {

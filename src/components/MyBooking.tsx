@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllBookingByUser } from '../api/bookingApi';
+import Booking from './booking/Booking';
 
 interface IProp {
   user: {
@@ -28,8 +29,12 @@ const MyBooking = (props: IProp) => {
      }, []);
 
   return (
-    <div>MyBooking</div>
-  )
+    <div className="">
+      <div>MyBooking</div>
+      {myBooking &&
+        myBooking.map((booking: any, index) => <Booking booking={booking} />)}
+    </div>
+  );
 }
 
 export default MyBooking

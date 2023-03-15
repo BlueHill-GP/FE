@@ -1,42 +1,14 @@
-// import  { useState } from "react";
-// import { DatePicker, TimePicker, Button } from "antd";
-// import axios from "axios";
-
-// const App = () => {
-//   const [selectedDate, setSelectedDate] = useState<any>(null);
-//   const format = "HH:mm";
-//   const handleDateChange = (date: any, dateString: string) => {
-//     setSelectedDate(dateString);
-//   };
-
-//   const handleSendData = () => {
-//     console.log(selectedDate);
-
-//     axios
-//       .post("http://your-server-url.com", { selectedDate })
-//       .then((response) => {
-//         console.log("Server response:", response.data);
-//       });
-//   };
-
-//   return (
-//     <>
-//       <TimePicker.RangePicker format={format} />
-//       <DatePicker onChange={handleDateChange} />
-//     </>
-//   );
-// };
-
-// export default App;
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DatePicker, TimePicker, Button, Space, Select } from "antd";
 import axios from "axios";
+import { getRandomServicePackage } from "../api/servicePackage";
+import ServicePackage from "./ServicePackage";
 
 const App: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<string | null>("dn");
+  const [servicePackages, setServicePackages] = useState<any>([]);
 
   const handleDateChange = (date: any, dateString: string) => {
     setSelectedDate(dateString);
@@ -46,12 +18,28 @@ const App: React.FC = () => {
     setSelectedTime(timeString.join(" - "));
   };
 
+    useEffect(() => {
+      async function fetchData() {
+        const response = await getRandomServicePackage();
+        if (response.data.data) {
+          setServicePackages(response.data.data);
+        }
+      }
+      fetchData();
+      return () => {
+        setServicePackages([]);
+      };
+    }, []);
+  
+  const filter = {
+    selectedDate,
+    selectedTime,
+    selectedLocation,
+  };
   const handleSendData = () => {
     axios
-      .post("http://your-server-url.com", {
-        selectedDate,
-        selectedTime,
-        selectedLocation,
+      .post("http://localhost:4000/api/service-packages/filter", {
+        filter,
       })
       .then((response) => {
         console.log("Server response:", response.data);
@@ -80,6 +68,15 @@ const App: React.FC = () => {
       </Space>
 
       <Button onClick={handleSendData}>Send Data</Button>
+
+      {servicePackages &&
+        servicePackages.map((servicePackage: any, index: number) => (
+          <ServicePackage
+            servicePackage={servicePackage}
+            select={filter}
+            key={index}
+          />
+        ))}
     </>
   );
 };

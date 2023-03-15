@@ -3,6 +3,7 @@ import axios from "axios";
 import ServicePackage from "../container/servicePackageContainer";
 import api from "../api/api";
 import { createServicePackage } from "../api/servicePackage";
+import { Select, Space } from "antd";
 
 interface IPost {
   _id: string;
@@ -22,9 +23,11 @@ interface IFormData {
 function CreateServicePackage() {
   const [files, setFiles] = useState<File[]>([]);
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("0");
+  const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [servicePackages, setServicePackages] = useState<IPost[] | null[]>([]);
+  const [selectedLocation, setSelectedLocation] = useState<string>("dn");
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +38,7 @@ function CreateServicePackage() {
     formData.append("description", description);
     formData.append("title", title);
     formData.append("price", price);
+    formData.append("location", selectedLocation);
     try {
       const response = await createServicePackage(formData);
       if (response.status === 200) {
@@ -78,6 +82,10 @@ function CreateServicePackage() {
     setFiles(newFiles);
   };
 
+    const handleChangeLocation = (value: string) => {
+      setSelectedLocation(value);
+      console.log(`selected ${value}`);
+    };
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -104,6 +112,19 @@ function CreateServicePackage() {
           value={description}
           onChange={handleDescriptionChange}
         />
+
+        <Space wrap>
+          <Select
+            defaultValue={selectedLocation}
+            style={{ width: 120 }}
+            onChange={handleChangeLocation}
+            options={[
+              { value: "hn", label: "Hà Nội" },
+              { value: "dn", label: "Đà Nẵng" },
+              { value: "sg", label: "Sài Gòn" },
+            ]}
+          />
+        </Space>
         {files.map((file, index) => (
           <div key={index}>
             <span>{file.name}</span>
