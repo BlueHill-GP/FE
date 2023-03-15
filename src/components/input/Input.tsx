@@ -1,4 +1,5 @@
-import React from 'react'
+import {useEffect, useState} from "react";
+
 
 interface InputInterface {
   name: string;
@@ -13,7 +14,9 @@ interface InputInterface {
 const Input = (props: InputInterface) => {
   return (
     <div>
-      <label htmlFor={props.name}>{props.name}:</label>
+      {/*<label htmlFor={props.name}>{props.name}:</label>*/}
+
+    <div className={"inputForm"}>
       <input
         type={props.type}
         id={props.name}
@@ -21,6 +24,7 @@ const Input = (props: InputInterface) => {
         value={props.value}
         onChange={props.function}
       />
+        </div>
     </div>
   );
 }
