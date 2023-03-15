@@ -20,10 +20,10 @@ const Post = (props: PostProps) => {
         <div className="header-post">
           <p className="user_Name">User: {props.post.user.username}</p>
           <p className="posts_Time">
-            Posted at: {new Date(props.post.createAt).toLocaleString()}
+            Đăng lúc: {new Date(props.post.createAt).toLocaleString()}
           </p>
         </div>
-        <p>{props.post.description}</p>
+        <p className="post-desc">{props.post.description}</p>
         <div>
           {props.post.image.length === 1 ? (
             <div className="post-image">
