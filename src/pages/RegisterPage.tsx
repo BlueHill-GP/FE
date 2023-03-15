@@ -1,9 +1,4 @@
 import { useState } from 'react';
-import {
-  faEye,
-  faEyeSlash,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from "../components/input/Input";
 import "../../src/assets/css/register.css"
 import {
@@ -110,9 +105,6 @@ export const RegisterPage = (props: IProp) => {
                 name="phone"
                 value={user.phone}
                 function={handleInputChange}></Input>
-                <button className={"btn_eye"} type="button" onClick={() => setShowPwd(!showPwd)}>
-                <FontAwesomeIcon icon={showPwd ? faEyeSlash : faEye} />
-                </button>
 
               <label htmlFor="password">Mật khẩu:</label>
               <Input
@@ -122,14 +114,6 @@ export const RegisterPage = (props: IProp) => {
                 function={handleInputChange}
 
             />
-
-              <label htmlFor="password">Xác nhận mật khẩu:</label>
-              <Input
-                  type="password"
-                  name="ConfirmPWd"
-                  value={user.password}
-                  function={handleInputChange}
-              />
 
                 <label htmlFor="userType">Loại người dùng:</label>
                 <select className={"userType"}
@@ -157,16 +141,18 @@ export const RegisterPage = (props: IProp) => {
 
       ) : (
         <div>
-          <Input
-            type="text"
-            name="otp"
-            value={otp}
-            function={handleOTPInputChange}
-          />
-          <button type="button" onClick={handleOtpVerification}>
+          <div className={"form-verify"}>
+
+          <button className={"verifi-OTP"} type="button" onClick={handleOtpVerification}>
             Xác thực mã OTP
           </button>
-          <button
+          <Input
+              type="text"
+              name="otp"
+              value={otp}
+              function={handleOTPInputChange}
+          />
+          <button className={"verifi-OTP"}
             type="button"
             onClick={() => {
               setShowOtpInput(!showOtpInput);
@@ -175,9 +161,10 @@ export const RegisterPage = (props: IProp) => {
           >
             Quay lại
           </button>
-          <button type="button" onClick={handleResendOtp}>
+          <button className={"verifi-OTP"} type="button" onClick={handleResendOtp}>
             Gửi lại mã OTP
           </button>
+          </div>
         </div>
       )}
     </>
