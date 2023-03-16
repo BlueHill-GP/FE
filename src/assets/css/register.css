@@ -177,3 +177,9 @@ inputForm{
 .OTP-code{
     color: black;
 }
+
+@media only screen and (max-width: 480px) {
+    input[type="submit"] {
+        width: 100%;
+    }
+}
