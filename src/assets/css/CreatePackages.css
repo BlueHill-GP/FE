@@ -4,12 +4,25 @@
  
 }
 .create-package {
+  
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  border: 1px solid var(--main-color);
+  align-items: center;
+  background-color: #e397973f;;
+}
+.create-package h3{
+  color:#487ba6;
+ 
+}
+.create-package-btn{
+ margin-bottom: 10px;
+  
 }
 .fa-square-plus {
-  height: 20px;
-  width: 20px;
+  padding: 5px;
+ 
+  
 }
 .package_Item {
   display: flex;
@@ -146,4 +159,20 @@ button {
 
 button:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+@media only screen and (max-width: 1450px) {
+  .create-package{
+    margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .create-package{
+    
+  }
+  .create-package h3{
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  
 }

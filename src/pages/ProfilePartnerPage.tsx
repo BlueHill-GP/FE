@@ -5,6 +5,7 @@ import CreatePost from "../components/CreatePost";
 import CreateServicePackage from "../components/CreateServicePackage";
 import Post from "../components/Post";
 import ServicePackage from "../container/servicePackageContainer";
+import "../assets/css/ProfilePartnerPage.css"
 
 interface IProp {
   user: {
@@ -54,9 +55,10 @@ const ProfilePage = (props: IProp) => {
     <div className="profile-container">
       <div className="profile-page">
         <div className="info">
-          <h2 className="">name: {user.name}</h2>
-          <h2 className="">userType: {user.userType}</h2>
+          <h2 className="">Name: {user.name}</h2>
+          <h2 className="">UserType: {user.userType}</h2>
         </div>
+
         <div>
           <CreatePost />
         </div>

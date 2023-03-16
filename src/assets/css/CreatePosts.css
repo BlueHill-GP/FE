@@ -5,7 +5,8 @@
 }
 .caption textarea {
   width: 90%;
-  min-height: 100px;
+  min-width: 250px;
+  min-height: 60px;
   border: 1px solid var(--main-color);
   border-radius: 10px;
   background-color: #e397973f;
@@ -14,13 +15,10 @@
   display: none;
 }
 
-
-
 .fa-image {
   color: var(--main-color);
   font-size: 40px;
   cursor: pointer;
-  
 }
 .create-btn {
   margin-top: 20px;
@@ -39,3 +37,15 @@
   max-height: 800px;
   margin-top: 20px;
 }
+@media only screen and (max-width: 900px) {
+  .caption textarea {
+    width: 70%;
+    min-height: 80px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .caption textarea{
+    
+  }
+}
+

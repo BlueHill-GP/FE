@@ -83,7 +83,7 @@ const ProfilePage = () => {
           </div>
         </div>
       )}
-      <h1>package</h1>
+      
       <div>
         {servicePackages &&
           servicePackages.map((servicePackage, index) => (

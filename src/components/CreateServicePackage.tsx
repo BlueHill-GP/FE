@@ -97,8 +97,8 @@ function CreateServicePackage() {
   return (
     <div>
       <div className="create-package">
-        <h3>Create your package</h3>
-        <button onClick={handleOpenModal}>
+        <h3>Create package</h3>
+        <button className="create-package-btn" onClick={handleOpenModal}>
           <i className="fa-regular fa-square-plus"></i>
         </button>
       </div>
