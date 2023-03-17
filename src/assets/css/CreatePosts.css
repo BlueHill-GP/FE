@@ -1,17 +1,25 @@
+
+.createPostContainer{
+ 
+}
 .create-post {
   text-align: center;
+  width: 600px;
+  margin: 0 auto;
 }
 .caption {
   display: flex;
   gap: 10px;
+ 
 }
 .caption textarea {
-  width: 90%;
+  width: 80%;
   min-width: 250px;
   min-height: 60px;
   border: 1px solid var(--main-color);
   border-radius: 10px;
   background-color: #e397973f;
+ 
 }
 .choose-img {
   display: none;
@@ -25,9 +33,9 @@
 .create-btn {
   margin-top: 20px;
   color: black;
-  text-align: center;
+  
   text-decoration: none;
-  width: 80%;
+  width: 100%;
   height: 40px;
   cursor: pointer;
   background-color: var(--main-color);
@@ -47,7 +55,7 @@
 }
 @media only screen and (max-width: 770px) {
   .create-post{
-    width: 100%;
+    
   }
   .caption textarea{
     
@@ -56,6 +64,9 @@
     margin-left: 20px;
     display: flex;
     justify-content: space-evenly;
+  }
+  .create-btn{
+    width: 80%;
   }
 }
 

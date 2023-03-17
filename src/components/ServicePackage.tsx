@@ -60,10 +60,10 @@ const ServicePackage = (props: any) => {
         <div className="package_Content">
           <p className="package-title">{props.servicePackage.title}</p>
           <p className="package-price">{props.servicePackage.price} vnd</p>
-          <p className="desc_Package">{props.servicePackage.description}</p>
+          <p className="package-desc">{props.servicePackage.description}</p>
 
           <p>Star: {props.servicePackage.star.length}</p>
-          <p className="package-userName">User: {props.servicePackage.user.username || props.user.name}</p>
+          {/* <p className="package-userName">User: {props.servicePackage.user.username || props.user.name}</p> */}
           <p className="time-create-package">
             {" "}
             {new Date(props.servicePackage.createAt).toLocaleString()}
