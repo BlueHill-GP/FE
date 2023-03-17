@@ -13,18 +13,22 @@ import ErrorPage from "../pages/ErrorPage";
 import BookingForm from "../pages/Bookingpage";
 import VNPay from "../pages/Payment";
 import MyBooking from "../container/MyBookingContainer";
+import { socket } from "../App";
+// import socket from "../SocketIo";
 
 interface IProps {
   isLogin: boolean;
   userType: string;
+  userId: string;
   setLoginState: () => void;
 }
 const Router = (props: IProps) => {
-  const { isLogin, setLoginState, userType } = props;
+  const { isLogin, setLoginState, userType, userId } = props;
 
   useEffect(() => {
     const accessToken = getAccessToken();
     if (accessToken) {
+      socket.emit("user-connect", userId);
       setLoginState();
     }
   }, []);

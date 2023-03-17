@@ -13,6 +13,7 @@ const mapStateToProps = (state: RootState) => {
   return {
     isLogin: state.auth.isLogin,
     userType: state.user.userType,
+    userId: state.user.userId
   };
 };
 
