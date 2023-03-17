@@ -13,6 +13,7 @@ import ErrorPage from "../pages/ErrorPage";
 import BookingForm from "../components/Booking";
 import VNPay from "../pages/Bayment";
 import MyBooking from "../container/MyBookingContainer";
+import CreateServicePackagePage from "../container/CreatePackagePageContainer";
 
 interface IProps {
   isLogin: boolean;
@@ -42,6 +43,10 @@ const Router = (props: IProps) => {
               <>
                 <Route path="/profile" element={<ProfilePartnerPage />} />
                 <Route path="/my-booking" element={<MyBooking />} />
+                <Route
+                  path="/create-service-package"
+                  element={<CreateServicePackagePage />}
+                />
               </>
             ) : null}
             <Route path="/profile/:id" element={<ProfilePage />} />

@@ -21,8 +21,16 @@
 
 
 @media only screen and (max-width: 770px) {
- .info{
+ .profile-page{
+  display: grid;
+  grid-template-columns: 1fr;
+ }
+ 
+  .info{
   display: none;
+ }
+ .packageForPartner{
+  margin-top: -180px;
  }
  
 }

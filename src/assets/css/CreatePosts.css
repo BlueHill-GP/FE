@@ -46,11 +46,16 @@
   }
 }
 @media only screen and (max-width: 770px) {
+  .create-post{
+    width: 100%;
+  }
   .caption textarea{
     
   }
   .caption{
     margin-left: 20px;
+    display: flex;
+    justify-content: space-evenly;
   }
 }
 

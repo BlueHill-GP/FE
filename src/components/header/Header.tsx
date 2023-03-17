@@ -57,7 +57,7 @@ function Header(props: IProp) {
   return (
     <div className="header_container">
       <header className="header">
-        <Link to="HomePage" className="logo">
+        <Link to="/" className="logo">
           <img alt="" src={logoblack} />
         </Link>
         <ul className="menu">
@@ -147,11 +147,11 @@ function Header(props: IProp) {
                   <h2 className="">
                     <i className="fa-solid fa-circle-user"></i> {user.name}
                   </h2>
-                  <li>
-                    <Link className="menu-item" to="create">
+                  {/* <li>
+                    <Link className="menu-item" to="/create-service-package">
                       Create Package
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link className="menu-item" to="profile">
                       Profile
