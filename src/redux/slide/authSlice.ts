@@ -10,6 +10,7 @@ import {
 import { setUser } from "./profileSlice";
 import { clearAllStorage } from "../../utils/storage";
 import { messageError, messageSuccess } from "../../utils/notifi";
+import { socket } from "../../App";
 const initialState = {
   isLogin: false,
 };
@@ -31,11 +32,13 @@ export const login = (user: LoginData) => async (dispatch: Function) => {
   try {
     const response = await loginApi(user);
     if (response.status === 200) {
+      socket.connect();
       dispatch(setUser(response.data.data.userId));
       messageSuccess("Login successful, welcome");
       dispatch(setLogin());
+
+      socket.emit("user-connect", response.data.data.userId);
     } else {
-      console.log("loo");
     }
   } catch (error: any) {
     console.log(error);
@@ -46,6 +49,7 @@ export const login = (user: LoginData) => async (dispatch: Function) => {
 export const logout = () => async (dispatch: Function) => {
   clearAllStorage();
   dispatch(setLogOut());
+  window.location.reload();
 };
 
 export const verifyOtpRegister =
