@@ -1,7 +1,8 @@
 @import url(styles.css);
 
 .packages-container  {
- 
+ overflow: auto;
+ width: 300px;
 }
 .create-package {
   
@@ -9,7 +10,8 @@
   justify-content: space-around;
   border: 1px solid var(--main-color);
   align-items: center;
-  background-color: #e397973f;;
+  background-color: #e397973f;
+  border-radius: 10px;
 }
 .create-package h3{
   color:#487ba6;

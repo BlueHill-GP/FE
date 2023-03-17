@@ -72,7 +72,7 @@ const ProfilePage = () => {
         <div className="">User not found</div>
       ) : (
         <div className="">
-          <h1>ProfilePage</h1>
+          
           <div className="info">
             <h2 className="">name: {user.username}</h2>
             <h2 className="">userType: {user.userType}</h2>

@@ -1,10 +1,10 @@
-
 .calendar{
   border: 1px solid var(--main-color) ;
 }
 .categories_Container {
+  
   max-width: 1440px;
-  margin: 0 auto;
+  margin: 180px auto 0 auto;
   
 }
 .categories_List {

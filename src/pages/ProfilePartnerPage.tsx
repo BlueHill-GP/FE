@@ -55,26 +55,31 @@ const ProfilePage = (props: IProp) => {
     <div className="profile-container">
       <div className="profile-page">
         <div className="info">
-          <h2 className="">Name: {user.name}</h2>
-          <h2 className="">UserType: {user.userType}</h2>
+          <h2 className="">
+            <i className="fa-solid fa-circle-user"></i> {user.name}
+          </h2>
+          <h2 className="">
+            <i className="fa-solid fa-camera"></i> {user.userType}
+          </h2>
         </div>
 
         <div>
           <CreatePost />
+          <div>
+            {posts &&
+              posts.map((post, index) => <Post post={post} key={index} />)}
+          </div>
         </div>
 
         <div>
           <CreateServicePackage />
-          <div>
+          <div >
             {servicePackages &&
               servicePackages.map((servicePackage, index) => (
                 <ServicePackage servicePackage={servicePackage} key={index} />
               ))}
           </div>
         </div>
-      </div>
-      <div>
-        {posts && posts.map((post, index) => <Post post={post} key={index} />)}
       </div>
     </div>
   );

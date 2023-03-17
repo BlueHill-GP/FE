@@ -2,6 +2,8 @@
   text-align: center;
 }
 .caption {
+  display: flex;
+  gap: 10px;
 }
 .caption textarea {
   width: 90%;
@@ -17,7 +19,7 @@
 
 .fa-image {
   color: var(--main-color);
-  font-size: 40px;
+  font-size: 50px;
   cursor: pointer;
 }
 .create-btn {
@@ -46,6 +48,9 @@
 @media only screen and (max-width: 770px) {
   .caption textarea{
     
+  }
+  .caption{
+    margin-left: 20px;
   }
 }
 
