@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./EventForm.css";
+import "./EventForm.css"
 
 function EventForm(props) {
   const [title, setTitle] = useState("");
