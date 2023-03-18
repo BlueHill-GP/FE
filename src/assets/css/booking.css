@@ -1,11 +1,24 @@
+.booking{
+    padding-top: 200px;
+    max-width: 1585px;
+    width: 100%;
+    margin: 0 auto;
+}
+.list-booking{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    /*justify-content: center;*/
+}
+
 .booking-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 2;
-    flex-direction: row;
-    margin-bottom: 20px;
+    /*flex: 2;*/
     background-color: #fae5dc;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    /*margin: 0 auto;*/
 }
 
 .booking-card {
@@ -19,7 +32,7 @@
 
 .booking-card img {
     width: 100%;
-    height: 450px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -27,6 +40,7 @@
     padding: 10px;
     margin: 0;
     text-align: center;
+
 }
 
 .booking-card h3 {
@@ -34,7 +48,7 @@
     color: hotpink;
     padding: 10px;
     font-size: 1.2rem;
-    background-color: #e0e0e0;
+    /*background-color: #e0e0e0;*/
     /*color: #333;*/
     text-align: center;
     justify-content: center;

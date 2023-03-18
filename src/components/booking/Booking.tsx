@@ -36,30 +36,30 @@ const Booking = (props: any) => {
     const cardClassName = `booking-card ${props.booking.bookingStatus}`;
 
     return (
-        <div className="booking-container">
-            <div className={cardClassName}>
-                <img className={"image-booking"} src={servicePackage?.image[0]} alt="" />
+            <div className="booking-container">
+                <div className={cardClassName}>
+                    <img className={"image-booking"} src={servicePackage?.image[0]} alt="" />
 
-                <h3>{servicePackage?.title}</h3>
-                <p>{servicePackage?.description}</p>
-                <p>{servicePackage?.price}</p>
+                    <h3>{servicePackage?.title}</h3>
+                    <p>{servicePackage?.description}</p>
+                    <p>{servicePackage?.price}</p>
 
-                <div className="btn-booking">
-                    {props.booking.bookingStatus === "waiting" ? (
-                        <>
-                            <button className={"btn-accepted-booking"} onClick={() => handleUpdateBookingStatus("accepted")}>
-                                accept
-                            </button>
-                            <button className={"btn-reject-booking"} onClick={() => handleUpdateBookingStatus("rejected")}>
-                                reject
-                            </button>
-                        </>
-                    ) : (
-                        <button>{props.booking.bookingStatus}</button>
-                    )}
+                    <div className="btn-booking">
+                        {props.booking.bookingStatus === "waiting" ? (
+                            <>
+                                <button className={"btn-accepted-booking"} onClick={() => handleUpdateBookingStatus("accepted")}>
+                                    accept
+                                </button>
+                                <button className={"btn-reject-booking"} onClick={() => handleUpdateBookingStatus("rejected")}>
+                                    reject
+                                </button>
+                            </>
+                        ) : (
+                            <button>{props.booking.bookingStatus}</button>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
     );
 };
 
