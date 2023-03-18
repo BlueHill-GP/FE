@@ -2,7 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     flex: 2;
-
+    flex-direction: row;
+    margin-bottom: 20px;
+    background-color: #fae5dc;
+    border-radius: 20px;
 
 }
 
