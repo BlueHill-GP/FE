@@ -32,7 +32,8 @@ const PostsPage = () => {
         //  });
 
          socket.on("new-post", (newPost: PostProps) => {
-           alert("new post");
+console.log(newPost);
+           
            setPosts((posts) => [newPost, ...posts, ]);
          });
 

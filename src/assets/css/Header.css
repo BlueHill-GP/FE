@@ -41,6 +41,7 @@
   height: 30px;
   justify-content: center;
   align-items: center;
+  margin-right: 40px;
 }
 .box_Input {
   border-radius: 15px 0 0 15px;
