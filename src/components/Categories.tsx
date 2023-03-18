@@ -9,6 +9,7 @@ function Categories() {
             <i className="fa-regular fa-calendar-days"></i>{" "}
             <p>Đặt lịch của tôi</p>
           </a>
+          <h3>Update profile</h3>
         </li>
         <li className="categories_Item">
           <a href="">
