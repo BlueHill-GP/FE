@@ -1,11 +1,11 @@
 @import url(styles.css);
 
 .packages-container  {
- 
+
  width: 300px;
 }
 .create-package {
-  
+
   display: flex;
   justify-content: space-around;
   border: 1px solid var(--main-color);
@@ -18,7 +18,7 @@
  
 }
 .create-package-btn{
- margin-bottom: 10px;
+ 
   
 }
 .fa-square-plus {
