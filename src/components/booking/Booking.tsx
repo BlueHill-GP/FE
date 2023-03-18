@@ -108,7 +108,7 @@ const Booking = (props: any) => {
     return (
         <div className="booking-container">
             <div className={cardClassName}>
-                <img src={servicePackage?.image[0]} alt="" />
+                <img className={"image-booking"} src={servicePackage?.image[0]} alt="" />
                 <h3>{servicePackage?.title}</h3>
                 <p>{servicePackage?.description}</p>
                 <p>{servicePackage?.price}</p>
