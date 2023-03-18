@@ -31,7 +31,7 @@ const MyBooking = (props: IProp) => {
 
   return (
     <div className="booking">
-      <div>MyBooking</div>
+      <div className={"title-booking"}>My Booking</div>
       <div className="list-booking">
           {myBooking &&
               myBooking.map((booking: any, index) => <Booking booking={booking} />)}

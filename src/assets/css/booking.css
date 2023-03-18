@@ -1,8 +1,15 @@
 .booking{
-    padding-top: 200px;
+    padding-top: 150px;
     max-width: 1585px;
     width: 100%;
     margin: 0 auto;
+}
+.title-booking{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffabb8;
+
 }
 .list-booking{
     display: grid;
