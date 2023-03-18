@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { logoblack } from "../../assets";
 import "../../assets/css/Header.css";
-import HomePage from "../../pages/HomePage";
 
 interface IProp {
   logout: () => void;
@@ -58,8 +57,7 @@ function Header(props: IProp) {
   return (
     <div className="header_container">
       <header className="header">
-        <Link to="HomePage" className="logo">
-
+        <Link to="/" className="logo">
           <img alt="" src={logoblack} />
         </Link>
         <ul className="menu">
@@ -86,7 +84,7 @@ function Header(props: IProp) {
 
               <li>
                 <Link className="menu-item" to="/user-booking">
-                Lịch của tôi
+                  Lịch của tôi
                 </Link>
               </li>
             </>
@@ -124,6 +122,9 @@ function Header(props: IProp) {
               </div>
               {user.userType === "couple" ? (
                 <>
+                  <h2 className="">
+                    <i className="fa-solid fa-circle-user"></i> {user.name}
+                  </h2>
                   <li>
                     <Link className="menu-item" to="/booking">
                       Đặt Lịch
@@ -132,12 +133,25 @@ function Header(props: IProp) {
 
                   <li>
                     <Link className="menu-item" to="/user-booking">
-                     Lich của tôi
+                      Lich của tôi
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="" className="signup_Btn" onClick={() => logout()}>
+                      Đăng xuất
                     </Link>
                   </li>
                 </>
               ) : (
                 <>
+                  <h2 className="">
+                    <i className="fa-solid fa-circle-user"></i> {user.name}
+                  </h2>
+                  {/* <li>
+                    <Link className="menu-item" to="/create-service-package">
+                      Create Package
+                    </Link>
+                  </li> */}
                   <li>
                     <Link className="menu-item" to="profile">
                       Profile
@@ -147,6 +161,12 @@ function Header(props: IProp) {
                   <li>
                     <Link className="menu-item" to="/my-booking">
                       My booking
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link to="" className="signup_Btn" onClick={() => logout()}>
+                      Đăng xuất
                     </Link>
                   </li>
                 </>

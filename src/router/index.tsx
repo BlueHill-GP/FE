@@ -15,6 +15,7 @@ import VNPay from "../pages/Payment";
 import MyBooking from "../container/MyBookingContainer";
 import { socket } from "../App";
 // import socket from "../SocketIo";
+import CreateServicePackagePage from "../container/CreatePackagePageContainer";
 
 interface IProps {
   isLogin: boolean;
@@ -46,6 +47,10 @@ const Router = (props: IProps) => {
               <>
                 <Route path="/profile" element={<ProfilePartnerPage />} />
                 <Route path="/my-booking" element={<MyBooking />} />
+                <Route
+                  path="/create-service-package"
+                  element={<CreateServicePackagePage />}
+                />
               </>
             ) : null}
             <Route path="/profile/:id" element={<ProfilePage />} />

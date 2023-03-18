@@ -1,33 +1,41 @@
+
+.createPostContainer{
+ 
+}
 .create-post {
   text-align: center;
+  width: 600px;
+  margin: 0 auto;
 }
 .caption {
+  display: flex;
+  gap: 10px;
+ 
 }
 .caption textarea {
-  width: 90%;
-  min-height: 100px;
+  width: 80%;
+  min-width: 250px;
+  min-height: 60px;
   border: 1px solid var(--main-color);
   border-radius: 10px;
   background-color: #e397973f;
+ 
 }
 .choose-img {
   display: none;
 }
 
-
-
 .fa-image {
   color: var(--main-color);
-  font-size: 40px;
+  font-size: 50px;
   cursor: pointer;
-  
 }
 .create-btn {
   margin-top: 20px;
   color: black;
-  text-align: center;
+  
   text-decoration: none;
-  width: 80%;
+  width: 100%;
   height: 40px;
   cursor: pointer;
   background-color: var(--main-color);
@@ -39,3 +47,26 @@
   max-height: 800px;
   margin-top: 20px;
 }
+@media only screen and (max-width: 900px) {
+  .caption textarea {
+    width: 70%;
+    min-height: 80px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .create-post{
+    
+  }
+  .caption textarea{
+    
+  }
+  .caption{
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .create-btn{
+    width: 80%;
+  }
+}
+

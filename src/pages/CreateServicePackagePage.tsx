@@ -15,25 +15,12 @@ interface IProp {
     userType: string;
   };
 }
-const ProfilePage = (props: IProp) => {
+const CreateServicePackagePage = (props: IProp) => {
   const { user } = props;
 
-  const [posts, setPosts] = useState([]);
   const [servicePackages, setPServicePackages] = useState([]);
   console.log(servicePackages);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getPostByUser(user.userId);
-      if (response.data.data) {
-        setPosts(response.data.data);
-      }
-    }
-    fetchData();
 
-    return () => {
-      setPosts([]);
-    };
-  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -63,13 +50,6 @@ const ProfilePage = (props: IProp) => {
           </h2>
         </div>
 
-        <div>
-          <CreatePost />
-          <div>
-            {posts &&
-              posts.map((post, index) => <Post post={post} key={index} />)}
-          </div>
-        </div>
 
         <div className="packageForPartner">
           <CreateServicePackage />
@@ -85,4 +65,4 @@ const ProfilePage = (props: IProp) => {
   );
 };
 
-export default ProfilePage;
+export default CreateServicePackagePage;

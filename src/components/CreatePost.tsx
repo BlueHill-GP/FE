@@ -54,7 +54,7 @@ function CreatePost() {
   };
 
   return (
-    <div>
+    <div className="createPostContainer">
       <form className="create-post" onSubmit={handleSubmit}>
         <div className="caption">
           <textarea

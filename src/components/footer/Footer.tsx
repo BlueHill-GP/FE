@@ -10,8 +10,8 @@ function Footer() {
           <div className="logo">
             <img alt="" src={logowhite} />
           </div>
-          <div>
-            <a href="" className="cooperate">
+          <div className="cooperate">
+            <a href="">
               Hợp tác với chúng tôi
             </a>
           </div>
@@ -60,15 +60,14 @@ function Footer() {
             </ul>
           </div>
         </div>
-        
       </div>
       <div className="by">
-          <p>
-            Công ty TNHH Cuoidi Cuoidi Việt Nam. Tòa nhà KTX khu A, 101B Lê Hữu
-            Trác , TP Đà Nãng
-          </p>
-          <p>Copyright © 2023 Cuoidi Cuoidi</p>
-        </div>
+        <p>
+          Công ty TNHH Cuoidi Cuoidi Việt Nam. Tòa nhà KTX khu A, 101B Lê Hữu
+          Trác , TP Đà Nãng
+        </p>
+        <p>Copyright © 2023 Cuoidi Cuoidi</p>
+      </div>
     </footer>
   );
 }

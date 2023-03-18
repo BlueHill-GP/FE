@@ -2,14 +2,14 @@
 .header_container {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1440px;
+  /* max-width: 1440px; */
 }
 .header {
   top: 0px;
   z-index: 999;
-  /* position: fixed; */
+  position: fixed;
   display: flex;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   height: 120px;
   justify-content: space-around;
   width: 100%;
@@ -29,28 +29,34 @@
 }
 .menu li {
   padding: 0 10px;
-  width: 130px;
+    min-width: 130px;
 }
 .menu-item {
   text-decoration: none;
+ 
 }
 .search {
+  display: flex;
   width: 300px;
   height: 30px;
+  justify-content: center;
+  align-items: center;
 }
 .box_Input {
-  border-radius: 10px 0 0 10px;
+  border-radius: 15px 0 0 15px;
   border: 1px solid var(--main-color);
   border-right: none;
   outline: none;
-  height: 28px;
-  width: 80%;
+  /* height: 32px; */
+  width: 100%;
+  padding: 10px;
 }
 .search_Button {
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 15px 15px 0;
   border: 1px solid var(--main-color);
   background: var(--main-color);
-  height: 28px;
+  height: 49px;
+  width: 54px;
 }
 .search_Button i {
   color: #487ba6;
@@ -58,7 +64,6 @@
 }
 .header_Auth {
   display: flex;
-  list-style: none;
   align-items: center;
 }
 .header_Auth a {
@@ -81,8 +86,6 @@
 .signup_Btn {
   border: 1px solid var(--main-color);
   border-radius: 15px;
-  width: 120px;
-  height: 26px;
   justify-content: center;
 }
 
@@ -263,9 +266,9 @@
   }
   .header_Auth a {
     font-size: 14px;
-    width: 100px;
     text-align: center;
-    padding: 0px;
+    padding: 0 10px;
+    min-width: 100px;
   }
 
   .fa-user {
@@ -317,14 +320,21 @@
   }
 
   .search_hide {
-    display: block;
+    display: flex;
     width: 60%;
     margin-top: 50px;
     margin-right: 60px;
   }
-  .search input {
+
+    .box_Input {
+     
+      height: 49px; 
+       width: 90%; 
+    padding: 10px;
+    }
+  /* .search input {
     width: 50%;
-  }
+  } */
 
   .header_Auth {
     display: none;
@@ -335,5 +345,11 @@
     margin-right: 40px;
   }
   .nav-bars-item {
+  }
+}
+@media only screen and (max-width: 400px) {
+ 
+  .search_hide{
+    display: none;
   }
 }

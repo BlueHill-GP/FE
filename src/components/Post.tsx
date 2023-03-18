@@ -18,7 +18,7 @@ const Post = (props: PostProps) => {
     <div className="post_Container">
       <div className="post">
         <div className="header-post">
-          <p className="user_Name">User: {props.post.user.username}</p>
+          <p className="user_Name"><i className="fa-solid fa-user"></i> {props.post.user.username}</p>
           <p className="posts_Time">
             Đăng lúc: {new Date(props.post.createAt).toLocaleString()}
           </p>

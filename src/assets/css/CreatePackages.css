@@ -2,36 +2,56 @@
 
 .packages-container  {
  
+ width: 300px;
 }
 .create-package {
+  
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  border: 1px solid var(--main-color);
+  align-items: center;
+  background-color: #e397973f;
+  border-radius: 10px;
+}
+.create-package h3{
+  color:#487ba6;
+ 
+}
+.create-package-btn{
+ margin-bottom: 10px;
+  
 }
 .fa-square-plus {
-  height: 20px;
-  width: 20px;
+  padding: 5px;
+ 
+  
 }
 .package_Item {
   display: flex;
   width: 250px;
+  height: 136px;
+  border: 1px solid var(--main-color);
+  
 }
 
 .package_Img img {
-  width: 120px;
-  height: 170px;
+  width: 93px;
+  height: 134px;
 }
 .package_Content {
   margin-left: 10px;
 }
-.desc_Package {
+.package-desc {
+  font-size: 12px;
+  width: 130px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 .package-title{
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
 }
 .package-price{
@@ -135,7 +155,7 @@
 }
 button {
   border: none;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   font-weight: bold;
   background-color: var(--main-color);
   color: #fff;
@@ -146,4 +166,23 @@ button {
 
 button:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+@media only screen and (max-width: 1450px) {
+  .create-package{
+    margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .create-package{
+    
+  }
+  .create-package h3{
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .createPackageContainer{
+    margin-top: 180px;
+    
+  }
 }
