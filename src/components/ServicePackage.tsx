@@ -71,7 +71,7 @@ const ServicePackage = (props: any) => {
           <p className="package-desc">{props.servicePackage.description}</p>
 
           <p>Star: {props.servicePackage.star.length}</p>
-          {/* <p className="package-userName">User: {props.servicePackage.user.username || props.user.name}</p> */}
+          <p className="package-userName">User: {props.servicePackage.user.username || props.user.name}</p>
           <p className="time-create-package">
             {" "}
             {new Date(props.servicePackage.createAt).toLocaleString()}
