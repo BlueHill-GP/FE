@@ -7,10 +7,10 @@ import {
   verifyOtpApi,
   VerifyOtpData,
 } from "../../api/authApi";
-import { changeRoute } from "./routeSlice";
 import { setUser } from "./profileSlice";
 import { clearAllStorage } from "../../utils/storage";
-import { useNavigate } from "react-router-dom";
+import { messageError, messageSuccess } from "../../utils/notifi";
+import { socket } from "../../App";
 const initialState = {
   isLogin: false,
 };
@@ -32,18 +32,25 @@ export const login = (user: LoginData) => async (dispatch: Function) => {
   try {
     const response = await loginApi(user);
     if (response.status === 200) {
+      socket.connect();
       dispatch(setUser(response.data.data.userId));
+      messageSuccess("Login successful, welcome");
       dispatch(setLogin());
+
+      socket.emit("user-connect", response.data.data.userId);
+    } else {
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
+    messageError(error);
   }
 };
 
 export const logout = () => async (dispatch: Function) => {
   clearAllStorage();
   dispatch(setLogOut());
-}
+  window.location.reload();
+};
 
 export const verifyOtpRegister =
   (data: VerifyOtpData, navigate: Function) => async (dispatch: Function) => {
@@ -51,9 +58,11 @@ export const verifyOtpRegister =
       const response = await verifyOtpApi(data);
       if (response.status === 200) {
         navigate("/");
+        messageSuccess("Verify OTP successful");
       }
     } catch (error) {
       console.log(error);
+      messageError(error);
     }
   };
 
@@ -62,14 +71,16 @@ export const resendOtp =
     try {
       const response = await resendOtpApi(email);
       if (response.status === 200) {
+        messageSuccess(response.data.message);
       }
     } catch (error) {
       console.log(error);
+      messageError(error);
     }
   };
 
-export const setLoginState = () => async (dispatch: Function) => { 
+export const setLoginState = () => async (dispatch: Function) => {
   dispatch(setLogin());
-}
+};
 
 export default authSlice;

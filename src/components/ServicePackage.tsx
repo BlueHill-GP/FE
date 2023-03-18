@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export interface ServicePackageProps {
@@ -16,10 +16,11 @@ export interface ServicePackageProps {
 
 const ServicePackage = (props: any) => {
   const navigate = useNavigate();
-
   const handleBooking = (id: string) => {
     navigate("/booking/" + id);
   };
+
+ 
   // console.log(props.user);
 
   // const handleSubmitDelete = (event: React.FormEvent<HTMLFormElement>) => {
@@ -43,13 +44,20 @@ const ServicePackage = (props: any) => {
   return (
     <div className="packages-container">
       <div className="">
-        {props.user && props.user.userType === "couple" ? (
+        {props.user ? (
+          props.user && props.user.userType === "couple" ? (
+            <button onClick={() => handleBooking(props.servicePackage._id)}>
+              Booking now
+            </button>
+          ) : (
+            <button>...</button>
+          )
+        ) : (
           <button onClick={() => handleBooking(props.servicePackage._id)}>
             Booking now
           </button>
-        ) : (
-          <button>...</button>
         )}
+        {}
       </div>
       <div className="package_Item">
         <div className="package_Img">

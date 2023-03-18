@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BookingFormData, createBooking } from "../api/bookingApi";
 import { getServicePackageById } from "../api/servicePackage";
-import VNPay from "../pages/Bayment";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
@@ -12,13 +11,13 @@ const BookingForm = () => {
   const navigate = useNavigate();
   const { id }: any = useParams();
   const [servicePackage, setServicePackage] = useState<any>();
-  
+
   const [bookingData, setBookingData] = useState<BookingFormData>({
-    customerId: "",
+    customerId: user.userId,
     customerName: "",
     customerAddress: "",
     customerPhone: "",
-    customerEmail:  user.email,
+    customerEmail: user.email,
     customerGender: "",
     customerAge: 0,
     bookingTime: "",
@@ -44,11 +43,11 @@ const BookingForm = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(bookingData);
-    
+
     const response = await createBooking(bookingData);
     if (response.data.data) {
       console.log(response.data);
-      
+
       navigate("/payment", {
         state: {
           data: {
@@ -59,7 +58,6 @@ const BookingForm = () => {
         },
       });
     } else {
-    
     }
   };
 
@@ -96,7 +94,7 @@ const BookingForm = () => {
           Customer Phone:
           <input
             type="text"
-            value={bookingData.customerPhone }
+            value={bookingData.customerPhone}
             onChange={(event) =>
               setBookingData({
                 ...bookingData,

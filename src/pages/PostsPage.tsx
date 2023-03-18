@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPosts } from "../api/postApi";
+import { socket } from "../App";
 import "../assets/css/PostsPage.css";
 import Post, { PostProps } from "../components/Post";
 
@@ -21,7 +22,26 @@ const PostsPage = () => {
       // Cleanup function
       setPosts([]); // Reset the state to an empty array
     };
+
+
   }, []);
+
+       useEffect(() => {
+        //  socket.on("posts", (posts: PostProps[]) => {
+        //    setPosts(posts);
+        //  });
+
+         socket.on("new-post", (newPost: PostProps) => {
+           alert("new post");
+           setPosts((posts) => [newPost, ...posts, ]);
+         });
+
+
+      
+         // return () => {
+         //   socket.disconnect();
+         // };
+       }, []);
 
   return (
     <div className="post-container">
