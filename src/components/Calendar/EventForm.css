@@ -16,7 +16,7 @@
   border: 1px solid #ccc;
 }
 
-.event-form button {
+.event-form  {
   padding: 5px 10px;
   background-color: var(--main-color);
   color: #fff;

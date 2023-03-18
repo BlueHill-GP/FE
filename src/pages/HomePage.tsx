@@ -146,6 +146,7 @@
 //       </div>
 import Categories from "../components/Categories";
 import SetTime from "../components/SetTime";
+import Calendar from "react-calendar";
 const HomePage = () => {
   return (
     <div>
@@ -155,7 +156,9 @@ const HomePage = () => {
       <div>
         <Categories />
       </div>
-      
+      <div>
+        <Calendar/>
+      </div>
     </div>
   );
 };

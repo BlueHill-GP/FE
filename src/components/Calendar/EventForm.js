@@ -43,7 +43,7 @@ function EventForm(props) {
         onChange={handleDateChange}
         required
       />
-      <button type="submit">Add Event</button>
+      <button type="submit" className="add-event">Add Event</button>
     </form>
   );
 }
