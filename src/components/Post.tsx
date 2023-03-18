@@ -14,6 +14,7 @@ export interface PostProps {
     isLiked: boolean;
     user: {
       username: string;
+      avatar: string;
     } & any;
     createAt: number;
     username?: string;
@@ -22,18 +23,17 @@ export interface PostProps {
 interface LikeData {
   [userId: string]: boolean;
 }
-
+const countTrueValues = (obj: { [key: string]: boolean }): number => {
+  return Object.values(obj).reduce((acc, val) => acc + (val ? 1 : 0), 0);
+};
 const Post = (props: PostProps) => {
   const user = useSelector((state: RootState) => state.user);
 
-    // function toggleLike(likeObj: LikeData, user: string) {
-    //   if (user in likeObj) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
-  
+  const [like, setLike] = useState(toggleLike(props.post.like, user.userId));
+  const [likeNumber, setLikeNumber] = useState(
+    props.post.like ? countTrueValues(props.post.like) : 0
+  );
+
   function toggleLike(likeObj: LikeData | undefined, user: string): boolean {
     if (likeObj && user in likeObj) {
       return likeObj[user];
@@ -41,24 +41,51 @@ const Post = (props: PostProps) => {
       return false;
     }
   }
-  const [like, setLike] = useState(toggleLike(props.post.like, user.userId));
   const handleLikePost = async () => {
     setLike(!like);
-     const response = await handleLikeIpa(props.post._id);
+    if (like) {
+      setLikeNumber(likeNumber - 1);
+    } else {
+      setLikeNumber(likeNumber + 1);
+    }
+
+    const response = await handleLikeIpa(props.post._id);
   };
 
+  // let numLikes
+  // if (props.post.like !== undefined && props.post.like !== null) {
+
+  //   numLikes = Object.keys(props.post.like).length;
+  // }
+  console.log(likeNumber);
 
   return (
     <div className="post_Container">
       <div className="post">
         <div className="header-post">
-          <p className="user_Name">
-            <i className="fa-solid fa-user"></i>{" "}
-            {props.post.user.username || props.post.username}
-          </p>
-          <p className="posts_Time">
-            Đăng lúc: {new Date(props.post.createAt).toLocaleString()}
-          </p>
+          <div className="row">
+            <div className="">
+              {props.post.user.avatar ? (
+                <img
+                  className="avatar-post"
+                  src={props.post.user.avatar}
+                  alt=""
+                />
+              ) : user.avatar ? (
+                <img className="avatar-post" src={user.avatar} alt="" />
+              ) : (
+                <i className="fa-solid fa-user avatar-post"></i>
+              )}
+            </div>
+            <div className="">
+              <p className="user_Name">
+                {props.post.user.username || props.post.username}
+              </p>
+              <p className="posts_Time">
+                {new Date(props.post.createAt).toLocaleString()}
+              </p>
+            </div>
+          </div>
         </div>
         <p className="post-desc">{props.post.description}</p>
         <div>
@@ -87,13 +114,15 @@ const Post = (props: PostProps) => {
         </div>
 
         <div>
-          <p onClick={handleLikePost}>
+          <p className="like-container row" onClick={handleLikePost}>
             {like ? (
-              <i className="fa-solid fa-heart"></i>
+              <i className="icon-heart-full fa-solid fa-heart"></i>
             ) : (
-              <i className="fa-regular fa-heart"></i>
+              <i className="icon-heart-null  fa-regular fa-heart"></i>
             )}
-            {/* {props.post.like} */}
+            <div className="like-number">
+              {likeNumber === 0 ? "Tim đầu tiên!!" : likeNumber}
+            </div>
           </p>
         </div>
       </div>

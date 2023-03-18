@@ -16,7 +16,7 @@ const ProfilePage = () => {
   const { id }: any = useParams();
   const initialUser = {
     username: "",
-    urlAvatar: "",
+    avatar: "",
     userType: ""
   }
 
@@ -72,9 +72,8 @@ const ProfilePage = () => {
         <div className="">User not found</div>
       ) : (
         <div className="">
-          
           <div className="info">
-            <h2 className="">name: {user.username}</h2>
+            <h2 className="">name: {user.username}</h2>        
             <h2 className="">userType: {user.userType}</h2>
           </div>
           <div>
@@ -83,7 +82,7 @@ const ProfilePage = () => {
           </div>
         </div>
       )}
-      
+
       <div>
         {servicePackages &&
           servicePackages.map((servicePackage, index) => (
