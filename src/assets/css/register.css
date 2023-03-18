@@ -177,3 +177,66 @@ inputForm{
 .OTP-code{
     color: black;
 }
+
+/* responsive cho thiết bị Pixel 4 */
+@media only screen and (max-width: 1080px) {
+    html {
+        font-size: 18px;
+    }
+    .container-register {
+        min-height: auto;
+        height: 100vh;
+    }
+    .register-section,
+    .login-section {
+        width: 100%;
+        margin: 0;
+    }
+    form,
+    .form-login {
+        margin-inline: 0.5rem;
+    }
+    input[type='text'],
+    input[type='password'],
+    .userType {
+        font-size: 18px;
+    }
+    .line {
+        width: 90%;
+    }
+}
+
+/* responsive cho thiết bị iPad */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    html {
+        font-size: 20px;
+    }
+    .register-section,
+    .login-section {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+/* responsive cho thiết bị iPhone 14 */
+@media only screen and (min-width: 375px) and (max-width: 390px) {
+    html {
+        font-size: 16px;
+    }
+    .register-section,
+    .login-section {
+        width: 50%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* CSS for screens with width >= 1440px */
+@media (min-width: 1440px) {
+    .register-section, .login-section {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+}
