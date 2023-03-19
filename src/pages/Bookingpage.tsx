@@ -95,7 +95,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Customer Address:
+          Địa chỉ khách hàng:
           <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerAddress}
@@ -108,7 +108,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Customer Phone:
+            Số điện thoại khách hàng:
           <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerPhone}
@@ -121,7 +121,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Customer Email:
+          Email của khách hàng:
           <input className={"per-infor-type-email"}
             type="email"
             value={bookingData.customerEmail}
@@ -134,7 +134,7 @@ const BookingForm = () => {
           />
         </label >
         <label className={"label-form-infor"}>
-          Customer Gender:
+          Giới tính của khách hàng:
           <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerGender}
@@ -147,7 +147,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Customer Age:
+          Tuổi của khách hàng:
           <input className={"per-infor-type-number"}
             type="number"
             value={bookingData.customerAge}
@@ -160,7 +160,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Booking Time:
+          Thời gian đặt gói :
           <input className={"per-infor-datetime-local"}
             type="datetime-local"
             value={bookingData.bookingTime}
@@ -173,7 +173,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Booking Address:
+          Địa chỉ đặt gói:
           <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.bookingAddress}
@@ -187,7 +187,7 @@ const BookingForm = () => {
         </label>
 
         <label className={"label-form-infor"}>
-          Notes:
+          Ghi chú:
           <textarea className={"per-infor-type-textrea"}
             value={bookingData.notes}
             onChange={(event) =>
@@ -198,7 +198,7 @@ const BookingForm = () => {
             }
           />
         </label>
-        <button className={"form-submit-per-infor"} type="submit">Submit</button>
+        <button className={"form-submit-per-infor"} type="submit">Tiếp tục</button>
       </form>
     </div>
   );
