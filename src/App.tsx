@@ -10,7 +10,8 @@ import { DefaultEventsMap } from "@socket.io/component-emitter";
 import { io } from "socket.io-client";
 import { messageSuccess } from "./utils/notifi";
 import ChatBox from "./components/chat/Chat";
-const URL = process.env.REACT_APP_API_SOCKET_IO_URL || 'http://localhost:1234'
+const URL = 'http://13.54.229.100:1234'
+  // process.env.REACT_APP_API_SOCKET_IO_URL || 'http://localhost:1234'
 export const socket = io(URL);
 
 function App() {
