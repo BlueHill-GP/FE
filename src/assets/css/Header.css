@@ -62,6 +62,9 @@
   color: #487ba6;
   cursor: pointer;
 }
+.search_Button i:hover{
+  color: #ffffff;
+}
 .header_Auth {
   display: flex;
   align-items: center;

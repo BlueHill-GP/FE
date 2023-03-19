@@ -91,7 +91,7 @@ export const RegisterPage = (props: IProp) => {
         </div>
 ======= */}
 
-            <form onSubmit={handleSubmit}>
+            <form className="forms" onSubmit={handleSubmit}>
               <label>Tên đầy đủ:</label>
               <Input
                 type="text"
