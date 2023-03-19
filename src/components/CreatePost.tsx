@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Post from "../container/PostContainer"
-import api from "../api/api";
 import { createPost } from "../api/postApi";
-import "../assets/css/CreatePosts.css"
+import "../assets/css/CreatePosts.css";
+import Post from "../container/PostContainer";
 function CreatePost() {
   const [files, setFiles] = useState<File[]>([]);
   const [description, setDescription] = useState("");
@@ -43,7 +42,9 @@ function CreatePost() {
     }
   };
 
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setDescription(e.target.value);
   };
 
@@ -64,19 +65,28 @@ function CreatePost() {
             value={description}
             onChange={handleDescriptionChange}
           ></textarea>
-          <label htmlFor="chooseImg">
-            <i className="fa-solid fa-image"></i>
-          </label>
         </div>
+        <div className="create-bottom">
+          <div className="icons">
+            <label htmlFor="chooseImg">
+              <i className="fa-solid fa-image"></i>
+            </label>
+            <div className="icon_container">
+              <i className="fa-solid fa-location-dot"></i>
+            </div>
 
-        {files.map((file, index) => (
-          <div key={index}>
-            <span>{file.name}</span>
-            <button type="button" onClick={() => handleRemoveFile(index)}>
-              Remove
-            </button>
+            <div className="icon_container">
+              <i className="fa-solid fa-link"></i>
+            </div>
+            <div className="icon_container">
+              <i className="fa-solid fa-user-group"></i>
+            </div>
           </div>
-        ))}
+
+          <button type="submit" className="create-btn">
+            POST
+          </button>
+        </div>
         <div>
           <input
             className="choose-img"
@@ -86,9 +96,14 @@ function CreatePost() {
             multiple
           />
         </div>
-        <button type="submit" className="create-btn">
-          Create
-        </button>
+        {files.map((file, index) => (
+          <div key={index}>
+            <span>{file.name}</span>
+            <button type="button" onClick={() => handleRemoveFile(index)}>
+              Remove
+            </button>
+          </div>
+        ))}
       </form>
 
       {/* {posts

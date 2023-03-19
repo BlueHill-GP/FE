@@ -1,11 +1,11 @@
 @import url(styles.css);
 
 .packages-container  {
- 
+
  width: 300px;
 }
 .create-package {
-  
+
   display: flex;
   justify-content: space-around;
   border: 1px solid var(--main-color);
@@ -18,7 +18,7 @@
  
 }
 .create-package-btn{
- margin-bottom: 10px;
+ 
   
 }
 .fa-square-plus {
@@ -26,6 +26,22 @@
  
   
 }
+/* create form */
+.package-form-create{
+  background-color: var(--main-color);
+  padding: 10px;
+}
+.create-package-item{
+  display: flex;
+  justify-content: space-around;
+}
+.create-package-item input{
+width: 180px;
+height: 30px;
+}
+
+
+/* show package */
 .package_Item {
   display: flex;
   width: 250px;
@@ -76,14 +92,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.678);
 }
 
 .modal-content {
-  background-color: white;
+  
   padding: 20px;
   border-radius: 10px;
-  width: 500px;
+  width: 200px;
   height: 600px;
 }
 
@@ -103,16 +119,16 @@
 }
 
 .modal-form {
-  display: flex;
-  flex-direction: column;
+  
+ width: 350px;
   align-items: center;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
+  padding: 10px;
+  background-color:var(--main-color);
+ 
   border-radius: 5px;
 }
 .modal-form input {
-  display: flex;
+  
 }
 
 .create_TitlePackage input {
@@ -124,8 +140,23 @@
 }
 
 .desc-input {
-  width: 200px;
-  height: 50px;
+  
+  padding: 10px;
+  width: 90%;
+  min-width: 250px;
+  min-height: 60px;
+  border: none;
+  outline: none;
+  resize: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.131);
+}
+.desc-input:hover{
+   background-color: rgba(255, 255, 255, 0.35);
+}
+.iconsPackage{
+  display: flex;
+  justify-content: space-around;
 }
 .chooseImg-package {
   display: none;

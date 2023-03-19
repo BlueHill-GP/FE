@@ -150,13 +150,29 @@
 // }
 
 import Categories from "../components/Categories";
+import SetTime from "../components/SetTime";
+import "../assets/css/HomePage.css"
 const HomePage = () => {
-    return (
-        <div>
-      <Categories/>
+  
+  return (
+    <div>
+      <div>
+        <SetTime />
+      </div>
+      <div>
+        <Categories />
+      </div>
+      <div className="heartwrapper">
+        <div className="heart x1"></div>
+        <div className="heart x2"></div>
+        <div className="heart x3"></div>
+        <div className="heart x4"></div>
+        <div className="heart x5"></div>
+        <div className="heart x6"></div>
+      </div>
     </div>
   );
-}
+};
 
 
 export default HomePage;

@@ -1,19 +1,18 @@
-import React from "react";
 import { logowhite } from "../../assets";
 import "../../assets/css/Footer.css";
 
 function Footer() {
   return (
     <footer className="footer">
+      
+
       <div className="footer_Content">
         <div className="right_Footer">
           <div className="logo">
             <img alt="" src={logowhite} />
           </div>
           <div className="cooperate">
-            <a href="">
-              Hợp tác với chúng tôi
-            </a>
+            <a href="">Hợp tác với chúng tôi</a>
           </div>
           <div className="payment_Partner"></div>
         </div>
