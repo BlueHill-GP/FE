@@ -51,14 +51,6 @@ const Post = (props: PostProps) => {
 
     const response = await handleLikeIpa(props.post._id);
   };
-
-  // let numLikes
-  // if (props.post.like !== undefined && props.post.like !== null) {
-
-  //   numLikes = Object.keys(props.post.like).length;
-  // }
-  console.log(likeNumber);
-
   return (
     <div className="post_Container">
       <div className="post">
@@ -114,7 +106,7 @@ const Post = (props: PostProps) => {
         </div>
 
         <div>
-          <p className="like-container row" onClick={handleLikePost}>
+          <div className="like-container row" onClick={handleLikePost}>
             {like ? (
               <i className="icon-heart-full fa-solid fa-heart"></i>
             ) : (
@@ -123,7 +115,7 @@ const Post = (props: PostProps) => {
             <div className="like-number">
               {likeNumber === 0 ? "Tim đầu tiên!!" : likeNumber}
             </div>
-          </p>
+          </div>
         </div>
       </div>
     </div>

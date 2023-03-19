@@ -77,10 +77,7 @@
 //     });
 
 //     socket.on("message", (data) => {
-//       console.log(data);
-
 //       setMessage(data.data);
-//       messageSuccess(data.data);
 //     });
 //   }, []);
 

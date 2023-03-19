@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useEffect } from "react";
 import { DefaultEventsMap } from "@socket.io/component-emitter";
 import { io } from "socket.io-client";
+import { messageSuccess } from "./utils/notifi";
 const URL = process.env.REACT_APP_API_SOCKET_IO_URL || 'http://localhost:1234'
 export const socket = io(URL);
 
@@ -15,7 +16,13 @@ function App() {
   socket.on("connect", () => {
     console.log("Connected: ", socket.connected);
   });
+ useEffect(() => {
 
+   socket.on("message", (data) => {
+     console.log(data);
+     messageSuccess(data.data);
+   });
+ }, []);
   return (
     <div className="App">
       <ToastContainer theme="dark" />

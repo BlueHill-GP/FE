@@ -6,7 +6,6 @@ import Post, { PostProps } from "../components/Post";
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
-  console.log("posts: ", posts);
 
   useEffect(() => {
     async function fetchData() {
