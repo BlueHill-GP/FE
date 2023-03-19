@@ -6,6 +6,7 @@ import "../../assets/css/booking.css"
 
 const Booking = (props: any) => {
     const [servicePackage, setServicePackage] = useState<any>();
+
     useEffect(() => {
         async function fetchData() {
             const response = await getServicePackageById(props.booking.serviceId);
@@ -21,45 +22,39 @@ const Booking = (props: any) => {
             const response = await updateBookingStatus(props.booking._id, status);
             if (response.status === 200) {
                 console.log("update bookings status: " + response.status);
-
             } else {
                 console.log("update bookings status: " + response.status);
-
             }
-
-        } catch (error) {
-
-        }
-
-    }
+        } catch (error) {}
+    };
 
     const cardClassName = `booking-card ${props.booking.bookingStatus}`;
 
     return (
-            <div className="booking-container">
+        <div className="booking-container">
+            <div className="content">
                 <div className={cardClassName}>
-                    <img className={"image-booking"} src={servicePackage?.image[0]} alt="" />
-
                     <h3>{servicePackage?.title}</h3>
+                    <img className={"image-booking"} src={servicePackage?.image[0]} alt="" />
                     <p>{servicePackage?.description}</p>
-                    <p>{servicePackage?.price}</p>
-
+                    <p className="price">{servicePackage?.price}</p>
                     <div className="btn-booking">
-                        {props.booking.bookingStatus === "waiting" ? (
-                            <>
-                                <button className={"btn-accepted-booking"} onClick={() => handleUpdateBookingStatus("accepted")}>
-                                    accept
-                                </button>
-                                <button className={"btn-reject-booking"} onClick={() => handleUpdateBookingStatus("rejected")}>
-                                    reject
-                                </button>
-                            </>
-                        ) : (
-                            <button>{props.booking.bookingStatus}</button>
-                        )}
+                            {props.booking.bookingStatus === "waiting" ? (
+                                <>
+                                    <button className={"btn-accepted-booking"} onClick={() => handleUpdateBookingStatus("accepted")}>
+                                        accept
+                                    </button>
+                                    <button className={"btn-reject-booking"} onClick={() => handleUpdateBookingStatus("rejected")}>
+                                        reject
+                                    </button>
+                                </>
+                            ) : (
+                                <button>{props.booking.bookingStatus}</button>
+                            )}
                     </div>
                 </div>
             </div>
+        </div>
     );
 };
 

@@ -11,60 +11,34 @@
     color: #ffabb8;
 
 }
-.list-booking{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
 
-    /*justify-content: center;*/
-}
 
 .booking-container {
-    /*flex: 2;*/
     background-color: #fae5dc;
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    /*margin: 0 auto;*/
-}
-
-.booking-card {
-    width: 600px;
-    margin: 50px;
-    border: 2px solid #ccc;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: blanchedalmond;
-}
-
-.booking-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
 }
 
 .booking-card p {
     padding: 10px;
     margin: 0;
     text-align: center;
-
 }
 
 .booking-card h3 {
-    margin: 0;
+
     color: hotpink;
-    padding: 10px;
+    padding: 20px;
     font-size: 1.2rem;
-    /*background-color: #e0e0e0;*/
-    /*color: #333;*/
-    text-align: center;
+    /*text-align: center;*/
     justify-content: center;
+    /*align-items: center;*/
 }
 
 .booking-card:hover {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 }
-
 
 .booking-card.waiting {
     border-color: #FFC107;
@@ -85,12 +59,11 @@
     background-color: #2ecc71;
     border: none;
     width: 140px;
-    /*border-radius: 5px;*/
     color: black;
     font-size: 16px;
     cursor: pointer;
-
 }
+
 .btn-reject-booking{
     padding: 10px;
     width: 140px;
@@ -102,4 +75,62 @@
     font-size: 16px;
     cursor: pointer;
     margin-left: 40px;
+}
+
+.booking-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 50px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: blanchedalmond;
+    justify-content: center;
+
+}
+
+.booking-card img {
+    flex: 1;
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+
+}
+
+
+.booking-card .content {
+    /*flex: 2;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*padding: 10px;*/
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+}
+
+.booking-card h3 {
+    margin: auto;
+    color: hotpink;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.booking-card p {
+    margin: auto;
+    text-align: center;
+}
+
+.booking-card .price {
+    margin: auto;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.booking-card .btn-booking {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
