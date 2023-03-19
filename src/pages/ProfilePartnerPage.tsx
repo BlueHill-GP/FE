@@ -96,7 +96,7 @@ const ProfilePage = (props: IProp) => {
           ) : (
             <p>chuwa chra</p>
           )}
-          <button onClick={handleUpdateAvatar}>update avatar</button>
+
           {avatar.map((file, index) => (
             <div key={index}>
               <span>{file.name}</span>
@@ -105,9 +105,7 @@ const ProfilePage = (props: IProp) => {
               </button>
             </div>
           ))}
-          <label htmlFor="chooseImg1">
-            <i className="fa-solid fa-image"></i>
-          </label>
+
           <input
             className="choose-img"
             id="chooseImg1"
@@ -120,6 +118,14 @@ const ProfilePage = (props: IProp) => {
           <h2 className="">
             <i className="fa-solid fa-camera"></i> {user.userType}
           </h2>
+          <div className="update-option">
+            <button onClick={handleUpdateAvatar}>
+              <i className="fa-solid fa-check"></i>
+            </button>
+            <label htmlFor="chooseImg1">
+              <i className="fa-solid fa-pen-to-square"></i>
+            </label>
+          </div>
         </div>
 
         <div>

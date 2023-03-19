@@ -12,7 +12,6 @@
   display: flex;
   gap: 10px;
   position: relative;
- 
 }
 /* .caption textarea {
   width: 100%;
@@ -29,14 +28,14 @@
   border-radius: 10px;
   background-color: #e397973f;
   padding: 10px;
- 
+
   background-color: rgba(255, 255, 255, 0.131);
 }
 .caption textarea:hover {
   background-color: rgba(255, 255, 255, 0.35);
 }
 
-.caption label{
+.caption label {
   position: absolute;
   right: 7px;
   bottom: 3px;
@@ -89,10 +88,12 @@
   height: 50px;
   cursor: pointer;
   background-color: #f5f5f5;
-
+  border: none;
   border-radius: 10px;
 }
-
+.create-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .preview img {
   width: 80%;
   max-height: 800px;
