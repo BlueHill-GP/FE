@@ -62,11 +62,13 @@ const BookingForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className={"container-per-infor"}>
+
+      <form className={"form-per-infor"} onSubmit={handleSubmit}>
+          <p className={"per-infor"}>Thông tin cá nhân</p>
+        <label className={"label-form-infor"}>
           Customer Name:
-          <input
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerName}
             onChange={(event) =>
@@ -77,9 +79,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
+        <label className={"label-form-infor"}>
           Customer Address:
-          <input
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerAddress}
             onChange={(event) =>
@@ -90,9 +92,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
+        <label className={"label-form-infor"}>
           Customer Phone:
-          <input
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerPhone}
             onChange={(event) =>
@@ -103,9 +105,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
+        <label className={"label-form-infor"}>
           Customer Email:
-          <input
+          <input className={"per-infor-type-email"}
             type="email"
             value={bookingData.customerEmail}
             onChange={(event) =>
@@ -115,10 +117,10 @@ const BookingForm = () => {
               })
             }
           />
-        </label>
-        <label>
+        </label >
+        <label className={"label-form-infor"}>
           Customer Gender:
-          <input
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerGender}
             onChange={(event) =>
@@ -129,9 +131,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
+        <label className={"label-form-infor"}>
           Customer Age:
-          <input
+          <input className={"per-infor-type-number"}
             type="number"
             value={bookingData.customerAge}
             onChange={(event) =>
@@ -142,9 +144,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
+        <label className={"label-form-infor"}>
           Booking Time:
-          <input
+          <input className={"per-infor-datetime-local"}
             type="datetime-local"
             value={bookingData.bookingTime}
             onChange={(event) =>
@@ -155,9 +157,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
+        <label className={"label-form-infor"}>
           Booking Address:
-          <input
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.bookingAddress}
             onChange={(event) =>
@@ -169,9 +171,9 @@ const BookingForm = () => {
           />
         </label>
 
-        <label>
+        <label className={"label-form-infor"}>
           Notes:
-          <textarea
+          <textarea className={"per-infor-type-textrea"}
             value={bookingData.notes}
             onChange={(event) =>
               setBookingData({
@@ -181,7 +183,7 @@ const BookingForm = () => {
             }
           />
         </label>
-        <button type="submit">Submit</button>
+        <button className={"form-submit-per-infor"} type="submit">Submit</button>
       </form>
 
       {servicePackage && (
