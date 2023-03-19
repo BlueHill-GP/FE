@@ -21,6 +21,7 @@
 }
 .fa-pen-to-square {
   color: #487ba6;
+  cursor: pointer;
 }
 .update-option button {
   color: rgb(65, 253, 65);
