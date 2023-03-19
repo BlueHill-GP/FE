@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllBookingByUser } from '../api/bookingApi';
-import Booking from './booking/Booking';
+import Booking from "./booking/Booking";
 import "../assets/css/booking.css"
 
 interface IProp {
@@ -30,14 +30,15 @@ const MyBooking = (props: IProp) => {
      }, []);
 
   return (
-    <div className="booking">
-      <div className={"title-booking"}>My Booking</div>
-      <div className="list-booking">
-          {myBooking &&
-              myBooking.map((booking: any, index) => <Booking booking={booking} />)}
-      </div>
-    </div>
-  );
+        <div className="booking">
+          <div className={"title-booking"}>My Booking</div>
+          <div className="list-booking">
+              {myBooking &&
+                  myBooking.map((booking: any, index) => <Booking booking={booking} />)}
+          </div>
+        </div>
+      );
 }
 
-export default MyBooking
+
+export default MyBooking;
