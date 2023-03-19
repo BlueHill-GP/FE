@@ -1,5 +1,7 @@
 .setTime_Container {
   margin-top: 180px;
+
+  
 }
 .setTime_Form {
   margin: 0px auto;
@@ -45,6 +47,20 @@
   cursor: pointer;
   margin-left: 20px;
 }
+.show-packages-homePage{
+  max-width: 700px;
+  margin: 0px auto;
+}
+.show-packages-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 600px;
+}
+
+
+
 @media only screen and (max-width: 1000px) {
   .setTime_Form {
     padding: 15px;

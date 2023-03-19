@@ -5,7 +5,7 @@ import { getServicePackageById } from "../api/servicePackage";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-
+import "../assets/css/bookingPage.css"
 const BookingForm = () => {
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div>
+    <div className="booking-page">
       <form onSubmit={handleSubmit}>
         <label>
           Customer Name:
