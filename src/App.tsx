@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useEffect } from "react";
 import { DefaultEventsMap } from "@socket.io/component-emitter";
 import { io } from "socket.io-client";
-const URL = "http://3.26.103.20:1234";
+const URL = process.env.REACT_APP_API_SOCKET_IO_URL || 'http://localhost:1234'
 export const socket = io(URL);
 
 function App() {

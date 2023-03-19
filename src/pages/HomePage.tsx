@@ -144,14 +144,19 @@
 //         />
 //         <button onClick={() => sendMessage()}>Sent mess</button>
 //       </div>
-import React from "react";
+
+//     </div>
+//   )
+// }
+
 import Categories from "../components/Categories";
 const HomePage = () => {
-  return (
-    <div>
+    return (
+        <div>
       <Categories/>
     </div>
   );
 }
+
 
 export default HomePage;
