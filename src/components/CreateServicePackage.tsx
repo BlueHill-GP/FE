@@ -328,7 +328,7 @@ function CreateServicePackage() {
           value={description}
           onChange={handleDescriptionChange}
         />
-        <div>
+        <div className="select-location">
           <Space wrap>
             <Select
               defaultValue={selectedLocation}
@@ -346,8 +346,12 @@ function CreateServicePackage() {
         {files.map((file, index) => (
           <div key={index}>
             <span>{file.name}</span>
-            <button className="remove-btn" type="button" onClick={() => handleRemoveFile(index)}>
-              Remove
+            <button
+              className="remove-btn"
+              type="button"
+              onClick={() => handleRemoveFile(index)}
+            >
+              <i className="fa-solid fa-trash"></i>
             </button>
           </div>
         ))}

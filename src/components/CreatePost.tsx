@@ -64,13 +64,16 @@ function CreatePost() {
             id="description-input"
             value={description}
             onChange={handleDescriptionChange}
+            rows={4}
           ></textarea>
         </div>
         <div className="create-bottom">
           <div className="icons">
-            <label htmlFor="chooseImg">
-              <i className="fa-solid fa-image"></i>
-            </label>
+            <div className="icon_container">
+              <label htmlFor="chooseImg">
+                <i className="fa-solid fa-image"></i>
+              </label>
+            </div>
             <div className="icon_container">
               <i className="fa-solid fa-location-dot"></i>
             </div>

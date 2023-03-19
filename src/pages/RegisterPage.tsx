@@ -101,6 +101,7 @@ export const RegisterPage = (props: IProp) => {
               />
 
               <label>email:</label>
+            
               <Input
                 type="text"
                 name="email"
@@ -155,6 +156,7 @@ export const RegisterPage = (props: IProp) => {
             <div className={"form-verify"}>
               <p className={"OTP-code"}> Nhập Mã OTP </p>
               <Input
+              
                 type="text"
                 name="otp"
                 value={otp}

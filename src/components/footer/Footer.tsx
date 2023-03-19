@@ -4,8 +4,6 @@ import "../../assets/css/Footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      
-
       <div className="footer_Content">
         <div className="right_Footer">
           <div className="logo">
