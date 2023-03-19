@@ -18,6 +18,7 @@
     border-radius: 20px;
     display: flex;
     justify-content: center;
+
 }
 
 .booking-card p {
@@ -43,6 +44,7 @@
 .booking-card.waiting {
     border-color: #FFC107;
     line-height: 20px;
+    padding: 40px;
 }
 
 .btn-booking {
@@ -88,12 +90,13 @@
     background-color: blanchedalmond;
     justify-content: center;
 
+
 }
 
 .booking-card img {
-    flex: 1;
+    /*flex: 1;*/
     width: 300px;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
 
 }
