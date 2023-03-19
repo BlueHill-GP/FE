@@ -1,7 +1,6 @@
 .profile-container {
   max-width: 1440px;
   margin: 0 auto;
- 
 }
 
 .profile-page {
@@ -11,35 +10,51 @@
   grid-template-columns: 25% 50% 25%;
   gap: 10px;
 }
-.info{
-
+.info {
   margin-left: 20px;
 }
-.info h2{
+.info h2 {
   color: var(--main-color);
 }
-
-
-
-@media only screen and (max-width: 770px) {
- .profile-page{
-  display: grid;
-  grid-template-columns: 1fr;
- }
- 
-  .info{
-  display: none;
- }
- .packageForPartner{
-  margin-top: -180px;
- }
- 
+.avatar-profile {
+  margin-left: 30px;
+}
+.fa-pen-to-square {
+  color: #487ba6;
+}
+.update-option button {
+  color: rgb(65, 253, 65);
+  background-color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+.update-option {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.avatar-profile{
+@media only screen and (max-width: 770px) {
+  .profile-page {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .info {
+    display: none;
+  }
+  .packageForPartner {
+    margin-top: -180px;
+  }
+}
+
+.avatar-profile {
   width: 100px;
   height: 100px;
   border-radius: 100%;
   object-fit: cover;
-  
 }

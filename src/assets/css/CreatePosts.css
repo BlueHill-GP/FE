@@ -1,7 +1,7 @@
 .createPostContainer {
 }
 .create-post {
-  padding: 10px;
+  padding: 20px 0 10px 0;
   border-radius: 10px;
   text-align: center;
   width: 600px;
@@ -9,10 +9,7 @@
   background-color: var(--main-color);
 }
 .caption {
-  display: flex;
-  gap: 10px;
   position: relative;
- 
 }
 /* .caption textarea {
   width: 100%;
@@ -29,70 +26,64 @@
   border-radius: 10px;
   background-color: #e397973f;
   padding: 10px;
- 
-  background-color: rgba(255, 255, 255, 0.131);
+  background-color: rgba(255, 255, 255, 0.523);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.caption textarea::placeholder {
+  font-size: 1rem;
+  color: rgb(95, 95, 95);
 }
 .caption textarea:hover {
-  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.caption label{
-  position: absolute;
-  right: 7px;
-  bottom: 3px;
-}
 .choose-img {
   display: none;
 }
+
 .icons {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.icon_container i {
-  padding: 10px;
+
+.icon_container {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   color: #f5f5f5;
-  font-size: 30px;
-  cursor: pointer;
-  display: inline-block;
-  border-radius: 50px;
+  font-size: 1.2rem;
   transition: all 0.3s;
 }
-.icon_container i:hover {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.fa-image {
-  padding: 10px;
-  color: #f5f5f5;
-  font-size: 30px;
-  cursor: pointer;
-  display: inline-block;
-  border-radius: 50px;
-  transition: all 0.3s;
-}
-.fa-image :hover {
+
+.icon_container:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .create-bottom {
   display: flex;
   justify-content: space-between;
   width: 90%;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
   align-items: center;
 }
 .create-btn {
-  margin-top: 20px;
   color: var(--main-color);
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   text-decoration: none;
-  width: 130px;
-  height: 50px;
+  width: 100px;
+  height: 45px;
   cursor: pointer;
   background-color: #f5f5f5;
-
+  border: none;
   border-radius: 10px;
 }
-
+.create-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .preview img {
   width: 80%;
   max-height: 800px;

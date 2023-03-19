@@ -8,7 +8,7 @@
 .header {
   top: 0px;
   z-index: 999;
-  /* position: fixed; */
+  position: fixed;
   display: flex;
   /* max-width: 1440px; */
   height: 120px;
@@ -44,13 +44,13 @@
   margin-right: 40px;
 }
 .box_Input {
-  border-radius: 15px 0 0 15px;
-  border: 1px solid var(--main-color);
+  border-radius: 10px 0 0 10px;
+  border: 2px solid var(--main-color);
   border-right: none;
   outline: none;
   /* height: 32px; */
   width: 100%;
-  padding: 10px;
+  padding: 8px;
 }
 .search_Button {
   border-radius: 0 15px 15px 0;
@@ -60,11 +60,12 @@
   width: 54px;
 }
 .search_Button i {
-  color: #487ba6;
+  
+  color: #ffffff;
   cursor: pointer;
 }
 .search_Button i:hover{
-  color: #ffffff;
+  color: #487ba6;
 }
 .header_Auth {
   display: flex;
@@ -75,7 +76,7 @@
   text-decoration: none;
 }
 .fa-user {
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
   border-radius: 100%;
   padding: 5px;
   margin-right: 5px;
@@ -88,7 +89,7 @@
   color: #487ba6;
 }
 .signup_Btn {
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
   border-radius: 15px;
   justify-content: center;
 }

@@ -286,16 +286,20 @@ function CreateServicePackage() {
 
   return (
     <div className="createPackageContainer">
-      <div className="create-package">
+      {/* <div className="create-package">
         <h3>Create package</h3>
         <button className="create-package-btn" onClick={handleOpenModal}>
           <i className="fa-regular fa-square-plus"></i>
         </button>
-      </div>
+      </div> */}
 
       <form className="package-form-create" onSubmit={handleSubmit}>
+        <div className="big-title">
+          <h3>Create package</h3>
+        </div>
+
         <div className="create-package-item">
-          <label htmlFor="title-input">title:</label>
+          <label htmlFor="title-input">Title:</label>
           <input
             type="text"
             id="title-input"
@@ -304,7 +308,7 @@ function CreateServicePackage() {
           />
         </div>
         <div className="create-package-item">
-          <label htmlFor="price-input">price:</label>
+          <label htmlFor="price-input">Price:</label>
 
           <input
             type="text"
@@ -314,7 +318,9 @@ function CreateServicePackage() {
           />
         </div>
 
-        <label htmlFor="description-input">Description:</label>
+        <label htmlFor="description-input" className="descLabel">
+          Description:
+        </label>
 
         <textarea
           className="desc-input"
@@ -322,7 +328,7 @@ function CreateServicePackage() {
           value={description}
           onChange={handleDescriptionChange}
         />
-        <div>
+        <div className="select-location">
           <Space wrap>
             <Select
               defaultValue={selectedLocation}
@@ -340,8 +346,12 @@ function CreateServicePackage() {
         {files.map((file, index) => (
           <div key={index}>
             <span>{file.name}</span>
-            <button type="button" onClick={() => handleRemoveFile(index)}>
-              Remove
+            <button
+              className="remove-btn"
+              type="button"
+              onClick={() => handleRemoveFile(index)}
+            >
+              <i className="fa-solid fa-trash"></i>
             </button>
           </div>
         ))}
