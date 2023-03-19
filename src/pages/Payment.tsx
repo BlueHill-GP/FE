@@ -2,6 +2,7 @@ import { createPaymentPayload, getVNPayParams } from "../utils/VNPayUtils";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
+import { createMomoPayment } from "../api/momoPay";
 
 const getRandomIntInclusive = (min: number, max: number) => {
   min = Math.ceil(min);
@@ -27,13 +28,26 @@ const location = useLocation();
       payload
     )}`;
    
-      window.open(vnPayUrl, "_blank");
+     window.location.href = vnPayUrl 
   };
+
+  const MoMo = async() => {
+    const response = await createMomoPayment(data);
+    if (response.data) {
+      console.log(response.data);
+      
+      window.location.href = response.data.payUrl;
+    }
+  }
   return (
     <div>
       <p>Hello world</p>
       <div onClick={pay} style={{ padding: 30 }}>
         Pay for our service
+      </div>
+
+      <div onClick={MoMo} style={{ padding: 30 }}>
+        momo
       </div>
     </div>
   );
