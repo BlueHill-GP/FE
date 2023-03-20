@@ -160,11 +160,12 @@ const HomePage = () => {
           <div className="slide-content">
             <h1 className="title-slide">About Us</h1>
             <p className="desc-slide">
-              Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius
-              dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus
-              id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit
-              explicari interesset. Labores perpetua cum at. Id viris docendi
-              denique vim.
+              Welcome to <strong>Cuoidi Cuoidi!</strong> our We provide quality
+              wedding photography services High quality and convenient. With a
+              team of professional photographers, We are committed to bringing
+              beautiful and emotional photos to clients. Book an appointment
+              online easily and save time. Let us help you preserve the
+              memorable memories of your life.
             </p>
           </div>
         </div>
