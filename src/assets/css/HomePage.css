@@ -59,7 +59,7 @@
     rotate(2deg);
   padding: 10px;
   border-radius: 5px;
-  background: rgba(247, 246, 244, 0.7);
+  background: rgba(247, 246, 244, 0.682);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
@@ -75,7 +75,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.7);
+ 
 }
 
 .slide-content {
@@ -110,7 +110,7 @@
 
 .slide-homepage {
   height: 900px;
-  background-image: url("https://www.theknot.com/tk-media/images/577245c6-7d25-446d-adc7-ec489010f00e");
+  background-image: url("https://media.tinmoi.vn/2017/11/28/18.png");
   
 }
 
@@ -145,7 +145,7 @@
 
 #slide3:before {
   background-image: url("https://www.seafieldhotel.com/cmsGallery/imagerow/11146/resized/1600x900/2_8.png");
-  transform: translateZ(-1px) scale(2);
+  transform: translateZ(-1px) scale(2.5);
 }
 
 /* animation heart */

@@ -158,7 +158,7 @@ const HomePage = () => {
         </div>
         <div id="slide1" className="slide">
           <div className="slide-content">
-            <h1 className="title-slide">Slide 1</h1>
+            <h1 className="title-slide">About Us</h1>
             <p className="desc-slide">
               Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius
               dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus
