@@ -158,26 +158,22 @@ const HomePage = () => {
         </div>
         <div id="slide1" className="slide">
           <div className="slide-content">
-            <h1 className="title-slide">About Us</h1>
+            <h1 className="title-slide">Về chúng tôi</h1>
             <p className="desc-slide">
-              Welcome to <strong>Cuoidi Cuoidi!</strong> our We provide quality
-              wedding photography services High quality and convenient. With a
-              team of professional photographers, We are committed to bringing
-              beautiful and emotional photos to clients. Book an appointment
-              online easily and save time. Let us help you preserve the
-              memorable memories of your life.
+              Chào mừng đến với Cuoidi Cuoidi! của chúng tôi Chúng tôi cung cấp
+              chất lượng Dịch vụ chụp ảnh cưới Cao cấp, tiện lợi. Với một đội
+              ngũ nhiếp ảnh gia chuyên nghiệp, Chúng tôi cam kết mang lại hình
+              ảnh đẹp và cảm xúc cho khách hàng. Đặt lịch hẹn trực tuyến một
+              cách dễ dàng và tiết kiệm thời gian. Hãy để chúng tôi giúp bạn bảo
+              quản kỉ niệm đáng nhớ trong đời.
             </p>
           </div>
         </div>
         <div id="slide2" className="slide">
           <div className="slide-content">
-            <h1 className="title-slide">Slide 2</h1>
+            <h1 className="title-slide">Nhiếp ảnh gia chuyên nghiệp</h1>
             <p className="desc-slide">
-              Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius
-              dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus
-              id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit
-              explicari interesset. Labores perpetua cum at. Id viris docendi
-              denique vim.
+              Với sự am hiểu sâu sắc về nghệ thuật chụp ảnh và kỹ năng sử dụng thiết bị chuyên nghiệp, đội ngũ chụp ảnh của chúng tôi sẽ giúp bạn tạo ra những bức ảnh đẹp và chất lượng nhất. Chúng tôi luôn đảm bảo rằng mỗi khách hàng sẽ được chụp ảnh chất lượng cao và hoàn toàn đáp ứng được nhu cầu của mình.
             </p>
           </div>
           <img src="https://thecontextofthings.com/wp-content/uploads/2014/12/2225.jpeg" />
@@ -185,13 +181,9 @@ const HomePage = () => {
         </div>
         <div id="slide3" className="slide">
           <div className="slide-content">
-            <h1 className="title-slide">Slide 3</h1>
+            <h1 className="title-slide">Cam kết</h1>
             <p className="desc-slide">
-              Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius
-              dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus
-              id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit
-              explicari interesset. Labores perpetua cum at. Id viris docendi
-              denique vim.
+              Chúng tôi cam kết sẽ luôn đem lại trải nghiệm ấn tượng tốt nhất đến với quý khách hàng. Với đội ngũ và các đối tác có trên các tỉnh thành lớn, chúng tôi sẽ luôn nhiệt tình hỗ trợ bạn khi sử dụng dịch vụ của chúng tôi.
             </p>
           </div>
         </div>
