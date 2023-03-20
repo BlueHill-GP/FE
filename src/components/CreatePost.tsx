@@ -60,7 +60,7 @@ function CreatePost() {
         <div className="caption">
           <textarea
             name=""
-            placeholder="Type your caption"
+            placeholder="Bạn đang nghĩ gì..."
             id="description-input"
             value={description}
             onChange={handleDescriptionChange}
