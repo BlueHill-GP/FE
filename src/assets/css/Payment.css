@@ -6,7 +6,6 @@
     margin-bottom: 50px;
     margin-top: 50px;
     color: #e39797;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .choices {
@@ -32,6 +31,16 @@
     /*align-items: center;*/
     margin-top: 20px;
 }
+.choice-vnpay,
+.choice-momo {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.choice-vnpay.show,
+.choice-momo.show {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 .choice-vnpay {
     margin-left: 50px;
@@ -41,14 +50,28 @@
 .choice-momo {
     margin-left: 90px;
     cursor: pointer;
+}
+.momo-frame {
     border-radius: 50%;
 }
+
 
 .confirmation{
     float: right;
     margin-right: 20px;
 }
-
+.btn-confirm-form-infor{
+    border: none;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: var(--main-color);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    width: auto;
+    margin-left: 40px;
+}
 /*.btn-VNpay{*/
 /*    border: none;*/
 /*     margin-top: 20px;*/
