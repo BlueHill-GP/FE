@@ -94,7 +94,13 @@ const ProfilePage = (props: IProp) => {
           {user.avatar !== "" ? (
             <img className="avatar-profile" src={user.avatar} alt="" />
           ) : (
-            <p>chuwa chra</p>
+            <img
+              className="avatar-profile"
+              src={
+                "https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg"
+              }
+              alt=""
+            />
           )}
 
           {avatar.map((file, index) => (
