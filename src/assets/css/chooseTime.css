@@ -1,3 +1,17 @@
-.choose-time{
+.choose-time-container {
   margin-top: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+}
+.choose-time {
+ display: grid;
+ grid-template-columns: 35% 65%;
+
+}
+.choose-time-search {
+}
+.show-data-after-search {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
