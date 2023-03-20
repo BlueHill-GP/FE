@@ -10,25 +10,24 @@
 
 .choices {
     display: flex;
-    flex-wrap: wrap; /* Hiển thị 2 cột trên cùng dòng */
-    width: 70%; /* Định nghĩa chiều rộng của phần cột chọn */
+    flex-wrap: wrap;
+    width: 70%;
 }
 
 .choices-left {
     display: flex;
-    width: 70%; /* Chọn 50% chiều rộng cho phần bên trái */
+    width: 70%;
 }
 
 .payment-image {
-    width: 300px; /* Chiều rộng của hình ảnh */
-    height: 200px; /* Chiều cao của hình ảnh */
-    margin-right: 20px; /* Tạo khoảng cách giữa hình ảnh và văn bản */
+    width: 300px;
+    height: 200px;
+    margin-right: 20px;
 }
 
 .container-payment {
     display: flex;
     justify-content: flex-start;
-    /*align-items: center;*/
     margin-top: 20px;
 }
 .choice-vnpay,
@@ -72,31 +71,6 @@
     width: auto;
     margin-left: 40px;
 }
-/*.btn-VNpay{*/
-/*    border: none;*/
-/*     margin-top: 20px;*/
-/*    font-weight: bold;*/
-/*    background-color: var(--main-color);*/
-/*    color: #fff;*/
-/*    cursor: pointer;*/
-/*    border-radius: 10px;*/
-/*    padding: 10px;*/
-/*    width: auto;*/
-/*    margin-left: 40px;*/
-/*}*/
-
-/*.btn-momo{*/
-/*    border: none;*/
-/*    font-weight: bold;*/
-/*    margin-top: 20px;*/
-/*    background-color: var(--main-color);*/
-/*    color: #fff;*/
-/*    cursor: pointer;*/
-/*    padding: 10px;*/
-/*    border-radius: 10px;*/
-/*    margin-left: 60px;*/
-
-/*}*/
 
 /*form*/
 .container-per-infor {
@@ -106,15 +80,6 @@
 }
 
 .form-per-infor {
-    /*background-color: rgba(5, 0, 0, 0.4);*/
-    /*width: 100%;*/
-    /*max-width: 850px;*/
-    /*padding: 40px;*/
-    /*box-sizing: border-box;*/
-    /*font-family: 'Nunito', sans-serif;*/
-    /*font-size: 24px;*/
-    /*color: #fff;*/
-    /*margin: 0 auto;*/
     margin-top: 50px;
     width: 100%;
     max-width: 950px;
