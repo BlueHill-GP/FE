@@ -102,7 +102,7 @@ const BookingForm = () => {
       <form className={"form-per-infor"} onSubmit={handleSubmit}>
         <p className={"title-per-infor"}>Thông tin liên hệ</p>
         <label className={"label-form-infor"}>
-          Customer Name:
+          Tên khách hàng:
           <input
             className={"per-infor-type-text"}
             type="text"
@@ -130,7 +130,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Số điện thoại khách hàng:
+          Số điện thoại:
           <input
             className={"per-infor-type-text"}
             type="text"
@@ -144,7 +144,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Email của khách hàng:
+          Email:
           <input
             className={"per-infor-type-email"}
             type="email"
@@ -158,7 +158,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Giới tính của khách hàng:
+          Giới tính:
           <input
             className={"per-infor-type-text"}
             type="text"
@@ -172,7 +172,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Tuổi của khách hàng:
+          Tuổi:
           <input
             className={"per-infor-type-number"}
             type="number"
@@ -186,7 +186,7 @@ const BookingForm = () => {
           />
         </label>
         <label className={"label-form-infor"}>
-          Thời gian đặt gói :
+          Thời gian đặt gói:
           <input
             className={"per-infor-datetime-local"}
             type="datetime-local"
