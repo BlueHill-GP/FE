@@ -65,19 +65,21 @@ const BookingForm = () => {
     <div className={"container-per-infor"}>
         {servicePackage && (
             <div className={"container"}>
-            <div className={"infor-contact"}>
-                {/*<div className=""></div>*/}
-                <p className={"service-package-title"}>{servicePackage.title}</p>
-                <p className={"service-package-price"}>{servicePackage.price}</p>
-                <p className={"service-package-description"}>{servicePackage.description}</p>
-                {servicePackage && servicePackage.image.map((imageUrl: string, index: number) => (
-                    <img className={"image-service-paka"} key={index} src={imageUrl} alt={`Hình ảnh ${index} của bài đăng`} />
-                ))}
-                <p className={"service-package-star"}>Số sao: {servicePackage.star.length}</p>
-                <p className={"service-package-user"}>Người dùng: {servicePackage.user.username}</p>
-                <p className={"service-package-creteAt"}>Đã đăng vào lúc: {new Date(servicePackage.createAt).toLocaleString()}</p>
-            </div>
-            </div>
+                <div className={"image-wrapper"}>
+                    {servicePackage && servicePackage.image.map((imageUrl: string, index: number) => (
+                        <img className={"image-service-paka"} key={index} src={imageUrl} alt={`Hình ảnh ${index} của bài đăng`} />
+                    ))}
+                </div>
+
+                <div className="infor-wrapper">
+                    <p className={"service-package-title"}>{servicePackage.title}</p>
+                    <p className={"service-package-price"}>{servicePackage.price}</p>
+                    <p className={"service-package-description"}>{servicePackage.description}</p>
+                    <p className={"service-package-star"}>Số sao: {servicePackage.star.length} </p>
+                    <p className={"service-package-user"}>Người dùng: {servicePackage.user.username}</p>
+                    <p className={"service-package-createAt"}>Đã đăng vào lúc: {new Date(servicePackage.createAt).toLocaleString()}</p>
+                </div>
+                </div>
         )}
       <form className={"form-per-infor"} onSubmit={handleSubmit}>
           <p className={"title-per-infor"}>Thông tin liên hệ</p>
