@@ -62,9 +62,11 @@ const BookingForm = () => {
   };
 
   return (
-    // <div>
+
+    // <div className="booking-page">
     //   <form onSubmit={handleSubmit}>
     //     <label>
+
     <div className={"container-per-infor"}>
       {servicePackage && (
         <div className={"container"}>
