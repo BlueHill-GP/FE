@@ -54,6 +54,7 @@ const BookingForm = () => {
             servicePackage: servicePackage._id,
             price: servicePackage.price,
             bookingId: response.data.data,
+              information: bookingData
           },
         },
       });
@@ -84,7 +85,7 @@ const BookingForm = () => {
       <form className={"form-per-infor"} onSubmit={handleSubmit}>
           <p className={"title-per-infor"}>Thông tin liên hệ</p>
         <label className={"label-form-infor"}>
-          Customer Name:
+          Tên khách hàng:
           <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerName}

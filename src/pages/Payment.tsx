@@ -1,5 +1,5 @@
 import { createPaymentPayload, getVNPayParams } from "../utils/VNPayUtils";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../assets/css/Payment.css"
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -13,7 +13,7 @@ const getRandomIntInclusive = (min: number, max: number) => {
 const VNPay = () => {
   const location = useLocation();
   const data = location.state.data;
-  console.log(data);
+  console.log(data.information);
 
   const [showVnpay, setShowVnpay] = useState(false);
   const [showMomo, setShowMomo] = useState(false);
@@ -42,10 +42,7 @@ const VNPay = () => {
 
   return (
       <div>
-        <p className={"title-payment"}>Chào mừng bạn đến với trang thanh toán</p>
-        {/*<div onClick={pay} style={{ padding: 30 }}>*/}
-        {/*  Pay for our service*/}
-        {/*</div>*/}
+        {/*<p className={"title-payment"}>Chào mừng bạn đến với trang thanh toán</p>*/}
         <div className={"container-payment"}>
           <div className="choices">
             <div className={`choice-vnpay ${showVnpay ? "show" : ""}`}>
@@ -59,8 +56,72 @@ const VNPay = () => {
 
           {/* Form confirmation */}
           <div className="confirmation">
-            <h3>Thông tin đã điền</h3>
-            <p>...</p>
+            <h3 className={"title-confirm-infor-person"}>Thông tin cá nhân</h3>
+            <form className={"form-per-infor"} >
+              <label className={"label-form-infor"}>
+                Tên khách hàng:
+                <input className={"per-infor-type-text"}
+                       type="text"
+                       value={data.information.customerName}
+
+                />
+              </label>
+              <label className={"label-form-infor"}>
+                Địa chỉ khách hàng:
+                <input className={"per-infor-type-text"}
+                       type="text"
+                       value={data.information.customerAddress}
+
+                />
+              </label>
+              <label className={"label-form-infor"}>
+                Số điện thoại khách hàng:
+                <input className={"per-infor-type-text"}
+                       type="text"
+                       value={data.information.customerPhone}
+
+                />
+              </label>
+              <label className={"label-form-infor"}>
+                Email của khách hàng:
+                <input className={"per-infor-type-email"}
+                       type="email"
+                       value={data.information.customerEmail}
+                />
+              </label >
+              <label className={"label-form-infor"}>
+                Giới tính của khách hàng:
+                <input className={"per-infor-type-text"}
+                       type="text"
+                       value={data.information.customerGender}
+
+                />
+              </label>
+              <label className={"label-form-infor"}>
+                Tuổi của khách hàng:
+                <input className={"per-infor-type-number"}
+                       type="number"
+                       value={data.information.customerAge}
+
+                />
+              </label>
+              <label className={"label-form-infor"}>
+                Thời gian đặt gói :
+                <input className={"per-infor-datetime-local"}
+                       type="datetime-local"
+                       value={data.information.bookingTime}
+
+                />
+              </label>
+
+              <label className={"label-form-infor"}>
+                Ghi chú:
+                <textarea className={"per-infor-type-textrea"}
+                          value={data.information.notes}
+
+                />
+              </label>
+            </form>
             <button className={"btn-confirm-form-infor"} onClick={handleConfirmation}>Xác nhận</button>
           </div>
         </div>

@@ -6,12 +6,14 @@
     margin-bottom: 50px;
     margin-top: 50px;
     color: #e39797;
+
 }
 
 .choices {
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
+    width: 45%;
+    margin-top: 300px;
 }
 
 .choices-left {
@@ -28,7 +30,8 @@
 .container-payment {
     display: flex;
     justify-content: flex-start;
-    margin-top: 20px;
+    margin-top: 40px;
+    background-color: #ffebcd;
 }
 .choice-vnpay,
 .choice-momo {
@@ -69,7 +72,7 @@
     border-radius: 10px;
     padding: 10px;
     width: auto;
-    margin-left: 40px;
+    margin-left: 300px;
 }
 
 /*form*/
@@ -236,3 +239,12 @@
 
     color: #ffabb8;
 }
+
+.title-confirm-infor-person{
+    color: #e39797;
+    font-size: 25px;
+    text-align: center;
+    margin-top:40px
+}
+
+
