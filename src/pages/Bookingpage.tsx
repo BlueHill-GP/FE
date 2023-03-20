@@ -64,7 +64,7 @@ const BookingForm = () => {
   return (
     <div className={"container-per-infor"}>
         {servicePackage && (
-            <div className={"container"}>
+            <div className={"container-from-booking"}>
                 <div className={"image-wrapper"}>
                     {servicePackage && servicePackage.image.map((imageUrl: string, index: number) => (
                         <img className={"image-service-paka"} key={index} src={imageUrl} alt={`Hình ảnh ${index} của bài đăng`} />
