@@ -66,7 +66,7 @@ const BookingForm = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Customer Name:
-          <input
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerName}
             onChange={(event) =>
@@ -77,9 +77,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Address:
-          <input
+        <label className={"label-form-infor"}>
+          Địa chỉ khách hàng:
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerAddress}
             onChange={(event) =>
@@ -90,9 +90,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Phone:
-          <input
+        <label className={"label-form-infor"}>
+            Số điện thoại khách hàng:
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerPhone}
             onChange={(event) =>
@@ -103,9 +103,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Email:
-          <input
+        <label className={"label-form-infor"}>
+          Email của khách hàng:
+          <input className={"per-infor-type-email"}
             type="email"
             value={bookingData.customerEmail}
             onChange={(event) =>
@@ -115,10 +115,10 @@ const BookingForm = () => {
               })
             }
           />
-        </label>
-        <label>
-          Customer Gender:
-          <input
+        </label >
+        <label className={"label-form-infor"}>
+          Giới tính của khách hàng:
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerGender}
             onChange={(event) =>
@@ -129,9 +129,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Age:
-          <input
+        <label className={"label-form-infor"}>
+          Tuổi của khách hàng:
+          <input className={"per-infor-type-number"}
             type="number"
             value={bookingData.customerAge}
             onChange={(event) =>
@@ -142,9 +142,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Booking Time:
-          <input
+        <label className={"label-form-infor"}>
+          Thời gian đặt gói :
+          <input className={"per-infor-datetime-local"}
             type="datetime-local"
             value={bookingData.bookingTime}
             onChange={(event) =>
@@ -155,9 +155,9 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Booking Address:
-          <input
+        <label className={"label-form-infor"}>
+          Địa chỉ đặt gói:
+          <input className={"per-infor-type-text"}
             type="text"
             value={bookingData.bookingAddress}
             onChange={(event) =>
@@ -169,9 +169,9 @@ const BookingForm = () => {
           />
         </label>
 
-        <label>
-          Notes:
-          <textarea
+        <label className={"label-form-infor"}>
+          Ghi chú:
+          <textarea className={"per-infor-type-textrea"}
             value={bookingData.notes}
             onChange={(event) =>
               setBookingData({
@@ -181,24 +181,8 @@ const BookingForm = () => {
             }
           />
         </label>
-        <button type="submit">Submit</button>
+        <button className={"form-submit-per-infor"} type="submit">Tiếp tục</button>
       </form>
-
-      {servicePackage && (
-        <div>
-          <div className=""></div>
-          <p>{servicePackage.title}</p>
-          <p>{servicePackage.price}</p>
-          <p>{servicePackage.description}</p>
-          {servicePackage &&
-            servicePackage.image.map((imageUrl: string, index: number) => (
-              <img key={index} src={imageUrl} alt={`Post image ${index}`} />
-            ))}
-          <p>Star: {servicePackage.star.length}</p>
-          <p>User: {servicePackage.user.username}</p>
-          <p>Posted at: {new Date(servicePackage.createAt).toLocaleString()}</p>
-        </div>
-      )}
     </div>
   );
 };
