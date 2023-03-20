@@ -43,27 +43,15 @@ const ServicePackage = (props: any) => {
 
   return (
     <div className="packages-container">
-      <div className="">
-        {props.user ? (
-          props.user && props.user.userType === "couple" ? (
-            <button onClick={() => handleBooking(props.servicePackage._id)}>
-              Booking now
-            </button>
-          ) : (
-            <button>...</button>
-          )
-        ) : (
-          <button onClick={() => handleBooking(props.servicePackage._id)}>
-            Booking now
-          </button>
-        )}
-        {}
-      </div>
       <div className="package_Item">
         <div className="package_Img">
-          {props.servicePackage.image.map((imageUrl: string, index: number) => (
-            <img key={index} src={imageUrl} alt={`Post image ${index}`} />
-          ))}
+          {/* {props.servicePackage.image.map((imageUrl: string, index: number) => ( */}
+          <img
+            // key={index}
+            src={props.servicePackage.image[0]}
+            // alt={`Post image ${index}`}
+          />
+          {/* ))} */}
         </div>
         <div className="package_Content">
           <p className="package-title">{props.servicePackage.title}</p>
@@ -71,11 +59,37 @@ const ServicePackage = (props: any) => {
           <p className="package-desc">{props.servicePackage.description}</p>
 
           <p>Star: {props.servicePackage.star.length}</p>
-          <p className="package-userName">User: {props.servicePackage.user.username || props.user.name}</p>
+          <p className="package-userName">
+            User: {props.servicePackage.user.username || props.user.name}
+          </p>
           <p className="time-create-package">
             {" "}
             {new Date(props.servicePackage.createAt).toLocaleString()}
           </p>
+          <div className="package-option">
+            {props.user ? (
+              props.user && props.user.userType === "couple" ? (
+                <button
+                  className="booking-btn"
+                  onClick={() => handleBooking(props.servicePackage._id)}
+                >
+                  Booking now
+                </button>
+              ) : (
+                <button className="photographer-option">
+                  <i className="fa-solid fa-ellipsis"></i>
+                </button>
+              )
+            ) : (
+              <button
+                className="booking-btn"
+                onClick={() => handleBooking(props.servicePackage._id)}
+              >
+                Booking now
+              </button>
+            )}
+            {}
+          </div>
         </div>
       </div>
     </div>

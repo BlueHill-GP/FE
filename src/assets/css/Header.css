@@ -31,9 +31,11 @@
 .menu li {
   padding: 0 10px;
   min-width: 130px;
+ 
 }
 .menu-item {
   text-decoration: none;
+   color: #101010;
 }
 .search {
   display: flex;
@@ -84,6 +86,7 @@
 .signin_Btn {
   display: flex;
   align-items: center;
+  color: #101010;
 }
 .signin_Btn i {
   color: #487ba6;
@@ -92,6 +95,7 @@
   border: 2px solid var(--main-color);
   border-radius: 15px;
   justify-content: center;
+  color: #101010;
 }
 
 /* /* show data search */

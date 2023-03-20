@@ -49,11 +49,12 @@
   margin-left: 13px;
 }
 
-.select-location{
+.select-location {
   margin-left: 13px;
 }
 /* show package */
 .package_Item {
+  margin-top: 15px;
   display: flex;
   width: 300px;
   height: auto;
@@ -68,7 +69,6 @@
   padding: 5px;
   border-radius: 10px;
   object-fit: cover;
-  
 }
 .package_Content {
   margin-left: 10px;
@@ -100,6 +100,36 @@
   background: none;
   border: none;
 }
+/* show package for couple */
+.booking-btn {
+  margin-top: 5px;
+  margin-left: 60px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 900;
+  background-color: #eb1d36;
+  color: #ffffff;
+  border: 2px solid #eb1d36;
+}
+.booking-btn:hover {
+  color: #eb1d36;
+  border: 2px solid #eb1d36;
+  background-color: #ffffff;
+}
+/* show package for photographer */
+.photographer-option{
+  border: none;
+  background:none;
+  padding: 2px;
+  margin-top: 5px;
+  margin-left: 140px;
+  cursor: pointer;
+}
+
+
+
+
 /* Modal */
 
 .modal {
@@ -172,12 +202,11 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .iconsPackage {
-
   display: flex;
   justify-content: space-around;
 }
-.iconsPackage label i{
-   width: 55px;
+.iconsPackage label i {
+  width: 55px;
   height: 55px;
   display: flex;
   align-items: center;
@@ -187,7 +216,7 @@
   font-size: 1.2rem;
   transition: all 0.3s;
 }
-.iconsPackage label i:hover{
+.iconsPackage label i:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .chooseImg-package {
