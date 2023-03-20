@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getPostByUser } from "../api/postApi";
-import { getServicePackageByUser } from "../api/servicePackage";
-import CreatePost from "../components/CreatePost";
-import CreateServicePackage from "../components/CreateServicePackage";
-import Post from "../components/Post";
-import ServicePackage from "../container/servicePackageContainer";
-import "../assets/css/ProfilePartnerPage.css";
+import { getAllBookingByUser } from "../api/bookingApi";
+import Booking from "../components/booking/Booking";
+// import "../assets/css/booking.css";
 import { updateAvatarApi } from "../api/userApi";
+import { setUser } from "../redux/slide/profileSlice";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 interface IProp {
   user: {
@@ -14,44 +13,30 @@ interface IProp {
     name: string;
     email: string;
     userType: string;
-    avatar: string;
   };
-  setUser: (userId: string) => void;
 }
-const ProfilePage = (props: IProp) => {
-  const { user, setUser } = props;
+const MyBooking = (props: IProp) => {
+ const user = useSelector((state:RootState) => state.user);
+  const [myBooking, setMyBooking] = useState([]);
+  console.log(myBooking);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getAllBookingByUser(user.userId);
+      if (response.data.data) {
+        setMyBooking(response.data.data);
+      }
+    }
+    fetchData();
+
+    return () => {
+      setMyBooking([]);
+    };
+  }, []);
+
   const [avatar, setAvatar] = useState<File[]>([]);
   const [posts, setPosts] = useState([]);
   const [servicePackages, setPServicePackages] = useState([]);
   console.log(servicePackages);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getPostByUser(user.userId);
-      if (response.data.data) {
-        console.log(response.data.data);
-        
-        setPosts(response.data.data);
-      }
-    }
-    fetchData();
-
-    return () => {
-      setPosts([]);
-    };
-  }, []);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getServicePackageByUser(user.userId);
-      if (response.data.data) {
-        setPServicePackages(response.data.data);
-      }
-    }
-    fetchData();
-    return () => {
-      setPServicePackages([]);
-    };
-  }, []);
 
   const handleFileChangeProfile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = e.target.files;
@@ -134,20 +119,11 @@ const ProfilePage = (props: IProp) => {
           </div>
         </div>
 
-        <div>
-          <CreatePost />
-          <div>
-            {posts &&
-              posts.map((post, index) => <Post post={post} key={index} />)}
-          </div>
-        </div>
-
-        <div className="packageForPartner">
-          <CreateServicePackage />
-          <div>
-            {servicePackages &&
-              servicePackages.map((servicePackage, index) => (
-                <ServicePackage servicePackage={servicePackage} key={index} />
+        <div className="booking">
+          <div className="list-booking">
+            {myBooking &&
+              myBooking.map((booking: any, index) => (
+                <Booking booking={booking} />
               ))}
           </div>
         </div>
@@ -156,4 +132,4 @@ const ProfilePage = (props: IProp) => {
   );
 };
 
-export default ProfilePage;
+export default MyBooking;
