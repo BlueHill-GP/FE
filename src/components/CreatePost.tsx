@@ -87,7 +87,7 @@ function CreatePost() {
           </div>
 
           <button type="submit" className="create-btn">
-            POST
+            Xong
           </button>
         </div>
         <div>
@@ -103,7 +103,7 @@ function CreatePost() {
           <div key={index}>
             <span>{file.name}</span>
             <button type="button" onClick={() => handleRemoveFile(index)}>
-              Remove
+              xóa
             </button>
           </div>
         ))}

@@ -58,9 +58,9 @@ const ServicePackage = (props: any) => {
           <p className="package-price">{props.servicePackage.price} vnd</p>
           <p className="package-desc">{props.servicePackage.description}</p>
 
-          <p>Star: {props.servicePackage.star.length}</p>
+          <p>Đánh giá: {props.servicePackage.star.length}</p>
           <p className="package-userName">
-            User: {props.servicePackage.user.username || props.user.name}
+            Người đăng: {props.servicePackage.user.username || props.user.name}
           </p>
           <p className="time-create-package">
             {" "}
@@ -73,7 +73,7 @@ const ServicePackage = (props: any) => {
                   className="booking-btn"
                   onClick={() => handleBooking(props.servicePackage._id)}
                 >
-                  Booking now
+                  Đặt ngay
                 </button>
               ) : (
                 <button className="photographer-option">
@@ -85,7 +85,7 @@ const ServicePackage = (props: any) => {
                 className="booking-btn"
                 onClick={() => handleBooking(props.servicePackage._id)}
               >
-                Booking now
+                Đặt ngay
               </button>
             )}
             {}

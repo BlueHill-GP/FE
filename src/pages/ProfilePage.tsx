@@ -73,8 +73,8 @@ const ProfilePage = () => {
       ) : (
         <div className="">
           <div className="info">
-            <h2 className="">name: {user.username}</h2>        
-            <h2 className="">userType: {user.userType}</h2>
+            <h2 className="">Tên: {user.username}</h2>        
+            <h2 className="">Thợ: {user.userType}</h2>
           </div>
           <div>
             {posts &&

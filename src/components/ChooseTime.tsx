@@ -68,7 +68,7 @@ const App: React.FC = () => {
           />
         </Space>
 
-        <Button onClick={handleSendData}>Send Data</Button>
+        <Button onClick={handleSendData}>Gửi</Button>
       </div>
 
       {servicePackages &&

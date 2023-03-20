@@ -295,11 +295,11 @@ function CreateServicePackage() {
 
       <form className="package-form-create" onSubmit={handleSubmit}>
         <div className="big-title">
-          <h3>Create package</h3>
+          <h3>Tạo các gói</h3>
         </div>
 
         <div className="create-package-item">
-          <label htmlFor="title-input">Title:</label>
+          <label htmlFor="title-input">Tiêu đề:</label>
           <input
             type="text"
             id="title-input"
@@ -308,7 +308,7 @@ function CreateServicePackage() {
           />
         </div>
         <div className="create-package-item">
-          <label htmlFor="price-input">Price:</label>
+          <label htmlFor="price-input">Giá:</label>
 
           <input
             type="text"
@@ -319,7 +319,7 @@ function CreateServicePackage() {
         </div>
 
         <label htmlFor="description-input" className="descLabel">
-          Description:
+          Mô tả:
         </label>
 
         <textarea
@@ -368,7 +368,7 @@ function CreateServicePackage() {
             />
           </div>
           <button className="save-btn" type="submit">
-            Save
+            Lưu
           </button>
         </div>
       </form>
@@ -380,14 +380,14 @@ function CreateServicePackage() {
             </span>
           </div>
           <form className="modal-form" onSubmit={handleSubmit}>
-            <label htmlFor="title-input">title:</label>
+            <label htmlFor="title-input">Tiêu đề:</label>
             <input
               type="text"
               id="title-input"
               value={title}
               onChange={handleTitleChange}
             />
-            <label htmlFor="price-input">price:</label>
+            <label htmlFor="price-input">Giá:</label>
 
             <input
               type="text"
@@ -395,7 +395,7 @@ function CreateServicePackage() {
               value={price}
               onChange={handlePriceChange}
             />
-            <label htmlFor="description-input">Description:</label>
+            <label htmlFor="description-input">Mô tả:</label>
 
             <textarea
               className="desc-input"
@@ -422,7 +422,7 @@ function CreateServicePackage() {
               <div key={index}>
                 <span>{file.name}</span>
                 <button type="button" onClick={() => handleRemoveFile(index)}>
-                  Remove
+                  Xóa
                 </button>
               </div>
             ))}

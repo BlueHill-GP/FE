@@ -92,7 +92,7 @@ const MyBooking = (props: IProp) => {
             <div key={index}>
               <span>{file.name}</span>
               <button type="button" onClick={() => handleRemoveFile(index)}>
-                Remove
+                Xóa
               </button>
             </div>
           ))}
