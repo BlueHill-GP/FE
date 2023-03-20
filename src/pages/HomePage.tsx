@@ -152,9 +152,48 @@ import SetTime from "../components/SetTime";
 const HomePage = () => {
   return (
     <div className="home-page">
-      <div className="setTime-categories">
-        <Categories />
-        <SetTime />
+      <div className="home-page-container">
+        <div id="title" className="slide slide-homepage">
+          <p>Cuoidi Cuoidi</p>
+        </div>
+        <div id="slide1" className="slide">
+          <div className="slide-content">
+            <h1 className="title-slide">Slide 1</h1>
+            <p className="desc-slide">
+              Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius
+              dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus
+              id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit
+              explicari interesset. Labores perpetua cum at. Id viris docendi
+              denique vim.
+            </p>
+          </div>
+        </div>
+        <div id="slide2" className="slide">
+          <div className="slide-content">
+            <h1 className="title-slide">Slide 2</h1>
+            <p className="desc-slide">
+              Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius
+              dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus
+              id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit
+              explicari interesset. Labores perpetua cum at. Id viris docendi
+              denique vim.
+            </p>
+          </div>
+          <img src="https://thecontextofthings.com/wp-content/uploads/2014/12/2225.jpeg" />
+          <img src="https://i.etsystatic.com/13562776/r/il/302ba2/1311368932/il_fullxfull.1311368932_dyo6.jpg" />
+        </div>
+        <div id="slide3" className="slide">
+          <div className="slide-content">
+            <h1 className="title-slide">Slide 3</h1>
+            <p className="desc-slide">
+              Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius
+              dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus
+              id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit
+              explicari interesset. Labores perpetua cum at. Id viris docendi
+              denique vim.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="heartwrapper">
