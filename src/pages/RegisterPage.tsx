@@ -81,16 +81,6 @@ export const RegisterPage = (props: IProp) => {
               <p> Hãy tận hưởng đám cưới của bạn</p>
               <h1 className={"form_header_register-text"}>Đăng ký</h1>
             </div>
-            {/* <<<<<<< HEAD
-            {errorMessage && <div>{errorMessage}</div>}
-            <button type="submit">Register</button>
-          </form>
-          <button type="button" onClick={() => navigate("/")}>
-            login
-          </button>
-        </div>
-======= */}
-
             <form onSubmit={handleSubmit}>
               <label>Tên đầy đủ:</label>
               <Input
