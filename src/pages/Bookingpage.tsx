@@ -78,7 +78,6 @@ const BookingForm = () => {
         console.log('Failed:', errorInfo);
     };
   return (
-
     <div className={"container-per-infor"}>
       {servicePackage && (
         <div className={"container"}>
@@ -120,7 +119,7 @@ const BookingForm = () => {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
-        >
+         >
             <p className={"title-per-infor"}>Thông tin liên hệ</p>
             <Form.Item
                 label="tên khách hàng"
@@ -192,7 +191,7 @@ const BookingForm = () => {
                     },
                 ]}
             >
-                <Select placeholder="select your gender">
+                <Select placeholder="Chọn giới tính của bạn">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
@@ -200,8 +199,8 @@ const BookingForm = () => {
             </Form.Item>
 
             <Form.Item
-                name="Ghi chứ"
-                label="Intro"
+                name="Intro"
+                label="Ghi chú"
                 rules={[
                     {
                         required: true,
@@ -212,10 +211,10 @@ const BookingForm = () => {
                 <Input.TextArea showCount maxLength={100} />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button className={"form-submit-per-infor"} >
+            <Form.Item >
+                <button className={"form-submit-per-infor"} >
                     Submit
-                </Button>
+                </button>
             </Form.Item>
         </Form>
       {/*<form className={"form-per-infor"} onSubmit={handleSubmit}>*/}

@@ -1,14 +1,21 @@
 .container-per-infor {
     /*background-color: #e39797;*/
     margin-top: 180px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 5px;
+    padding: 10px;
+    background-color: #ffebcd;
+    border-radius: 10px;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    /*grid-template-columns: repeat(1, 0.5fr);*/
     grid-template-rows: auto;
     grid-gap: 20px;
-    padding: 20px;
+    padding: 10px;
     background-color: #ffebcd;
     border-radius: 10px;
 }
@@ -89,9 +96,6 @@
     font-size: 24px;
     color: #fff;
     margin: 0 auto;
-    /*display: grid;*/
-    /*grid-template-columns: 1fr 1fr;*/
-    /*grid-gap: 20px;*/
 }
 .title-per-infor {
     color: #ffabb8;
@@ -102,14 +106,16 @@
 }
 .form-submit-per-infor {
     background-color: #ffabb8;
+    font-size: 25px;
     color: white;
-    padding: 20px;
+    padding: 10px;
     width: 50%;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin: 20px auto;
+    margin: 10px auto;
     display: block;
+    text-align: center;
 }
 
 .form-submit-per-infor:hover {
