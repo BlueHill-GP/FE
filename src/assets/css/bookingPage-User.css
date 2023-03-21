@@ -47,12 +47,14 @@
 }
 .label-form-infor{
     font-size: 20px;
+    color: black;
 }
 .service-package-createAt {
     color: #e67979;
 }
 .form-per-infor {
-    background-color: rgba(5, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 650px;
     justify-content: center;
@@ -61,7 +63,11 @@
     font-size: 24px;
     color: #fff;
     margin: auto;
-
+    transition: all 0.3s ease;
+}
+.form-per-infor:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
 }
 .info-form-couple{
     width: auto;
@@ -69,9 +75,9 @@
     padding-left: 90px;
 }
 .title-per-infor {
-    color: #ffabb8;
+    color: black;
     font-size: 39px;
-    margin-top: 0;
+    margin-top: 30px;
     margin-bottom: 20px;
     text-align: center;
 }
