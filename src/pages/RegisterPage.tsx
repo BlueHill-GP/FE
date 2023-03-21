@@ -81,17 +81,21 @@ export const RegisterPage = (props: IProp) => {
               <p> Hãy tận hưởng đám cưới của bạn</p>
               <h1 className={"form_header_register-text"}>Đăng ký</h1>
             </div>
-            {/* <<<<<<< HEAD
-            {errorMessage && <div>{errorMessage}</div>}
-            <button type="submit">Register</button>
-          </form>
-          <button type="button" onClick={() => navigate("/")}>
-            login
-          </button>
-        </div>
-======= */}
+{/*<<<<<<< HEAD*/}
+            <form onSubmit={handleSubmit}>
+{/*=======*/}
+{/*            /!* <<<<<<< HEAD*/}
+{/*            {errorMessage && <div>{errorMessage}</div>}*/}
+{/*            <button type="submit">Register</button>*/}
+{/*          </form>*/}
+{/*          <button type="button" onClick={() => navigate("/")}>*/}
+{/*            login*/}
+{/*          </button>*/}
+{/*        </div>*/}
+{/*======= *!/*/}
 
-            <form className="forms" onSubmit={handleSubmit}>
+{/*            <form className="forms" onSubmit={handleSubmit}>*/}
+{/*>>>>>>> 5b15c62e452ae189bd00b1d32b863c65661f6493*/}
               <label>Tên đầy đủ:</label>
               <Input
                 type="text"
