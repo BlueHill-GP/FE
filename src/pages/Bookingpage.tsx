@@ -5,7 +5,7 @@ import { getServicePackageById } from "../api/servicePackage";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import "../assets/css/bookingPage.css"
+import "../assets/css/bookingPage-User.css"
 import { Button, Checkbox, Form, Input, Select,DatePicker,  } from 'antd';
 import {config} from "@fortawesome/fontawesome-svg-core";
 
@@ -79,8 +79,6 @@ const BookingForm = () => {
     };
   return (
 
-    <div className="booking-page">
-
     <div className={"container-per-infor"}>
       {servicePackage && (
         <div className={"container"}>
@@ -113,16 +111,17 @@ const BookingForm = () => {
           </div>
         </div>
       )}
-        <Form
+        <Form className={"form-per-infor"}
             name="basic"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 30}}
+            style={{ maxWidth: 700 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
         >
+            <p className={"title-per-infor"}>Thông tin liên hệ</p>
             <Form.Item
                 label="tên khách hàng"
                 name="username"
@@ -177,7 +176,7 @@ const BookingForm = () => {
 
             <Form.Item
                 name="Số điện thoại"
-                label="Phone Number"
+                label ="Phone Number"
                 rules={[{ required: true, message: 'Vui lòng nhập số điện thoại của bạn!' }]}
             >
                 <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
@@ -213,14 +212,8 @@ const BookingForm = () => {
                 <Input.TextArea showCount maxLength={100} />
             </Form.Item>
 
-
-
-            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-                <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
+                <Button className={"form-submit-per-infor"} >
                     Submit
                 </Button>
             </Form.Item>
@@ -357,7 +350,6 @@ const BookingForm = () => {
       {/*    Tiếp tục*/}
       {/*  </button>*/}
       {/*</form>*/}
-    </div>
     </div>
   );
 };
