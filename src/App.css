@@ -1,6 +1,36 @@
-*{ 
+* {
   margin: 0;
   padding: 0;
   font-size: 100%;
   box-sizing: border-box;
- }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.mg-b-10 {
+  margin-bottom: 10px;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-left {
+  justify-content: left;
+}
+.justify-right {
+  justify-content: right;
+  align-items: center;
+}
+.align-items-center {
+  align-items: center;
+}
+
+.line-dashed {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: rgba(18, 17, 17, 0.2);
+}

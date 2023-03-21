@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { DatePicker, TimePicker, Button, Space, Select } from "antd";
+import { Button, DatePicker, Select, Space, TimePicker } from "antd";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { getRandomServicePackage } from "../api/servicePackage";
+import "../assets/css/chooseTime.css";
 import ServicePackage from "./ServicePackage";
-
 const App: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -18,19 +18,19 @@ const App: React.FC = () => {
     setSelectedTime(timeString.join(" - "));
   };
 
-    useEffect(() => {
-      async function fetchData() {
-        const response = await getRandomServicePackage();
-        if (response.data.data) {
-          setServicePackages(response.data.data);
-        }
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getRandomServicePackage();
+      if (response.data.data) {
+        setServicePackages(response.data.data);
       }
-      fetchData();
-      return () => {
-        setServicePackages([]);
-      };
-    }, []);
-  
+    }
+    fetchData();
+    return () => {
+      setServicePackages([]);
+    };
+  }, []);
+
   const filter = {
     selectedDate,
     selectedTime,
@@ -51,23 +51,25 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <TimePicker.RangePicker onChange={handleTimeChange} />
-      <DatePicker onChange={handleDateChange} />
-      <Space wrap>
-        <Select
-          defaultValue={selectedLocation}
-          style={{ width: 120 }}
-          onChange={handleChangeLocation}
-          options={[
-            { value: "hn", label: "Hà Nội" },
-            { value: "dn", label: "Đà Nẵng" },
-            { value: "sg", label: "Sài Gòn" },
-          ]}
-        />
-      </Space>
+    <div className="choose-time">
+      <div>
+        <TimePicker.RangePicker onChange={handleTimeChange} />
+        <DatePicker onChange={handleDateChange} />
+        <Space wrap>
+          <Select
+            defaultValue={selectedLocation}
+            style={{ width: 120 }}
+            onChange={handleChangeLocation}
+            options={[
+              { value: "hn", label: "Hà Nội" },
+              { value: "dn", label: "Đà Nẵng" },
+              { value: "sg", label: "Sài Gòn" },
+            ]}
+          />
+        </Space>
 
-      <Button onClick={handleSendData}>Send Data</Button>
+        <Button onClick={handleSendData}>Gửi</Button>
+      </div>
 
       {servicePackages &&
         servicePackages.map((servicePackage: any, index: number) => (
@@ -77,7 +79,7 @@ const App: React.FC = () => {
             key={index}
           />
         ))}
-    </>
+    </div>
   );
 };
 

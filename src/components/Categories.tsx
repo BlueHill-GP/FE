@@ -9,6 +9,7 @@ function Categories() {
             <i className="fa-regular fa-calendar-days"></i>{" "}
             <p>Đặt lịch của tôi</p>
           </a>
+          
         </li>
         <li className="categories_Item">
           <a href="">
@@ -19,7 +20,7 @@ function Categories() {
         <li className="categories_Item">
           <a href="">
             <i className="fa-solid fa-bell"></i>
-            <p>Thông bá lịch trình</p>
+            <p>Thông báo lịch trình</p>
           </a>
         </li>
         <li className="categories_Item">

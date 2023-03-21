@@ -1,4 +1,3 @@
-import React from "react";
 import { logowhite } from "../../assets";
 import "../../assets/css/Footer.css";
 
@@ -11,9 +10,7 @@ function Footer() {
             <img alt="" src={logowhite} />
           </div>
           <div className="cooperate">
-            <a href="">
-              Hợp tác với chúng tôi
-            </a>
+            <a href="">Hợp tác với chúng tôi</a>
           </div>
           <div className="payment_Partner"></div>
         </div>

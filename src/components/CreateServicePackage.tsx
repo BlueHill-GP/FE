@@ -286,26 +286,108 @@ function CreateServicePackage() {
 
   return (
     <div className="createPackageContainer">
-      <div className="create-package">
+      {/* <div className="create-package">
         <h3>Create package</h3>
         <button className="create-package-btn" onClick={handleOpenModal}>
           <i className="fa-regular fa-square-plus"></i>
         </button>
-      </div>
+      </div> */}
+
+      <form className="package-form-create" onSubmit={handleSubmit}>
+        <div className="big-title">
+          <h3>Tạo các gói</h3>
+        </div>
+
+        <div className="create-package-item">
+          <label htmlFor="title-input">Tiêu đề:</label>
+          <input
+            type="text"
+            id="title-input"
+            value={title}
+            onChange={handleTitleChange}
+          />
+        </div>
+        <div className="create-package-item">
+          <label htmlFor="price-input">Giá:</label>
+
+          <input
+            type="text"
+            id="price-input"
+            value={price}
+            onChange={handlePriceChange}
+          />
+        </div>
+
+        <label htmlFor="description-input" className="descLabel">
+          Mô tả:
+        </label>
+
+        <textarea
+          className="desc-input"
+          id="description-input"
+          value={description}
+          onChange={handleDescriptionChange}
+        />
+        <div className="select-location">
+          <Space wrap>
+            <Select
+              defaultValue={selectedLocation}
+              style={{ width: 120 }}
+              onChange={handleChangeLocation}
+              options={[
+                { value: "hn", label: "Hà Nội" },
+                { value: "dn", label: "Đà Nẵng" },
+                { value: "sg", label: "Sài Gòn" },
+              ]}
+            />
+          </Space>
+        </div>
+
+        {files.map((file, index) => (
+          <div key={index}>
+            <span>{file.name}</span>
+            <button
+              className="remove-btn"
+              type="button"
+              onClick={() => handleRemoveFile(index)}
+            >
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        ))}
+        <div className="iconsPackage">
+          <label htmlFor="file-input">
+            <i className="fa-solid fa-image"></i>
+          </label>
+          <div className="chooseImg-package">
+            <input
+              type="file"
+              id="file-input"
+              onChange={handleFileChange}
+              multiple
+            />
+          </div>
+          <button className="save-btn" type="submit">
+            Lưu
+          </button>
+        </div>
+      </form>
       {showModal && (
         <div className="modal">
-          <span className="close" onClick={handleCloseModal}>
-            <i className="fa-solid fa-circle-xmark"></i>
-          </span>
+          <div>
+            <span className="close" onClick={handleCloseModal}>
+              <i className="fa-solid fa-circle-xmark"></i>
+            </span>
+          </div>
           <form className="modal-form" onSubmit={handleSubmit}>
-            <label htmlFor="title-input">title:</label>
+            <label htmlFor="title-input">Tiêu đề:</label>
             <input
               type="text"
               id="title-input"
               value={title}
               onChange={handleTitleChange}
             />
-            <label htmlFor="price-input">price:</label>
+            <label htmlFor="price-input">Giá:</label>
 
             <input
               type="text"
@@ -313,7 +395,7 @@ function CreateServicePackage() {
               value={price}
               onChange={handlePriceChange}
             />
-            <label htmlFor="description-input">Description:</label>
+            <label htmlFor="description-input">Mô tả:</label>
 
             <textarea
               className="desc-input"
@@ -321,40 +403,45 @@ function CreateServicePackage() {
               value={description}
               onChange={handleDescriptionChange}
             />
-            <Space wrap>
-              <Select
-                defaultValue={selectedLocation}
-                style={{ width: 120 }}
-                onChange={handleChangeLocation}
-                options={[
-                  { value: "hn", label: "Hà Nội" },
-                  { value: "dn", label: "Đà Nẵng" },
-                  { value: "sg", label: "Sài Gòn" },
-                ]}
-              />
-            </Space>
+            <div>
+              <Space wrap>
+                <Select
+                  defaultValue={selectedLocation}
+                  style={{ width: 120 }}
+                  onChange={handleChangeLocation}
+                  options={[
+                    { value: "hn", label: "Hà Nội" },
+                    { value: "dn", label: "Đà Nẵng" },
+                    { value: "sg", label: "Sài Gòn" },
+                  ]}
+                />
+              </Space>
+            </div>
+
             {files.map((file, index) => (
               <div key={index}>
                 <span>{file.name}</span>
                 <button type="button" onClick={() => handleRemoveFile(index)}>
-                  Remove
+                  Xóa
                 </button>
               </div>
             ))}
-            <label htmlFor="file-input">
-              <i className="fa-solid fa-image"></i>
-            </label>
-            <div className="chooseImg-package">
-              <input
-                type="file"
-                id="file-input"
-                onChange={handleFileChange}
-                multiple
-              />
+            <div className="iconsPackage">
+              <label htmlFor="file-input">
+                <i className="fa-solid fa-image"></i>
+              </label>
+              <div className="chooseImg-package">
+                <input
+                  type="file"
+                  id="file-input"
+                  onChange={handleFileChange}
+                  multiple
+                />
+              </div>
+              <button className="save-btn" type="submit">
+                Save
+              </button>
             </div>
-            <button className="save-btn" type="submit">
-              Save
-            </button>
           </form>
         </div>
       )}

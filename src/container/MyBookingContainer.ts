@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import MyBooking from "../components/MyBooking";
+import MyBooking from "../pages/MyBookingPage";
 import { RootState } from "../redux/store";
 
 const mapActionToLogin = {};

@@ -21,6 +21,7 @@
     "crypto-js": "^4.1.1",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
+    "howler": "^2.2.3",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-datetime-picker": "^4.2.0",
@@ -62,6 +63,7 @@
   "devDependencies": {
     "@types/crypto-js": "^4.1.1",
     "@types/css-modules": "^1.0.2",
+    "@types/howler": "^2.2.7",
     "@types/ws": "^8.5.4",
     "css-loader": "^6.7.3",
     "style-loader": "^3.3.2"

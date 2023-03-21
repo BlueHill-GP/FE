@@ -5,7 +5,7 @@ import { getServicePackageById } from "../api/servicePackage";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-
+import "../assets/css/bookingPage.css"
 const BookingForm = () => {
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
@@ -62,11 +62,49 @@ const BookingForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Customer Name:
+
+    // <div className="booking-page">
+    //   <form onSubmit={handleSubmit}>
+    //     <label>
+
+    <div className={"container-per-infor"}>
+      {servicePackage && (
+        <div className={"container"}>
+          <div className={"infor-contact"}>
+            {/*<div className=""></div>*/}
+            <p className={"service-package-title"}>{servicePackage.title}</p>
+            <p className={"service-package-price"}>{servicePackage.price}</p>
+            <p className={"service-package-description"}>
+              {servicePackage.description}
+            </p>
+            {servicePackage &&
+              servicePackage.image.map((imageUrl: string, index: number) => (
+                <img
+                  className={"image-service-paka"}
+                  key={index}
+                  src={imageUrl}
+                  alt={`Hình ảnh ${index} của bài đăng`}
+                />
+              ))}
+            <p className={"service-package-star"}>
+              Số sao: {servicePackage.star.length}
+            </p>
+            <p className={"service-package-user"}>
+              Người dùng: {servicePackage.user.username}
+            </p>
+            <p className={"service-package-creteAt"}>
+              Đã đăng vào lúc:{" "}
+              {new Date(servicePackage.createAt).toLocaleString()}
+            </p>
+          </div>
+        </div>
+      )}
+      <form className={"form-per-infor"} onSubmit={handleSubmit}>
+        <p className={"title-per-infor"}>Thông tin liên hệ</p>
+        <label className={"label-form-infor"}>
+          Tên khách hàng:
           <input
+            className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerName}
             onChange={(event) =>
@@ -77,9 +115,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Address:
+        <label className={"label-form-infor"}>
+          Địa chỉ khách hàng:
           <input
+            className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerAddress}
             onChange={(event) =>
@@ -90,9 +129,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Phone:
+        <label className={"label-form-infor"}>
+          Số điện thoại:
           <input
+            className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerPhone}
             onChange={(event) =>
@@ -103,9 +143,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Email:
+        <label className={"label-form-infor"}>
+          Email:
           <input
+            className={"per-infor-type-email"}
             type="email"
             value={bookingData.customerEmail}
             onChange={(event) =>
@@ -116,9 +157,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Gender:
+        <label className={"label-form-infor"}>
+          Giới tính:
           <input
+            className={"per-infor-type-text"}
             type="text"
             value={bookingData.customerGender}
             onChange={(event) =>
@@ -129,9 +171,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Customer Age:
+        <label className={"label-form-infor"}>
+          Tuổi:
           <input
+            className={"per-infor-type-number"}
             type="number"
             value={bookingData.customerAge}
             onChange={(event) =>
@@ -142,9 +185,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Booking Time:
+        <label className={"label-form-infor"}>
+          Thời gian đặt gói:
           <input
+            className={"per-infor-datetime-local"}
             type="datetime-local"
             value={bookingData.bookingTime}
             onChange={(event) =>
@@ -155,9 +199,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <label>
-          Booking Address:
+        <label className={"label-form-infor"}>
+          Địa chỉ đặt gói:
           <input
+            className={"per-infor-type-text"}
             type="text"
             value={bookingData.bookingAddress}
             onChange={(event) =>
@@ -169,9 +214,10 @@ const BookingForm = () => {
           />
         </label>
 
-        <label>
-          Notes:
+        <label className={"label-form-infor"}>
+          Ghi chú:
           <textarea
+            className={"per-infor-type-textrea"}
             value={bookingData.notes}
             onChange={(event) =>
               setBookingData({
@@ -181,24 +227,10 @@ const BookingForm = () => {
             }
           />
         </label>
-        <button type="submit">Submit</button>
+        <button className={"form-submit-per-infor"} type="submit">
+          Tiếp tục
+        </button>
       </form>
-
-      {servicePackage && (
-        <div>
-          <div className=""></div>
-          <p>{servicePackage.title}</p>
-          <p>{servicePackage.price}</p>
-          <p>{servicePackage.description}</p>
-          {servicePackage &&
-            servicePackage.image.map((imageUrl: string, index: number) => (
-              <img key={index} src={imageUrl} alt={`Post image ${index}`} />
-            ))}
-          <p>Star: {servicePackage.star.length}</p>
-          <p>User: {servicePackage.user.username}</p>
-          <p>Posted at: {new Date(servicePackage.createAt).toLocaleString()}</p>
-        </div>
-      )}
     </div>
   );
 };

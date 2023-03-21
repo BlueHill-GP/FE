@@ -6,7 +6,6 @@ import Post, { PostProps } from "../components/Post";
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
-  console.log("posts: ", posts);
 
   useEffect(() => {
     async function fetchData() {
@@ -32,7 +31,8 @@ const PostsPage = () => {
         //  });
 
          socket.on("new-post", (newPost: PostProps) => {
-           alert("new post");
+console.log(newPost);
+           
            setPosts((posts) => [newPost, ...posts, ]);
          });
 

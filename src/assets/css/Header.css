@@ -3,6 +3,7 @@
   margin-left: auto;
   margin-right: auto;
   /* max-width: 1440px; */
+  
 }
 .header {
   top: 0px;
@@ -29,11 +30,12 @@
 }
 .menu li {
   padding: 0 10px;
-    min-width: 130px;
+  min-width: 130px;
+ 
 }
 .menu-item {
   text-decoration: none;
- 
+   color: #101010;
 }
 .search {
   display: flex;
@@ -41,15 +43,16 @@
   height: 30px;
   justify-content: center;
   align-items: center;
+  margin-right: 40px;
 }
 .box_Input {
-  border-radius: 15px 0 0 15px;
-  border: 1px solid var(--main-color);
+  border-radius: 10px 0 0 10px;
+  border: 2px solid var(--main-color);
   border-right: none;
   outline: none;
   /* height: 32px; */
   width: 100%;
-  padding: 10px;
+  padding: 8px;
 }
 .search_Button {
   border-radius: 0 15px 15px 0;
@@ -59,8 +62,12 @@
   width: 54px;
 }
 .search_Button i {
-  color: #487ba6;
+  
+  color: #ffffff;
   cursor: pointer;
+}
+.search_Button i:hover{
+  color: #487ba6;
 }
 .header_Auth {
   display: flex;
@@ -71,7 +78,7 @@
   text-decoration: none;
 }
 .fa-user {
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
   border-radius: 100%;
   padding: 5px;
   margin-right: 5px;
@@ -79,14 +86,16 @@
 .signin_Btn {
   display: flex;
   align-items: center;
+  color: #101010;
 }
 .signin_Btn i {
   color: #487ba6;
 }
 .signup_Btn {
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
   border-radius: 15px;
   justify-content: center;
+  color: #101010;
 }
 
 /* /* show data search */
@@ -189,19 +198,21 @@
 }
 
 .nav_tablets__list-nav li:hover {
-  /* margin-left: -50px; */
   width: 50%;
 
-  background-color: #f0f0f0;
-  color: #292929;
+  color: #101010;
 }
 
 .nav_tablets__list-nav li {
+  margin-left: 15px;
   list-style: none;
   line-height: 10px;
   padding-top: 40px;
   font-size: 18px;
   font-weight: 500;
+}
+.nav_tablets__list-nav h2 {
+  margin-left: 15px;
 }
 
 .over_lay {
@@ -326,12 +337,11 @@
     margin-right: 60px;
   }
 
-    .box_Input {
-     
-      height: 49px; 
-       width: 90%; 
+  .box_Input {
+    height: 49px;
+    width: 90%;
     padding: 10px;
-    }
+  }
   /* .search input {
     width: 50%;
   } */
@@ -348,8 +358,7 @@
   }
 }
 @media only screen and (max-width: 400px) {
- 
-  .search_hide{
+  .search_hide {
     display: none;
   }
 }

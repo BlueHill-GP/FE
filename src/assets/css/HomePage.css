@@ -1,0 +1,309 @@
+/* .home-page {
+  max-width: 1440px;
+  margin: 0px auto;
+}
+
+.setTime-categories {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.show-packages-list {
+  gap: 10px;
+} */
+
+/* background homepage */
+
+.home-page {
+  margin-top: 120px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.home-page-container {
+  margin: 0;
+  padding: 0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.title-slide {
+  font-size: 250%;
+  color: #ffffff;
+}
+
+.desc-slide {
+  font-size: 140%;
+  line-height: 150%;
+  color: #ffffff;
+}
+
+.slide {
+  position: relative;
+  padding: 13vh 10%;
+  min-height: 80vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.7);
+  transform-style: inherit;
+}
+
+.slide img {
+  position: absolute;
+  left: 35%;
+  width: 320px;
+  height: 240px;
+  transform: translateZ(0.25px) scale(0.75) translateX(-94%) translateY(-250%)
+    rotate(2deg);
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(247, 246, 244, 0.682);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.slide img:last-of-type {
+  transform: translateZ(0.4px) scale(0.6) translateX(-104%) translateY(-250%)
+    rotate(-5deg);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ 
+}
+
+.slide-content {
+  width: 50%;
+  padding: 5%;
+  border-radius: 10px;
+  background: #e397977c;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.slide:nth-child(2n) .slide-content {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slide:nth-child(2n + 1) .slide-content {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.slide,
+.slide:before {
+  background: 50% 50% / cover;
+}
+
+.slide-homepage {
+  text-align: center;
+  font-size: 175%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+}
+
+.slide-homepage {
+  height: 900px;
+  background-image: url("https://media.tinmoi.vn/2017/11/28/18.png");
+  
+}
+
+.slide-homepage p  {
+  background: #d7d7d791;
+  mix-blend-mode: screen;
+  color:black;
+  width: 100%;
+  height: 900px;
+  position: absolute;
+
+  left: 50%;
+
+  transform: translate(-50%, -14%);
+  padding-top: 10%;
+  font-weight: 900;
+
+  font-size: 10rem;
+  
+ 
+}
+
+#slide1:before {
+  background-image: url("https://antalyatouristinformation.com/wp-content/uploads/2021/04/Getting-married-in-Turkey.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide2 {
+  background-image: url("https://www.sooribali.com/img/site_images/Soori-Bali-wedding-PH-01.jpg");
+  z-index: 2;
+}
+
+#slide3:before {
+  background-image: url("https://www.seafieldhotel.com/cmsGallery/imagerow/11146/resized/1600x900/2_8.png");
+  transform: translateZ(-1px) scale(2.5);
+}
+
+/* animation heart */
+.heartwrapper {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  position: fixed;
+  height: 100%;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.x1 {
+  left: 5%;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  transform: scale(0.9);
+  opacity: 0.6;
+  -webkit-animation: moveclouds 15s linear infinite,
+    sideWays 4s ease-in-out infinite alternate;
+  -moz-animation: moveclouds 15s linear infinite,
+    sideWays 4s ease-in-out infinite alternate;
+}
+
+.x2 {
+  left: 25%;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+  opacity: 0.9;
+  -webkit-animation: moveclouds 25s linear infinite,
+    sideWays 5s ease-in-out infinite alternate;
+  -moz-animation: moveclouds 25s linear infinite,
+    sideWays 5s ease-in-out infinite alternate;
+}
+.x3 {
+  left: 55%;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8;
+  -webkit-animation: moveclouds 20s linear infinite,
+    sideWays 4s ease-in-out infinite alternate;
+  -moz-animation: moveclouds 20s linear infinite,
+    sideWays 4s ease-in-out infinite alternate;
+}
+.x4 {
+  left: 72%;
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75);
+  opacity: 0.9;
+  -webkit-animation: moveclouds 18s linear infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  -moz-animation: moveclouds 18s linear infinite,
+    sideWays 0zs ease-in-out infinite alternate;
+}
+.x5 {
+  left: 88%;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.3;
+  -webkit-animation: moveclouds 7s linear infinite,
+    sideWays 1s ease-in-out infinite alternate;
+  -moz-animation: moveclouds 7s linear infinite,
+    sideWays 1s ease-in-out infinite alternate;
+}
+.x6 {
+  left: 33%;
+  opacity: 1;
+  -webkit-animation: moveclouds 2s linear infinite,
+    swayWays 1s ease-in-out infinite alternate;
+  animation: moveclouds 10s linear infinite,
+    swayWays 9s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {
+    top: 500px;
+  }
+  100% {
+    top: -500px;
+  }
+}
+
+@keyframes moveclouds {
+  0% {
+    top: 500px;
+  }
+  100% {
+    top: -500px;
+  }
+}
+
+@-webkit-keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
+@keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
+@-keyframes swayWays {
+  0% {
+    transform: rotate(12deg);
+    left: -0.3%;
+  }
+  33% {
+    transform: rotate(-2deg);
+    left: 0.7%;
+  }
+  100% {
+    transform: rotate(0deg);
+    left: -12%;
+  }
+}
+
+.heart {
+  position: relative;
+}
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 18px;
+  top: 0;
+  width: 18px;
+  height: 30px;
+  background: #cc2022;
+  -moz-border-radius: 20px 50% 0 0;
+  border-radius: 30px 30px 0 0;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+.heart:after {
+  left: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}

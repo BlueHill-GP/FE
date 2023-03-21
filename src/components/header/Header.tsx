@@ -92,13 +92,13 @@ function Header(props: IProp) {
             <>
               <li>
                 <Link className="menu-item" to="profile">
-                  Profile
+                  Thông tin
                 </Link>
               </li>
 
               <li>
                 <Link className="menu-item" to="/my-booking">
-                  My booking
+                  Đặt hàng
                 </Link>
               </li>
             </>

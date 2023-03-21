@@ -58,7 +58,7 @@ html {
 .form_header_register-text {
     margin-block: 1rem;
 }
-form {
+.forms {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -92,7 +92,7 @@ input[type='password'] {
     border-radius: 0.3rem;
     outline: none;
     border: transparent 2px solid;
-    /*background-color: aqua;*/
+    /* background-color: aqua; */
 }
 .btn-login {
     background-color: #ffabb8;

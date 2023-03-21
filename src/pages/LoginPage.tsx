@@ -39,8 +39,8 @@ const LoginPage = (props: LoginState) => {
       <div className={"container-register"}>
           <section className={"login-section"}>
               <div className={"form_header"}>
-                  <h1 className={"form_header_welcome"}> Chao mung den Cuoidi Cuoidi</h1>
-                  <p> Hay tan huong dam cuoi cua ban</p>
+                  <h1 className={"form_header_welcome"}> Chào mừng đến Cuoidi Cuoidi</h1>
+                  <p>Hãy tận hưởng đám cưới của bạn</p>
                   <h1 className={"form_header_register-text"}>Đăng nhập</h1>
               </div>
               <div className={"form-login"}>
@@ -60,10 +60,10 @@ const LoginPage = (props: LoginState) => {
                 function={handleInputChange}
               />
 
-              <button className={"btn-login"} onClick={handleSubmit}>Login</button>
+              <button className={"btn-login"} onClick={handleSubmit}>Đăng nhập</button>
               </div>
               <div className={"Login-Btn"}>
-              <button className="line" onClick={moveRegister}>Register</button>
+              <button className="line" onClick={moveRegister}>Đăng ký</button>
               </div>
           </section>
     </div>

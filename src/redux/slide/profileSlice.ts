@@ -12,7 +12,8 @@ const initialState = {
   userId: "",
   name: "",
   email: "",
-  userType: ""
+  userType: "",
+  avatar: "",
 };
 
 
@@ -26,6 +27,9 @@ const userSlice = createSlice({
       state.email = action.payload.userId.email; 
       state.name = action.payload.username;
       state.userType = action.payload.userType;
+      
+      state.avatar = action.payload.userId.avatar;
+
     },
   },
 });
@@ -36,7 +40,10 @@ const { setUserReducer } = userSlice.actions;
 export const setUser = (userId: string) => async (dispatch: Function) => {
   try {
     const response = await getUserByIdpApi(userId);
-    dispatch(setUserReducer(response.data.data));
+    console.log("ava tar: ",response.data.data);
+    
+    dispatch(setUserReducer(response.data.data)); 
+    
   } catch (error) {
     console.log(error);
   }
