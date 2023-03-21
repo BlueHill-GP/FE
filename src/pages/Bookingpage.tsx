@@ -79,144 +79,156 @@ const BookingForm = () => {
     };
   return (
     <div className={"container-per-infor"}>
+        <Form className={"form-per-infor"}
+              wrapperCol={{ span: 20}}
+              style={{ maxWidth: 600 }}
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              autoComplete="off"
+        >
+            <p className={"title-per-infor"}>Thông tin liên hệ</p>
+                <div className={"info-form-couple"}>
+                    <div className={"label-form-infor"}>
+                        Tên khách hàng:
+                    <Form.Item
+                        name="username"
+                        rules={[{ required: true, message: 'Vui lòng điền tên của bạn: ' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    </div>
+
+                    <div className={"label-form-infor"}>
+                        Địa chỉ khách hàng:
+                    <Form.Item
+                        name="address"
+                        rules={[{ required: true, message: 'Vui lòng điền địa chỉ của bạn' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    </div>
+
+                    <div className={"label-form-infor"}>
+                        Email:
+                    <Form.Item
+                        name="email"
+                        rules={[
+                            {
+                                type: 'email',
+                                message: 'Email không hợp lý',
+                            },
+                            {
+                                required: true,
+                                message: 'Vui lòng điền email của bạn',
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    </div>
+
+                    <div className={"label-form-infor"}>
+                            Thời gian đặt gói:
+                    <Form.Item
+                        name="date-time-picker"
+                               /*{...config}*/
+                               rules={[
+                                   {
+                                       required: true,
+                                       message: 'Vui lòng chọn thời gian đặt gói',
+                                   },
+                               ]}>
+                        <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+                    </Form.Item>
+                    </div>
+
+                    <div className={"label-form-infor"}>
+                        Địa chỉ đặt hàng:
+                    <Form.Item
+                        name="address-book"
+                        rules={[{ required: true, message: 'Vui lòng điền địa chỉ đặt hàng của bạn' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    </div>
+
+                    <div className={"label-form-infor"}>
+                        Số điện thoại:
+                    <Form.Item
+                        name="Số điện thoại"
+                        rules={[{ required: true, message: 'Vui lòng nhập số điện thoại của bạn!' }]}
+                    >
+                        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+                    </Form.Item>
+                    </div>
+
+                    <div className={"label-form-infor"}>
+                        Giới tính:
+                    <Form.Item
+                        name="gender"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Vui lòng chọn giới tính',
+                            },
+                        ]}
+                    >
+                        <Select placeholder="Chọn giới tính của bạn">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </Select>
+                    </Form.Item>
+                    </div>
+
+                    <div className={'label-form-infor'}>
+                        Ghi chú
+                    <Form.Item
+                        name="Intro"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input Intro',
+                            },
+                        ]}
+                    >
+                        <Input.TextArea showCount maxLength={100} />
+                    </Form.Item>
+                    </div>
+
+                    <Form.Item >
+                        <button className={"form-submit-per-infor"} >
+                            Submit
+                        </button>
+                    </Form.Item>
+                </div>
+
+        </Form>
       {servicePackage && (
+
         <div className={"container"}>
+            {servicePackage &&
+                servicePackage.image.map((imageUrl: string, index: number) => (
+                    <img
+                        className={"image-service-paka"}
+                        key={index}
+                        src={imageUrl}
+                        alt={`Hình ảnh ${index} của bài đăng`}
+                    />
+                ))}
           <div className={"infor-contact"}>
-            {/*<div className=""></div>*/}
             <p className={"service-package-title"}>{servicePackage.title}</p>
             <p className={"service-package-price"}>{servicePackage.price}</p>
-            <p className={"service-package-description"}>
-              {servicePackage.description}
-            </p>
-            {servicePackage &&
-              servicePackage.image.map((imageUrl: string, index: number) => (
-                <img
-                  className={"image-service-paka"}
-                  key={index}
-                  src={imageUrl}
-                  alt={`Hình ảnh ${index} của bài đăng`}
-                />
-              ))}
-            <p className={"service-package-star"}>
-              Số sao: {servicePackage.star.length}
-            </p>
-            <p className={"service-package-user"}>
-              Người dùng: {servicePackage.user.username}
-            </p>
-            <p className={"service-package-creteAt"}>
-              Đã đăng vào lúc:{" "}
-              {new Date(servicePackage.createAt).toLocaleString()}
-            </p>
+            <p className={"service-package-description"}>{servicePackage.description}</p>
+              <p className={"service-package-star"}>Số sao: {servicePackage.star.length}</p>
+              <p className={"service-package-user"}>Người dùng: {servicePackage.user.username}</p>
+              <p className={"service-package-createAt"}>Đã đăng vào lúc:{" "}{new Date(servicePackage.createAt).toLocaleString()}</p>
+
           </div>
         </div>
       )}
-        <Form className={"form-per-infor"}
-            name="basic"
-            labelCol={{ span: 5 }}
-            wrapperCol={{ span: 30}}
-            style={{ maxWidth: 700 }}
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-         >
-            <p className={"title-per-infor"}>Thông tin liên hệ</p>
-            <Form.Item
-                label="tên khách hàng"
-                name="username"
-                rules={[{ required: true, message: 'Vui lòng điền tên của bạn: ' }]}
-            >
-                <Input />
-            </Form.Item>
 
-            <Form.Item
-                label="Địa chỉ khách hàng"
-                name="address"
-                rules={[{ required: true, message: 'Vui lòng điền địa chỉ của bạn' }]}
-            >
-                <Input />
-            </Form.Item>
-
-            <Form.Item
-                name="email"
-                label="E-mail"
-                rules={[
-                    {
-                        type: 'email',
-                        message: 'Email không hợp lý',
-                    },
-                    {
-                        required: true,
-                        message: 'Vui lòng điền email của bạn',
-                    },
-                ]}
-            >
-                <Input />
-            </Form.Item>
-
-            <Form.Item name="date-time-picker"
-                       label="Thời gian đặt gói" {...config}
-                       rules={[
-                           {
-                               required: true,
-                               message: 'Vui lòng chọn thời gian đặt gói',
-                           },
-                       ]}>
-                <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
-            </Form.Item>
-
-            <Form.Item
-                label="Địa chỉ đặt hàng"
-                name="address-book"
-                rules={[{ required: true, message: 'Vui lòng điền địa chỉ đặt hàng của bạn' }]}
-            >
-                <Input />
-            </Form.Item>
-
-            <Form.Item
-                name="Số điện thoại"
-                label ="Phone Number"
-                rules={[{ required: true, message: 'Vui lòng nhập số điện thoại của bạn!' }]}
-            >
-                <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
-            </Form.Item>
-
-            <Form.Item
-                name="gender"
-                label="Giới tính"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Vui lòng chọn giới tính',
-                    },
-                ]}
-            >
-                <Select placeholder="Chọn giới tính của bạn">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </Select>
-            </Form.Item>
-
-            <Form.Item
-                name="Intro"
-                label="Ghi chú"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input Intro',
-                    },
-                ]}
-            >
-                <Input.TextArea showCount maxLength={100} />
-            </Form.Item>
-
-            <Form.Item >
-                <button className={"form-submit-per-infor"} >
-                    Submit
-                </button>
-            </Form.Item>
-        </Form>
       {/*<form className={"form-per-infor"} onSubmit={handleSubmit}>*/}
       {/*  <p className={"title-per-infor"}>Thông tin liên hệ</p>*/}
       {/*  <label className={"label-form-infor"}>*/}
