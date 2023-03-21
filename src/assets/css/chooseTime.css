@@ -5,13 +5,22 @@
   max-width: 1440px;
 }
 .choose-time {
- display: grid;
- grid-template-columns: 35% 65%;
-
+  display: grid;
+  grid-template-columns: 20% 80%;
 }
 .choose-time-search {
+  text-align: center;
 }
 .show-data-after-search {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+ 
+}
+.show-data-package-list {
+  
+  
+  display: flex;
+  flex-wrap: wrap;
+  
+  justify-content: space-evenly;
+  gap: 20px;
 }

@@ -20,7 +20,7 @@ function ChatBox() {
 
   return (
     <div className="chat-box">
-      {/* <div>
+      <div>
         <input
           type="text"
           placeholder="Partner User ID"
@@ -36,7 +36,7 @@ function ChatBox() {
           onChange={(e) => setMessage(e.target.value)}
         />
         <button onClick={() => sendMessage()}>Sent mess</button>
-      </div> */}
+      </div>
     </div>
   );
 }

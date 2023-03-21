@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { handleLikeIpa } from "../api/postApi";
-
+import { Image } from "antd";
 import "../assets/css/Posts.css";
 import { RootState } from "../redux/store";
 
@@ -33,7 +33,7 @@ const Post = (props: PostProps) => {
   const [likeNumber, setLikeNumber] = useState(
     props.post.like ? countTrueValues(props.post.like) : 0
   );
-
+  const [currentPreviewImage, setCurrentPreviewImage] = useState(0)
   function toggleLike(likeObj: LikeData | undefined, user: string): boolean {
     if (likeObj && user in likeObj) {
       return likeObj[user];
@@ -51,6 +51,7 @@ const Post = (props: PostProps) => {
 
     const response = await handleLikeIpa(props.post._id);
   };
+  const [visible, setVisible] = useState(false);
   return (
     <div className="post_Container">
       <div className="post">
@@ -81,14 +82,34 @@ const Post = (props: PostProps) => {
         </div>
         <p className="post-desc">{props.post.description}</p>
         <div>
+          <>
+            <Image
+              className="post-image-hidden"
+              preview={{ visible: false }}
+              width={"100%"}
+              src={props.post.image[currentPreviewImage]}
+              onClick={() => setVisible(true)}
+            />
+            <div style={{ display: "none" }}>
+              <Image.PreviewGroup
+                preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}
+              >
+                {props.post.image.map((image: any) => (
+                  <Image src={image} />
+                ))}
+              </Image.PreviewGroup>
+            </div>
+          </>
           {props.post.image.length === 1 ? (
             <div className="post-image">
               <img src={props.post.image[0]} alt="Post image" />
+            
             </div>
           ) : (
             <div className="post-images">
               <div className="post-images-col-1">
                 <img src={props.post.image[0]} alt={`Post image`} />
+             
               </div>
               <div className="post-images-col-2">
                 {props.post.image
@@ -99,6 +120,7 @@ const Post = (props: PostProps) => {
                       src={imageUrl}
                       alt={`Post image ${index}`}
                     />
+                   
                   ))}
               </div>
             </div>
