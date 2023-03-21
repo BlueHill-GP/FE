@@ -54,37 +54,42 @@ const App: React.FC = () => {
   return (
     <div className="choose-time-container">
       <div className="choose-time">
-        <div>
+
+        <div className="choose-time-right">
           <Categories />
         </div>
-        <div className="choose-time-search">
-          <TimePicker.RangePicker onChange={handleTimeChange} />
-          <DatePicker onChange={handleDateChange} />
-          <Space wrap>
-            <Select
-              defaultValue={selectedLocation}
-              style={{ width: 120 }}
-              onChange={handleChangeLocation}
-              options={[
-                { value: "hn", label: "Hà Nội" },
-                { value: "dn", label: "Đà Nẵng" },
-                { value: "sg", label: "Sài Gòn" },
-              ]}
-            />
-          </Space>
+        <div className="choose-time-left">
+          <div className="choose-time-search">
+            <TimePicker.RangePicker onChange={handleTimeChange} />
+            <DatePicker onChange={handleDateChange} />
+            <Space wrap>
+              <Select
+                defaultValue={selectedLocation}
+                style={{ width: 120 }}
+                onChange={handleChangeLocation}
+                options={[
+                  { value: "hn", label: "Hà Nội" },
+                  { value: "dn", label: "Đà Nẵng" },
+                  { value: "sg", label: "Sài Gòn" },
+                ]}
+              />
+            </Space>
 
-          <Button onClick={handleSendData}>Gửi</Button>
+            <Button onClick={handleSendData}>Gửi</Button>
+          </div>
+          <div className="show-data-after-search">
+            <div className="show-data-package-list">
+              {servicePackages &&
+                servicePackages.map((servicePackage: any, index: number) => (
+                  <ServicePackage
+                    servicePackage={servicePackage}
+                    select={filter}
+                    key={index}
+                  />
+                ))}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="show-data-after-search">
-        {servicePackages &&
-          servicePackages.map((servicePackage: any, index: number) => (
-            <ServicePackage
-              servicePackage={servicePackage}
-              select={filter}
-              key={index}
-            />
-          ))}
       </div>
     </div>
   );

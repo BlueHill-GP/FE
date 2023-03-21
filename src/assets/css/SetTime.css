@@ -47,17 +47,7 @@
   cursor: pointer;
   margin-left: 20px;
 }
-.show-packages-homePage{
-  max-width: 700px;
-  margin: 0px auto;
-}
-.show-packages-list{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  width: 600px;
-}
+
 
 
 
