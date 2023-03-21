@@ -16,6 +16,7 @@
 }
 .categories_Item {
   list-style: none;
+  padding: 10px;
 }
 .categories_Item:hover{
   background-color: #ffffff;

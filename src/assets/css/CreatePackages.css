@@ -73,6 +73,10 @@
 .package_Content {
   margin-left: 10px;
   position: relative;
+  cursor: pointer;
+}
+.package_Item:hover {
+  transform: scale(1.08);
 }
 .package_Content .package-desc-hide {
   position: absolute;
@@ -120,20 +124,68 @@
 }
 /* package detail modal */
 
-.ant-modal-wrap{
-  
+.ant-modal-wrap {
 }
-.package-item-detail-modal{
+.package-item-detail-modal {
   display: flex;
 }
-.ant-modal-content{
- width: 900px;
- height: 500px;
+.ant-modal-content {
+  width: 900px;
+  height: 500px;
 }
-.ant-modal-footer{
+.ant-modal-footer {
   display: none;
 }
+.package_Img-detail-modal img {
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+}
+.package-content-detail-modal {
+  margin-left: 20px;
+}
+.package-title-detail-modal {
+  font-size: 30px;
+}
+.package-price-detail-modal {
+  font-size: 25px;
+  font-weight: 800;
+  color: #eb1d36;
+}
+.package-desc-detail-modal {
+  font-size: 20px;
+  font-weight: 600;
+}
+.package-option-detail-modal {
+  position: relative;
+}
+.booking-btn-detail-modal {
+  position: absolute;
+  left: 420px;
+  top: 100px;
+  width: 150px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 900;
+  background-color: #eb1d36;
+  color: #ffffff;
+  border: 2px solid #eb1d36;
+}
+.booking-btn-detail-modal:hover {
+  color: #eb1d36;
+  border: 2px solid #eb1d36;
+  background-color: #ffffff;
+}
 
+/* .ant-modal-wrap{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center!important;
+} */
+/* .css-dev-only-do-not-override-10ed4xt{
+margin: none !important;
+} */
 /* show package for couple */
 .booking-btn {
   margin-top: 10px;
@@ -145,6 +197,7 @@
   background-color: #eb1d36;
   color: #ffffff;
   border: 2px solid #eb1d36;
+  cursor: pointer;
 }
 .booking-btn:hover {
   color: #eb1d36;
