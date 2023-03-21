@@ -14,7 +14,13 @@ const BookingForm = () => {
   const navigate = useNavigate();
   const { id }: any = useParams();
   const [servicePackage, setServicePackage] = useState<any>();
-
+    const prefixSelector = (
+        <Form.Item name="prefix" noStyle>
+            <Select style={{ width: 70 }}>
+                <option value="84">+84</option>
+            </Select>
+        </Form.Item>
+    );
   const [bookingData, setBookingData] = useState<BookingFormData>({
     customerId: user.userId,
     customerName: "",
@@ -151,8 +157,30 @@ const BookingForm = () => {
             </Form.Item>
 
             <Form.Item name="date-time-picker"
-                       label="Thời gian đặt gói" {...config}>
+                       label="Thời gian đặt gói" {...config}
+                       rules={[
+                           {
+                               required: true,
+                               message: 'Vui lòng chọn thời gian đặt gói',
+                           },
+                       ]}>
                 <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            </Form.Item>
+
+            <Form.Item
+                label="Địa chỉ đặt hàng"
+                name="address-book"
+                rules={[{ required: true, message: 'Vui lòng điền địa chỉ đặt hàng của bạn' }]}
+            >
+                <Input />
+            </Form.Item>
+
+            <Form.Item
+                name="Số điện thoại"
+                label="Phone Number"
+                rules={[{ required: true, message: 'Vui lòng nhập số điện thoại của bạn!' }]}
+            >
+                <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
             </Form.Item>
 
             <Form.Item
