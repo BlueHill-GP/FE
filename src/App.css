@@ -34,3 +34,23 @@
   border-width: 1px;
   border-color: rgba(18, 17, 17, 0.2);
 }
+
+
+.container-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  background-color: #f1f1f1;
+  position: relative;
+  right: -100%;
+  animation: slide-in 1s forwards;
+}
+
+@keyframes slide-in {
+  100% {
+    right: 0;
+  }
+}

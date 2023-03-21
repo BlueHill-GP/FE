@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getAllBookingByUser } from "../api/bookingApi";
+import { getAllCoupeBookingApi } from "../api/bookingApi";
 import Booking from "../components/booking/Booking";
 // import "../assets/css/booking.css";
 import { updateAvatarApi } from "../api/userApi";
 import { setUser } from "../redux/slide/profileSlice";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import { Col } from "antd";
 import { socket } from "../App";
 
 interface IProp {
@@ -17,37 +16,21 @@ interface IProp {
     userType: string;
   };
 }
-const MyBooking = (props: IProp) => {
- const user = useSelector((state:RootState) => state.user);
-
-  const [waitingBookings, setWaitingBookings] = useState<any[]>([]);
-  const [acceptedBookings, setAcceptedBookings] = useState<any[]>([]);
-  const [rejectedBookings, setRejectedBookings] = useState<any[]>([]);
-  console.log(waitingBookings);
-  
+const CoupleBookingPage = (props: IProp) => {
+  const user = useSelector((state: RootState) => state.user);
+  const [myBooking, setMyBooking] = useState<any[]>([]);
+  console.log("my booking 1", myBooking);
   useEffect(() => {
     async function fetchData() {
-      const response = await getAllBookingByUser(user.userId);
+      const response = await getAllCoupeBookingApi();
       if (response.data.data) {
-const bookings = response.data.data
-setWaitingBookings(
-  bookings.filter((booking:any) => booking.bookingStatus === "waiting")
-);
-setAcceptedBookings(
-  bookings.filter((booking:any) => booking.bookingStatus === "accepted")
-);
-setRejectedBookings(
-  bookings.filter((booking:any) => booking.bookingStatus === "rejected")
-);
+        setMyBooking(response.data.data.reverse());
       }
     }
     fetchData();
-
-   
   }, []);
 
   const [avatar, setAvatar] = useState<File[]>([]);
- 
   const handleFileChangeProfile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = e.target.files;
     if (selectedFiles && selectedFiles.length > 0) {
@@ -82,17 +65,18 @@ setRejectedBookings(
       console.log(error);
     }
   };
-  useEffect(() => {
-    socket.on("update-booking", (data:any) => {
-      console.log(data);
-      // if(data.data.booking.)
-    })
-    socket.on("new-booking", (data: any) => {
-      console.log(data);
-      setWaitingBookings((prevMyBooking) => [data.data, ...prevMyBooking]);
-    });
-  
-  }, [])
+  // useEffect(() => {
+  socket.on("update-booking", (data: any) => {
+    console.log(data);
+    const filteredBooking = myBooking.filter(
+      (booking) => booking._id !== data.data._id
+    );
+    console.log("filter : ", filteredBooking);
+    setMyBooking(filteredBooking);
+    setMyBooking((prevMyBooking) => [data.data, ...prevMyBooking]);
+    console.log("mu boooke", myBooking);
+  });
+  // }, []);
   return (
     <div className="profile-container">
       <div className="profile-page">
@@ -140,35 +124,16 @@ setRejectedBookings(
           </div>
         </div>
 
-        <Col>
-          <div className="">
-            <div className="list-booking">
-              {waitingBookings &&
-                waitingBookings.map((booking: any, index) => (
-                  <Booking booking={booking} />
-                ))}
-            </div>
+        <div className="booking">
+          <div className="list-booking">
+            {myBooking &&
+              myBooking.map((booking: any, index) => (
+                <Booking booking={booking} key={index} />
+              ))}
           </div>
-          <div className="">
-            <div className="list-booking">
-              {acceptedBookings &&
-                acceptedBookings.map((booking: any, index) => (
-                  <Booking booking={booking} />
-                ))}
-            </div>
-          </div>
-          <div className="">
-            <div className="list-booking">
-              {rejectedBookings &&
-                rejectedBookings.map((booking: any, index) => (
-                  <Booking booking={booking} />
-                ))}
-            </div>
-          </div>
-        </Col>
+        </div>
       </div>
     </div>
   );
 };
-
-export default MyBooking;
+export default CoupleBookingPage;

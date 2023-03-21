@@ -16,6 +16,7 @@ import MyBooking from "../container/MyBookingContainer";
 import { socket } from "../App";
 // import socket from "../SocketIo";
 import CreateServicePackagePage from "../container/CreatePackagePageContainer";
+import CoupleBookingPage from "../container/CoupleBookingContainer";
 
 interface IProps {
   isLogin: boolean;
@@ -52,7 +53,9 @@ const Router = (props: IProps) => {
                   element={<CreateServicePackagePage />}
                 />
               </>
-            ) : null}
+            ) : (
+              <Route path="/user-booking" element={<CoupleBookingPage />} />
+            )}
             <Route path="/profile/:id" element={<ProfilePage />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>

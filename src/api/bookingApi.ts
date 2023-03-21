@@ -2,6 +2,7 @@ import api, { apiConfig } from "./api";
 
 const CREATE_BOOKING_URL = "/api/booking/";
 const GET_ALL_BOOKING_BY_USER_URL = "/api/booking/user";
+const GET_ALL_COUPLE_BOOKING_URL = "/api/booking/couple";
 const UPDATE_BOOKING_STATUS_URL = "/api/booking/";
 
 export interface BookingFormData {
@@ -38,4 +39,8 @@ export const updateBookingStatus = async (
     apiConfig.baseURL + UPDATE_BOOKING_STATUS_URL + bookingId,
     {bookingStatus}
   );
+};
+
+export const getAllCoupeBookingApi = async () => {
+  return await api.get(apiConfig.baseURL + GET_ALL_COUPLE_BOOKING_URL);
 };

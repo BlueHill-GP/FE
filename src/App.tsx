@@ -38,6 +38,11 @@ function App() {
      messageSuccess(data.message);
      sound.play();
    });
+
+  //  socket.on("update-booking", (data) => {
+  //    console.log(data);
+     
+  //  });
  }, []);
   
   sound.play();

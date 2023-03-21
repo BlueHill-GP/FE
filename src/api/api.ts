@@ -33,7 +33,7 @@ api.interceptors.request.use(async (config) => {
 api.interceptors.response.use(
   async (response: AxiosResponse) => {
     try {
-      const token = response.data.data.token;
+      const token = response.data?.data?.token;
       console.log(token);
   
 
