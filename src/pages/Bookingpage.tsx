@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import "../assets/css/bookingPage.css"
+import { Button, Checkbox, Form, Input, Select,DatePicker,  } from 'antd';
+import {config} from "@fortawesome/fontawesome-svg-core";
+
 const BookingForm = () => {
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
@@ -61,11 +64,16 @@ const BookingForm = () => {
     }
   };
 
+    const onFinish = (values: any) => {
+        console.log('Success:', values);
+    };
+
+    const onFinishFailed = (errorInfo: any) => {
+        console.log('Failed:', errorInfo);
+    };
   return (
 
-    // <div className="booking-page">
-    //   <form onSubmit={handleSubmit}>
-    //     <label>
+    <div className="booking-page">
 
     <div className={"container-per-infor"}>
       {servicePackage && (
@@ -99,138 +107,229 @@ const BookingForm = () => {
           </div>
         </div>
       )}
-      <form className={"form-per-infor"} onSubmit={handleSubmit}>
-        <p className={"title-per-infor"}>Thông tin liên hệ</p>
-        <label className={"label-form-infor"}>
-          Tên khách hàng:
-          <input
-            className={"per-infor-type-text"}
-            type="text"
-            value={bookingData.customerName}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                customerName: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label className={"label-form-infor"}>
-          Địa chỉ khách hàng:
-          <input
-            className={"per-infor-type-text"}
-            type="text"
-            value={bookingData.customerAddress}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                customerAddress: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label className={"label-form-infor"}>
-          Số điện thoại:
-          <input
-            className={"per-infor-type-text"}
-            type="text"
-            value={bookingData.customerPhone}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                customerPhone: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label className={"label-form-infor"}>
-          Email:
-          <input
-            className={"per-infor-type-email"}
-            type="email"
-            value={bookingData.customerEmail}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                customerEmail: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label className={"label-form-infor"}>
-          Giới tính:
-          <input
-            className={"per-infor-type-text"}
-            type="text"
-            value={bookingData.customerGender}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                customerGender: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label className={"label-form-infor"}>
-          Tuổi:
-          <input
-            className={"per-infor-type-number"}
-            type="number"
-            value={bookingData.customerAge}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                customerAge: Number(event.target.value),
-              })
-            }
-          />
-        </label>
-        <label className={"label-form-infor"}>
-          Thời gian đặt gói:
-          <input
-            className={"per-infor-datetime-local"}
-            type="datetime-local"
-            value={bookingData.bookingTime}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                bookingTime: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label className={"label-form-infor"}>
-          Địa chỉ đặt gói:
-          <input
-            className={"per-infor-type-text"}
-            type="text"
-            value={bookingData.bookingAddress}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                bookingAddress: event.target.value,
-              })
-            }
-          />
-        </label>
+        <Form
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            style={{ maxWidth: 600 }}
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+        >
+            <Form.Item
+                label="tên khách hàng"
+                name="username"
+                rules={[{ required: true, message: 'Vui lòng điền tên của bạn: ' }]}
+            >
+                <Input />
+            </Form.Item>
 
-        <label className={"label-form-infor"}>
-          Ghi chú:
-          <textarea
-            className={"per-infor-type-textrea"}
-            value={bookingData.notes}
-            onChange={(event) =>
-              setBookingData({
-                ...bookingData,
-                notes: event.target.value,
-              })
-            }
-          />
-        </label>
-        <button className={"form-submit-per-infor"} type="submit">
-          Tiếp tục
-        </button>
-      </form>
+            <Form.Item
+                label="Địa chỉ khách hàng"
+                name="address"
+                rules={[{ required: true, message: 'Vui lòng điền địa chỉ của bạn' }]}
+            >
+                <Input />
+            </Form.Item>
+
+            <Form.Item
+                name="email"
+                label="E-mail"
+                rules={[
+                    {
+                        type: 'email',
+                        message: 'Email không hợp lý',
+                    },
+                    {
+                        required: true,
+                        message: 'Vui lòng điền email của bạn',
+                    },
+                ]}
+            >
+                <Input />
+            </Form.Item>
+
+            <Form.Item name="date-time-picker"
+                       label="Thời gian đặt gói" {...config}>
+                <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            </Form.Item>
+
+            <Form.Item
+                name="gender"
+                label="Giới tính"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Vui lòng chọn giới tính',
+                    },
+                ]}
+            >
+                <Select placeholder="select your gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </Select>
+            </Form.Item>
+
+            <Form.Item
+                name="Ghi chứ"
+                label="Intro"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input Intro',
+                    },
+                ]}
+            >
+                <Input.TextArea showCount maxLength={100} />
+            </Form.Item>
+
+
+
+            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+                <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                <Button type="primary" htmlType="submit">
+                    Submit
+                </Button>
+            </Form.Item>
+        </Form>
+      {/*<form className={"form-per-infor"} onSubmit={handleSubmit}>*/}
+      {/*  <p className={"title-per-infor"}>Thông tin liên hệ</p>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Tên khách hàng:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-type-text"}*/}
+      {/*      type="text"*/}
+      {/*      value={bookingData.customerName}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          customerName: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Địa chỉ khách hàng:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-type-text"}*/}
+      {/*      type="text"*/}
+      {/*      value={bookingData.customerAddress}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          customerAddress: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Số điện thoại:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-type-text"}*/}
+      {/*      type="text"*/}
+      {/*      value={bookingData.customerPhone}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          customerPhone: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Email:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-type-email"}*/}
+      {/*      type="email"*/}
+      {/*      value={bookingData.customerEmail}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          customerEmail: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Giới tính:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-type-text"}*/}
+      {/*      type="text"*/}
+      {/*      value={bookingData.customerGender}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          customerGender: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Tuổi:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-type-number"}*/}
+      {/*      type="number"*/}
+      {/*      value={bookingData.customerAge}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          customerAge: Number(event.target.value),*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Thời gian đặt gói:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-datetime-local"}*/}
+      {/*      type="datetime-local"*/}
+      {/*      value={bookingData.bookingTime}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          bookingTime: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Địa chỉ đặt gói:*/}
+      {/*    <input*/}
+      {/*      className={"per-infor-type-text"}*/}
+      {/*      type="text"*/}
+      {/*      value={bookingData.bookingAddress}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          bookingAddress: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+
+      {/*  <label className={"label-form-infor"}>*/}
+      {/*    Ghi chú:*/}
+      {/*    <textarea*/}
+      {/*      className={"per-infor-type-textrea"}*/}
+      {/*      value={bookingData.notes}*/}
+      {/*      onChange={(event) =>*/}
+      {/*        setBookingData({*/}
+      {/*          ...bookingData,*/}
+      {/*          notes: event.target.value,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </label>*/}
+      {/*  <button className={"form-submit-per-infor"} type="submit">*/}
+      {/*    Tiếp tục*/}
+      {/*  </button>*/}
+      {/*</form>*/}
+    </div>
     </div>
   );
 };
