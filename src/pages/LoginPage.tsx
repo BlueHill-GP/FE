@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginData } from "../api/authApi";
-import Input from "../components/input/Input";
 import "../../src/assets/css/register.css";
+import { Button, Checkbox, Form, Input } from 'antd';
+
 
 interface LoginState {
   login: (user: LoginData) => void;
@@ -24,16 +25,23 @@ const LoginPage = (props: LoginState) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
-
   const handleSubmit = () => {
-    console.log('ok');
-    
-    login(user);
-  };
+        console.log('ok');
+
+        login(user);
+    };
   const moveRegister = () => {
 
  navigate("register");
-}
+  }
+  const onFinish = () => {
+      login(user);
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+      console.log('Failed:', errorInfo);
+  };
+
   return (
 
       <div className={"container-register"}>
@@ -44,27 +52,34 @@ const LoginPage = (props: LoginState) => {
                   <h1 className={"form_header_register-text"}>Đăng nhập</h1>
               </div>
               <div className={"form-login"}>
-              <label htmlFor="password">Email:</label>
-              <Input
-                type="text"
-                name="email"
-                value={user.email}
-                function={handleInputChange}
-              />
+                  <Form
+                  >
 
-              <label htmlFor="password">Mật khẩu:</label>
-              <Input
-                type="password"
-                name="password"
-                value={user.password}
-                function={handleInputChange}
-              />
+                      <div className={"label-form-register-login"}>Email:
+                      <Form.Item
+                          name="email"
+                          rules={[{ required: true, message: 'Vui lòng điền tên của bạn' }]}
+                      >
+                          <Input className={"inputForm"}name="email" value={user.email}  onChange={handleInputChange} />
+                      </Form.Item>
+                      </div>
 
-              <button className={"btn-login"} onClick={handleSubmit}>Đăng nhập</button>
+                      <div className={"label-form-register-login"}> Mật khẩu:
+                      <Form.Item
+                          name="password"
+                          rules={[{ required: true, message: 'Vui lòng điền mật khẩu của bạn' }]}
+                      >
+                          <Input.Password className={"inputForm-password"} name="password" value={user.password} onChange={handleInputChange}/>
+                      </Form.Item>
+                      </div>
+
+                      <button className={"btn-login"} onClick={handleSubmit}>Đăng nhập</button>
+                  </Form>
               </div>
-              <div className={"Login-Btn"}>
-              <button className="line" onClick={moveRegister}>Đăng ký</button>
-              </div>
+                  <div className={"Login-Btn"}>
+                      <button className="line" onClick={moveRegister}>Đăng ký</button>
+                  </div>
+
           </section>
     </div>
   );
