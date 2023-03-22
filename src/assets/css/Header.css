@@ -74,7 +74,7 @@
   align-items: center;
 }
 .header_Auth a {
-  padding: 0 20px 0 20px;
+  padding: 5px;
   text-decoration: none;
 }
 .fa-user {
@@ -96,6 +96,10 @@
   border-radius: 15px;
   justify-content: center;
   color: #101010;
+}
+.signin_Btn p{
+  font-weight: 600;
+  margin: 0 15px;
 }
 
 /* /* show data search */
@@ -278,8 +282,7 @@
   .header_Auth a {
     font-size: 14px;
     text-align: center;
-    padding: 0 10px;
-    min-width: 100px;
+    padding: 5px;
   }
 
   .fa-user {

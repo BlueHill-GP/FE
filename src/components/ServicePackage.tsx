@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Modal } from "antd";
 import { groupByComma } from "../utils/numberUtils";
@@ -84,8 +84,10 @@ const ServicePackage = (props: any) => {
 
               <p>Đánh giá: {props.servicePackage.star.length}</p>
               <p className="package-userName">
-                Người đăng:{" "}
-                {props.servicePackage.user.username || props.user.name}
+                Người đăng:
+                <Link to={"/profile/" + props.servicePackage.user._id}>
+                  {props.servicePackage.user.username || props.user.name}
+                </Link>
               </p>
               <p className="time-create-package">
                 {" "}

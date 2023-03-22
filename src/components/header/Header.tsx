@@ -12,6 +12,7 @@ interface IProp {
     name: string;
     email: string;
     userType: string;
+    avatar: string;
   };
 }
 function Header(props: IProp) {
@@ -145,7 +146,9 @@ function Header(props: IProp) {
               ) : (
                 <>
                   <h2 className="">
-                    <i className="fa-solid fa-circle-user"></i> {user.name}
+                    <img src={user.avatar} alt="" />
+                    <i className="fa-solid fa-circle-user"></i>
+                    {user.name}
                   </h2>
                   {/* <li>
                     <Link className="menu-item" to="/create-service-package">
@@ -179,11 +182,16 @@ function Header(props: IProp) {
 
         <div className="header_Auth">
           <Link to="/login" className="signin_Btn">
-            <i className="fa-solid fa-user"></i>
+            {user.avatar ? (
+              <img className="avatar-post" src={user.avatar} alt="" />
+            ) : (
+              <i className="fa-solid fa-user"></i>
+            )}
+
             <p>{user.name}</p>
           </Link>
           <Link to="" className="signup_Btn" onClick={() => logout()}>
-            Đăng xuất
+            <i className="fa-solid fa-right-from-bracket"></i>
           </Link>
           {/* <div onClick={() => logout()}>Đăng xuất </div> */}
         </div>

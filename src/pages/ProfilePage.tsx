@@ -8,8 +8,12 @@ import { getUserByIdpApi } from "../api/userApi";
 import Post from "../components/Post";
 import ServicePackage from "../container/servicePackageContainer";
 import "../assets/css/ProfilePage.css"
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
 
-
+const antIcon = (
+  <LoadingOutlined style={{ fontSize: 40, color: "#e39797" }} spin />
+);
 
 
 const ProfilePage = () => {
@@ -69,11 +73,11 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       {!user.userType || user.userType === "" ? (
-        <div className="">User not found</div>
+        <Spin indicator={antIcon} />
       ) : (
         <div className="">
           <div className="info">
-            <h2 className="">Tên: {user.username}</h2>        
+            <h2 className="">Tên: {user.username}</h2>
             <h2 className="">Thợ: {user.userType}</h2>
           </div>
           <div>

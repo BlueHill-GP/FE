@@ -8,6 +8,12 @@ import ServicePackage from "../container/servicePackageContainer";
 import "../assets/css/ProfilePartnerPage.css";
 import { updateAvatarApi } from "../api/userApi";
 
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
+const antIcon = (
+  <LoadingOutlined style={{ fontSize: 40, color: "#e39797" }} spin />
+);
+
 interface IProp {
   user: {
     userId: string;
@@ -137,18 +143,24 @@ const ProfilePage = (props: IProp) => {
         <div>
           <CreatePost />
           <div>
-            {posts &&
-              posts.map((post, index) => <Post post={post} key={index} />)}
+            {posts ? (
+              posts.map((post, index) => <Post post={post} key={index} />)
+            ) : (
+              <Spin indicator={antIcon} />
+            )}
           </div>
         </div>
 
         <div className="packageForPartner">
           <CreateServicePackage />
           <div>
-            {servicePackages &&
+            {servicePackages ? (
               servicePackages.map((servicePackage, index) => (
                 <ServicePackage servicePackage={servicePackage} key={index} />
-              ))}
+              ))
+            ) : (
+              <Spin indicator={antIcon} />
+            )}
           </div>
         </div>
       </div>

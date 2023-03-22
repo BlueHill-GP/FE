@@ -62,3 +62,12 @@
  height: 100%;
  opacity:0;
 }
+
+a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

@@ -4,6 +4,8 @@ import { handleLikeIpa } from "../api/postApi";
 import { Image } from "antd";
 import "../assets/css/Posts.css";
 import { RootState } from "../redux/store";
+import { Link } from "react-router-dom";
+import { apiConfig } from "../api/api";
 
 export interface PostProps {
   post: {
@@ -56,7 +58,10 @@ const Post = (props: PostProps) => {
     <div className="post_Container">
       <div className="post">
         <div className="header-post">
-          <div className="row">
+          <Link
+            to={ "/profile/" + props.post.user._id}
+            className="row"
+          >
             <div className="">
               {props.post.user.avatar ? (
                 <img
@@ -78,7 +83,7 @@ const Post = (props: PostProps) => {
                 {new Date(props.post.createAt).toLocaleString()}
               </p>
             </div>
-          </div>
+          </Link>
         </div>
         <p className="post-desc">{props.post.description}</p>
         <div>
@@ -103,13 +108,11 @@ const Post = (props: PostProps) => {
           {props.post.image.length === 1 ? (
             <div className="post-image">
               <img src={props.post.image[0]} alt="Post image" />
-            
             </div>
           ) : (
             <div className="post-images">
               <div className="post-images-col-1">
                 <img src={props.post.image[0]} alt={`Post image`} />
-             
               </div>
               <div className="post-images-col-2">
                 {props.post.image
@@ -120,7 +123,6 @@ const Post = (props: PostProps) => {
                       src={imageUrl}
                       alt={`Post image ${index}`}
                     />
-                   
                   ))}
               </div>
             </div>
