@@ -33,7 +33,7 @@ export const RegisterPage = (props: IProp) => {
   const [showPwd, setShowPwd] = useState(false);
 
   const handleInputChange = (
-      event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<Select>
+      event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
@@ -141,10 +141,13 @@ export const RegisterPage = (props: IProp) => {
                       <Form.Item name="userType" rules={[{ required: true }]}>
                         <Select
                             className={"userType"}
-                            name="userType"
                             id="userType"
-                            value={user.userType}
-                            onChange={handleInputChange}
+
+                            onChange={(event) =>
+                                setUser({
+                              ...user,
+                                  userType: event,
+                            })}
                         >
                           <Option value="photographer">Nhiếp ảnh</Option>
                           <Option value="makeup">Trang điểm</Option>
