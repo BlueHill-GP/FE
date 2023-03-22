@@ -72,36 +72,32 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     margin-inline: 1.5rem;
+    padding-left: 30px
 
 }
-.userType{
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.3rem;
-    outline: none;
-    border: transparent 2px solid;
+#userType{
 }
-input[type='text'],
-input[type='password'] {
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.3rem;
-    outline: none;
-    border: transparent 2px solid;
-    /* background-color: aqua; */
+
+.label-form-register-login{
+    font-size: 20px;
+    color: white;
 }
 .btn-login {
     background-color: #ffabb8;
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     border-radius: 0.5rem;
-    padding: 0.5rem;
+    /*padding: 0.5rem;*/
     cursor: pointer;
     margin-top: 1rem;
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+.inputForm-password{
+    height: 40px;
 }
 .line {
     display: block;
@@ -138,23 +134,59 @@ inputForm{
     line-height: 15px;
 }
 
-.form-verify{
-    position: absolute;
-    top: 30%;
-    left: 45%;
-    transform: translate(-50%, -50%);
+.form-verify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
-.verifi-OTP{
-    background-color: #ffabb8;
+
+.form-verify form {
+    max-width: 600px;
+    border: 2px solid #f0a4c2;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px #f0a4c2;
+    margin-top: 90px
+}
+
+.OTP-code {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f0a4c2;
+    padding-bottom: 20px;
+}
+.test-otp{
+   padding-top: 30px;
+    margin-left: 20px;
+
+}
+
+.OTP-code input {
+    border: 2px solid #f0a4c2;
+    border-radius: 4px;
+    margin-right: 30px;
+}
+
+.verifi-OTP {
+    margin-right: 20px;
+    background-color: #f0a4c2;
+    border: none;
+    border-radius: 4px;
     color: white;
-    margin: 15px;
-    cursor: pointer;
-    padding: 10px;
-    border: 1px solid #000000; /* đường viền của button */
+    box-shadow: 0 0 5px #f0a4c2;
+    transition: all 0.2s ease-in-out;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
-.OTP-code{
-    color: black;
+
+.verifi-OTP:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #f0a4c2;
 }
+
 @media screen and (max-width: 412px) and (max-height: 915px) {
     .login-section{
         width: 100%;
@@ -194,16 +226,6 @@ inputForm{
 
     }
 
-    input[type='text'],
-    input[type='password'] {
-        font-family: 'Nunito', sans-serif;
-        font-size: 18px;
-        padding: 0.25rem 0.5rem;
-        width: 350px;
-        border-radius: 0.3rem;
-        outline: none;
-        border: transparent 2px solid;
-    }
     .btn-login {
         background-color: #ffabb8;
         font-family: 'Nunito', sans-serif;
@@ -254,15 +276,6 @@ inputForm{
         margin-bottom: 1rem;
     }
 
-    input[type='text'],
-    input[type='password'] {
-        font-family: 'Nunito', sans-serif;
-        font-size: 18px;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.3rem;
-        outline: none;
-        border: transparent 2px solid;
-    }
     .btn-login {
         font-size: 22px;
         padding: 0.5rem;
@@ -297,11 +310,6 @@ inputForm{
         margin-bottom: 1rem;
     }
 
-    input[type='text'],
-    input[type='password'] {
-        font-size: 18px;
-        width: 330px ;
-    }
     .btn-login {
         font-size: 22px;
         border-radius: 0.5rem;

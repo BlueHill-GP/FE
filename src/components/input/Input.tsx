@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 
-
 interface InputInterface {
   name: string;
   type: string;
