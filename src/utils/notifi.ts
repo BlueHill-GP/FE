@@ -21,3 +21,18 @@ export const messageError = (error: any) => {
     theme: "colored",
   });
 };
+
+export const messageErrorLog = (message: string) => {
+ 
+  toast.error(message, {
+    hideProgressBar: true,
+    theme: "colored",
+  });
+};
+
+export const messageWaning = (message: string) => {
+  toast.info(message, {
+    hideProgressBar: true,
+    theme: "colored",
+  });
+};

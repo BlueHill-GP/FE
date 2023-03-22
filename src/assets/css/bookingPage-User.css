@@ -1,0 +1,86 @@
+.container-per-infor {
+  /*background-color: #e39797;*/
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+ 
+  
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  
+}
+
+.image-service-paka {
+  margin-right: 20px;
+  width: 90%;
+  border-radius: 10px;
+}
+
+.service-package-title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.service-package-price {
+  color: #e39797;
+}
+
+.service-package-description {
+}
+
+.service-package-star {
+}
+
+.service-package-user {
+  padding-bottom: 50px;
+}
+.label-form-infor {
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+}
+.service-package-createAt {
+  color: var(--main-color);
+}
+.form-per-infor {
+  background-color: rgba(0, 0, 0, 0.1);
+ border-radius: 10px;
+  width: 100%;
+
+  font-size: 18px;
+  color: #fff;
+}
+
+.info-form-couple {
+  width: 100%;
+  margin-left: 90px;
+}
+.title-per-infor {
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+.form-submit-per-infor {
+  background-color: var(--main-color);
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 90px;
+  transition: all 0.5s ease;
+}
+
+.form-submit-per-infor:hover {
+  background-color: #e5e5e5;
+  color: var(--main-color);
+}
