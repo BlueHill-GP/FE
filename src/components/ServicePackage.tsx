@@ -76,7 +76,7 @@ const ServicePackage = (props: any) => {
                 {props.servicePackage.title}
               </h3>
               <p className="package-price-detail-modal">
-                {groupByComma(props.servicePackage.price)} vnd
+                {groupByComma(props.servicePackage.price)} vnđ
               </p>
               <p className="package-desc-detail-modal">
                 {props.servicePackage.description}
@@ -135,7 +135,7 @@ const ServicePackage = (props: any) => {
             {props.servicePackage.title}
           </p>
           <p className="package-price" onClick={showModal}>
-            {groupByComma(props.servicePackage.price)} vnd
+            {groupByComma(props.servicePackage.price)} vnđ
           </p>
           <p className="package-desc" onClick={showModal}>
             {props.servicePackage.description}
