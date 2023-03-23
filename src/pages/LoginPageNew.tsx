@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginData } from "../api/authApi";
+import { LoginData, verifyOtpApi } from "../api/authApi";
 import { Button, Checkbox, Form, Input, Select } from "antd";
 import { messageError, messageSuccess } from "../utils/notifi";
 import {
@@ -9,22 +9,20 @@ import {
   ResendOtpData,
   VerifyOtpData,
 } from "../api/authApi";
-import "./style.css";
+import "../assets/css/authStyle.css";
 import { resendOtp, verifyOtpRegister } from "../redux/slide/authSlice";
 const { Option } = Select;
 
 interface LoginState {
   login: (user: LoginData) => void;
   changeRoute: (route: string) => void;
-}
-interface IProp {
   verifyOtpRegister: (data: VerifyOtpData, navigate: Function) => void;
-  changeRoute: (route: string) => void;
   resendOtp: (email: ResendOtpData) => void;
 }
 
+
 function Login(props: LoginState) {
-  const { login, changeRoute } = props;
+  const { login, changeRoute, verifyOtpRegister, resendOtp } = props;
 
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
@@ -41,8 +39,22 @@ function Login(props: LoginState) {
   };
 
   const handleOtpVerification = async () => {
-    console.log("sfsdf");
-    verifyOtpRegister({ email: user.email, otp }, navigate);
+
+    try {
+      const response = await verifyOtpApi({ email: user.email, otp });
+      if (response.status === 200) {
+        messageSuccess("Verify OTP successful");
+        setOtp('')
+        setIsSignUp(!isSignUp);
+        setShowOtpInput(!showOtpInput);
+
+      }
+    } catch (error) {
+      console.log(error);
+      messageError(error);
+    }
+    // console.log("sfsdf");
+    // verifyOtpRegister({ email: user.email, otp }, navigate);
   };
 
   const handleResendOtp = async () => {
@@ -96,14 +108,14 @@ function Login(props: LoginState) {
   };
 
   const handleSubmitLogin = () => {
-    login(user);
+    login(userLogin);
   };
   const moveRegister = () => {
     navigate("register");
   };
 
   return (
-    <>
+    <div className="login-body">
       <div className={isSignUp ? "container right-panel-active" : "container"}>
         <div className="">
           <>
@@ -215,10 +227,21 @@ function Login(props: LoginState) {
               </div>
             ) : (
               <div className="form-container sign-up-container">
+                <div
+                  className={"btn-popt-back"}
+                  onClick={() => {
+                    setShowOtpInput(!showOtpInput);
+                    setOtp("");
+                  }}
+                >
+                  <i className="icon-back-login fa-sharp fa-solid fa-caret-left"></i>{" "}
+                  Quay lại
+                </div>
+
                 <Form className="form-login" name="basic">
                   <div>
                     <div>
-                      Nhập mã OTP
+                     <p className="head">Nhập mã OTP</p>
                       <Form.Item
                         name="OTP"
                         rules={[
@@ -239,37 +262,23 @@ function Login(props: LoginState) {
                   </div>
 
                   <div>
-                   
-                      <div className="row">
-                        <Button
-                          htmlType="button"
-                          className={"verifi-OTP"}
-                          onClick={() => handleOtpVerification}
-                        >
-                          Xác thực
-                        </Button>
-
-                        <Button
-                          className={"verifi-OTP"}
-                          onClick={() => handleResendOtp}
-                          htmlType="button"
-                        >
-                          Gửi lại mã OTP
-                        </Button>
-                      </div>
-
-                      <Button
-                        className={"verifi-OTP"}
-                        onClick={() => {
-                          setShowOtpInput(!showOtpInput);
-                          setOtp("");
-                        }}
-                        type="primary"
-                        htmlType="button"
+                    <div>
+                      <button
+                        className={"button-otp"}
+                        onClick={handleOtpVerification}
                       >
-                        Quay lại
-                      </Button>
-                   
+                        Xác thực
+                      </button>
+                      <div className="resent-opt-ctn">
+                        <p>Bạn vẫn chưa nhận được?</p>
+                        <button
+                          className={"button-resent-otp"}
+                          onClick={handleResendOtp}
+                        >
+                          Nhận lại mã OTP
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </Form>
               </div>
@@ -354,11 +363,8 @@ function Login(props: LoginState) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
 export default Login;
-function setErrorMessage(arg0: string) {
-  throw new Error("Function not implemented.");
-}
