@@ -11,6 +11,7 @@ import { io } from "socket.io-client";
 import { messageSuccess } from "./utils/notifi";
 import { Howl, Howler } from "howler";
 import ChatBox from "./components/chat/Chat";
+import Login from "./pages/LoginPageNew";
 const URL = process.env.REACT_APP_API_SOCKET_IO_URL || 'http://localhost:1234'
   // 'http://13.54.229.100:1234'
   // process.env.REACT_APP_API_SOCKET_IO_URL || 'http://localhost:1234'
@@ -52,6 +53,7 @@ function App() {
       <ToastContainer theme="dark" />
       <Router />
       <ChatBox/>
+     
     </div>
   );
 }

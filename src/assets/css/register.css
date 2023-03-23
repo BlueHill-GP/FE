@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 html {
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
-    /* color: #fff; */
 }
 
 .container-register {
@@ -18,9 +17,7 @@ html {
     height: 950px;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     background-color: rgba(3, 0, 0, 0.4);
-    /*margin: 0;*/
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
@@ -36,7 +33,6 @@ html {
     flex-direction: column;
     justify-content: center;
     background-color: rgba(3, 0, 0, 0.4);
-    /*margin: 0;*/
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
@@ -89,16 +85,13 @@ html {
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     border-radius: 0.5rem;
-    /*padding: 0.5rem;*/
     cursor: pointer;
     margin-top: 1rem;
     width: 100%;
     margin-bottom: 10px;
 
 }
-.inputForm-password{
-    height: 40px;
-}
+
 .line {
     display: block;
     margin: 11px auto;
@@ -106,7 +99,6 @@ html {
     font-size: 24px;
     width: 390px;
     cursor: pointer;
-    /*text-align: center;*/
     text-decoration: none;
     outline: none;
     color: #fff;
@@ -158,11 +150,7 @@ inputForm{
     border-bottom: 2px solid #f0a4c2;
     padding-bottom: 20px;
 }
-.test-otp{
-   padding-top: 30px;
-    margin-left: 20px;
 
-}
 
 .OTP-code input {
     border: 2px solid #f0a4c2;
@@ -186,4 +174,4 @@ inputForm{
     transform: scale(1.05);
     box-shadow: 0 0 10px #f0a4c2;
 }
-
+ */

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import LoginPage from "../pages/LoginPage";
+import Login from "../pages/LoginPageNew";
 import { login } from "../redux/slide/authSlice";
 import { changeRoute } from "../redux/slide/routeSlice";
 
@@ -14,4 +14,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect(mapStateToProps, mapActionToLogin)(LoginPage);
+export default connect(mapStateToProps, mapActionToLogin)(Login);

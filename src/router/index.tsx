@@ -17,6 +17,7 @@ import { socket } from "../App";
 // import socket from "../SocketIo";
 import CreateServicePackagePage from "../container/CreatePackagePageContainer";
 import CoupleBookingPage from "../container/CoupleBookingContainer";
+import LoginPageContainer from "../container/LoginPageContainer";
 
 interface IProps {
   isLogin: boolean;
@@ -62,7 +63,7 @@ const Router = (props: IProps) => {
         </>
       ) : (
         <>
-          <Route path="*" element={<LoginPage />} index />
+          <Route path="*" element={<LoginPageContainer />} index />
           <Route path="register" element={<RegisterPage />} />
         </>
       )}
