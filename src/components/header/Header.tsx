@@ -68,7 +68,7 @@ function Header(props: IProp) {
             </Link>
           </li>
 
-          <div className="search">
+          <div className="search row">
             <input className="box_Input" />
             <button type="submit" className="search_Button">
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -93,13 +93,13 @@ function Header(props: IProp) {
             <>
               <li>
                 <Link className="menu-item" to="profile">
-                  Thông tin
+                  Trang cá nhân
                 </Link>
               </li>
 
               <li>
                 <Link className="menu-item" to="/my-booking">
-                  Đặt hàng
+                  Đơn hàng
                 </Link>
               </li>
             </>
