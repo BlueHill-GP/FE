@@ -325,14 +325,13 @@ margin: none !important;
   text-align: center;
 }
 .save-btn {
-  border: none;
-
-  font-weight: bold;
-  background-color: var(--main-color);
-  color: #fff;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 10px;
+     border: none;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    color: #e39797;
+    cursor: pointer;
+    padding: 0px 10px;
+    border-radius: 10px;
 }
 
 .save-btn:hover {
@@ -354,4 +353,11 @@ margin: none !important;
   .createPackageContainer {
     margin-top: 180px;
   }
+}
+
+
+.create-package-item input{
+padding: 10px;
+border-radius: 8px;
+border: none;
 }

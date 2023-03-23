@@ -70,3 +70,27 @@ a:-webkit-any-link {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.review-img{
+  position: relative;
+  margin: 8px;
+  
+}
+
+.remove-img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.remove-img i{
+  color: rgb(255, 255, 255);
+}
+
+.remove-img i:hover{
+  color: rgb(240, 65, 65);
+}
+
+.wrap{
+  flex-wrap: wrap;
+}

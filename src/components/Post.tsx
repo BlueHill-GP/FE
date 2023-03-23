@@ -58,10 +58,7 @@ const Post = (props: PostProps) => {
     <div className="post_Container">
       <div className="post">
         <div className="header-post">
-          <Link
-            to={ "/profile/" + props.post.user._id}
-            className="row"
-          >
+          <Link to={"/profile/" + props.post.user._id} className="row">
             <div className="">
               {props.post.user.avatar ? (
                 <img
@@ -99,8 +96,8 @@ const Post = (props: PostProps) => {
               <Image.PreviewGroup
                 preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}
               >
-                {props.post.image.map((image: any) => (
-                  <Image src={image} />
+                {props.post.image.map((image: any, index: number) => (
+                  <Image src={image} key={index} />
                 ))}
               </Image.PreviewGroup>
             </div>

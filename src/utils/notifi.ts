@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
 export const messageSuccess = (message: string) => {
-  console.log("okfsa");
 
   toast.success(message, {
     hideProgressBar: true,

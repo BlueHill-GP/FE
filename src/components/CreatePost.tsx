@@ -2,13 +2,24 @@ import React, { useState } from "react";
 import { createPost } from "../api/postApi";
 import "../assets/css/CreatePosts.css";
 import Post from "../container/PostContainer";
+import { Image } from "antd";
+
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
+import { messageError, messageSuccess } from "../utils/notifi";
+
+const antIcon = (
+  <LoadingOutlined style={{ fontSize: 24, color: "#e39797" }} spin />
+);
 function CreatePost() {
   const [files, setFiles] = useState<File[]>([]);
   const [description, setDescription] = useState("");
   const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData();
     for (let i = 0; i < files.length; i++) {
@@ -21,13 +32,16 @@ function CreatePost() {
       if (response.status === 200) {
         setFiles([]);
         setDescription("");
+        messageSuccess('Tạo post thành công!')
         setPosts([response.data.post, ...posts]);
-      } else {
-        console.log(response.data.message);
+
       }
     } catch (error) {
-      console.log("err1");
       console.log(error);
+      messageError('Lỗi mất rồi...')
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -59,6 +73,7 @@ function CreatePost() {
       <form className="create-post" onSubmit={handleSubmit}>
         <div className="caption">
           <textarea
+            required
             name=""
             placeholder="Bạn đang nghĩ gì..."
             id="description-input"
@@ -87,7 +102,7 @@ function CreatePost() {
           </div>
 
           <button type="submit" className="create-btn">
-            Xong
+            {loading ? <Spin indicator={antIcon} /> : "Lưu"}
           </button>
         </div>
         <div>
@@ -99,21 +114,27 @@ function CreatePost() {
             multiple
           />
         </div>
-        {files.map((file, index) => (
-          <div key={index}>
-            <span>{file.name}</span>
-            <button type="button" onClick={() => handleRemoveFile(index)}>
-              xóa
-            </button>
-          </div>
-        ))}
+        <div className="row justify-center ">
+          {files &&
+            Array.from(files).map((image, index) => (
+              <div className="review-img" key={index}>
+                <Image
+                  className=""
+                  style={{ objectFit: "cover", borderRadius: "5px" }}
+                  width={100}
+                  height={100}
+                  src={URL.createObjectURL(image)}
+                />
+                <div
+                  className="remove-img "
+                  onClick={() => handleRemoveFile(index)}
+                >
+                  <i className="fa-solid fa-trash"></i>
+                </div>
+              </div>
+            ))}
+        </div>
       </form>
-
-      {/* {posts
-        ? posts.map((post: any, index: number) => (
-            <Post post={post} key={index} />
-          ))
-        : ""} */}
 
       {posts &&
         posts.map((post: any, index: number) => (
