@@ -8,17 +8,13 @@
   margin: 300px auto 0px auto;
   display: grid;
   grid-template-columns: 25% 50% 25%;
-  gap: 10px;
 }
-.info {
-  margin-left: 20px;
-}
-.info h2 {
+
+.profile-text i {
   color: var(--main-color);
+  margin-right: 3px;
 }
-.avatar-profile {
-  margin-left: 30px;
-}
+
 .fa-pen-to-square {
   color: #487ba6;
   cursor: pointer;
@@ -54,8 +50,99 @@
 }
 
 .avatar-profile {
-  width: 100px;
-  height: 100px;
   border-radius: 100%;
   object-fit: cover;
+  border: #487ba6 solid 3px;
+  padding: 8px;
+  margin-bottom: 30px;
+}
+
+.icon-handle-avatar i {
+  padding: 10px;
+}
+.img-avatar {
+  margin-bottom: 30px;
+}
+
+.avatar-review {
+  margin: top 20px;
+  border-radius: 100%;
+  object-fit: cover;
+  border: #487ba6 dashed 2px;
+  padding: 8px;
+}
+
+.update-avatar {
+  position: absolute;
+  color: #ffff;
+  background-color: #ffff;
+  top: 220px;
+}
+
+.info .ant-image-mask:hover {
+  border-radius: 100%;
+}
+
+.info-container {
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+  padding:  60px 20px;
+  position: relative;
+}
+
+.packageForPartner .packages-container {
+  width: 100% !important;
+}
+.packageForPartner .packages-container .package_Item {
+  padding: 10px;
+  width: 100% !important;
+  height: unset;
+}
+
+.photographer-option {
+  position: absolute;
+}
+
+.user-tyle-text {
+  font-size: 13px;
+}
+
+.profile-name-text {
+  margin-bottom: 5px;
+}
+.user-tyle-text {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.start-container{
+  margin-bottom: 20px;
+}
+
+.fixed-box {
+    position: fixed;
+    width: 17.5%;
+}
+
+.handle-desc{
+  position: relative;
+}
+
+.handle-desc .func{
+  position: absolute;
+  right: 0;
+}
+
+.handle-desc .func i{
+  padding: 10px;}
+
+
+.desc-profile i{ 
+margin-left: 5px;
+}
+
+.btm-tour-profile{
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  background-color: "#e39797";
 }

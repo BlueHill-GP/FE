@@ -9,6 +9,15 @@ import { RootState } from "../redux/store";
 import { Col } from "antd";
 import { socket } from "../App";
 
+import { Image } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin, Rate } from "antd";
+import { messageError, messageSuccess } from "../utils/notifi";
+const antIcon = (
+  <LoadingOutlined style={{ fontSize: 40, color: "#e39797" }} spin />
+);
+
+
 interface IProp {
   user: {
     userId: string;
@@ -23,6 +32,9 @@ const MyBooking = (props: IProp) => {
   const [waitingBookings, setWaitingBookings] = useState<any[]>([]);
   const [acceptedBookings, setAcceptedBookings] = useState<any[]>([]);
   const [rejectedBookings, setRejectedBookings] = useState<any[]>([]);
+
+    const [star, setStar] = useState(5);
+    const descStar = ["terrible", "bad", "normal", "good", "wonderful"];
   console.log(waitingBookings);
   
   useEffect(() => {
@@ -96,7 +108,7 @@ setRejectedBookings(
   return (
     <div className="profile-container">
       <div className="profile-page">
-        <div className="info">
+        {/* <div className="info">
           {user.avatar !== "" ? (
             <img className="avatar-profile" src={user.avatar} alt="" />
           ) : (
@@ -137,6 +149,57 @@ setRejectedBookings(
             <label htmlFor="chooseImg1">
               <i className="fa-solid fa-pen-to-square"></i>
             </label>
+          </div>
+        </div> */}
+
+        <div className="info">
+          <div className="fixed-box">
+            <div className="info-container">
+              <div className="row justify-center col-row">
+                <div className="img-avatar">
+                  {user.avatar !== "" ? (
+                    <Image
+                      width={170}
+                      height={170}
+                      className="avatar-profile"
+                      src={user.avatar}
+                      alt=""
+                    />
+                  ) : (
+                    <Image
+                      className="avatar-profile"
+                      src={
+                        "https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg"
+                      }
+                      alt=""
+                    />
+                  )}
+                </div>
+
+                <div className="profile-text">
+                  <h2 className="profile-name-text">{user.name}</h2>
+                  <h2 className="user-tyle-text">
+                    {user.userType === "makeup" ? (
+                      <i className="fa-solid fa-paintbrush"></i>
+                    ) : (
+                      <i className="fa-solid fa-camera"></i>
+                    )}
+
+                    {user.userType}
+                  </h2>
+                </div>
+
+                <div className="start-container">
+                  <span>
+                    <Rate tooltips={descStar} onChange={setStar} value={star} />
+                    {star ? <span className="ant-rate-text"></span> : ""}
+                  </span>
+                </div>
+                <div className="row desc-profile justify-center col-row">
+                  {user.desc ? <p>{user.desc}</p> : <p></p>}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

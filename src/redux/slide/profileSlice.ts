@@ -2,7 +2,7 @@ import {  createSlice } from "@reduxjs/toolkit";
 import { loginApi, LoginData } from "../../api/authApi";
 import { useNavigate } from "react-router-dom";
 import { changeRoute } from "./routeSlice";
-import { getUserByIdpApi } from "../../api/userApi";
+import { getUserByIdpApi, updateDescApi } from "../../api/userApi";
 interface UserState {
   userId: string;
   name: string;
@@ -14,6 +14,7 @@ const initialState = {
   email: "",
   userType: "",
   avatar: "",
+  desc:""
 };
 
 
@@ -24,17 +25,21 @@ const userSlice = createSlice({
   reducers: {
     setUserReducer(state, action) {
       state.userId = action.payload.userId._id;
-      state.email = action.payload.userId.email; 
+      state.email = action.payload.userId.email;
       state.name = action.payload.username;
       state.userType = action.payload.userType;
-      
-      state.avatar = action.payload.userId.avatar;
+      state.desc = action.payload.desc;
 
+      state.avatar = action.payload.userId.avatar;
+    },
+
+    updateDescReducer(state, action) {
+      state.desc = action.payload.desc;
     },
   },
 });
 
-const { setUserReducer } = userSlice.actions;
+const { setUserReducer, updateDescReducer } = userSlice.actions;
  
 
 export const setUser = (userId: string) => async (dispatch: Function) => {
@@ -49,4 +54,12 @@ export const setUser = (userId: string) => async (dispatch: Function) => {
   }
 };
 
+export const updateDesc = (desc: string) => async (dispatch: Function) => {
+  try {
+    const response = await updateDescApi({ desc });
+    dispatch(updateDescReducer(response.data.data));
+  } catch (error) {
+    console.log(error);
+  }
+};
 export default userSlice;

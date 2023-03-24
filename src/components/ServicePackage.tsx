@@ -22,28 +22,6 @@ const ServicePackage = (props: any) => {
     navigate("/booking/" + id);
   };
 
-  // console.log(props.user);
-
-  // const handleSubmitDelete = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   fetch(`http://13.211.252.242/api/service-packages/${servicePackage?._id}`, {
-  //     method: "DELETE",
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   })
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         // props.onDelete(postId);
-  //       } else {
-  //         throw new Error("Failed to delete post");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
-
-  // modal detail package
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -103,9 +81,7 @@ const ServicePackage = (props: any) => {
                       Đặt ngay
                     </button>
                   ) : (
-                    <button className="photographer-option">
-                      <i className="fa-solid fa-ellipsis"></i>
-                    </button>
+                    <></>
                   )
                 ) : (
                   <button
@@ -123,6 +99,9 @@ const ServicePackage = (props: any) => {
       </div>
 
       <div className="package_Item">
+        <button className="photographer-option">
+          <i className="fa-solid fa-ellipsis"></i>
+        </button>
         <div className="package_Img">
           {/* {props.servicePackage.image.map((imageUrl: string, index: number) => ( */}
           <img
@@ -163,9 +142,7 @@ const ServicePackage = (props: any) => {
                   Đặt ngay
                 </button>
               ) : (
-                <button className="photographer-option">
-                  <i className="fa-solid fa-ellipsis"></i>
-                </button>
+                <></>
               )
             ) : (
               <button
