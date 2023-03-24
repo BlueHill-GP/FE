@@ -17,7 +17,6 @@ const antIcon = (
   <LoadingOutlined style={{ fontSize: 40, color: "#e39797" }} spin />
 );
 
-
 interface IProp {
   user: {
     userId: string;
@@ -27,39 +26,44 @@ interface IProp {
   };
 }
 const MyBooking = (props: IProp) => {
- const user = useSelector((state:RootState) => state.user);
+  const user = useSelector((state: RootState) => state.user);
 
   const [waitingBookings, setWaitingBookings] = useState<any[]>([]);
   const [acceptedBookings, setAcceptedBookings] = useState<any[]>([]);
   const [rejectedBookings, setRejectedBookings] = useState<any[]>([]);
-
-    const [star, setStar] = useState(5);
-    const descStar = ["terrible", "bad", "normal", "good", "wonderful"];
-  console.log(waitingBookings);
+  console.log("acc",acceptedBookings);
+  console.log("rej",rejectedBookings);
   
+
+  const [star, setStar] = useState(5);
+  const descStar = ["terrible", "bad", "normal", "good", "wonderful"];
+  console.log(waitingBookings);
+
   useEffect(() => {
     async function fetchData() {
       const response = await getAllBookingByUser(user.userId);
       if (response.data.data) {
-const bookings = response.data.data
-setWaitingBookings(
-  bookings.filter((booking:any) => booking.bookingStatus === "waiting")
-);
-setAcceptedBookings(
-  bookings.filter((booking:any) => booking.bookingStatus === "accepted")
-);
-setRejectedBookings(
-  bookings.filter((booking:any) => booking.bookingStatus === "rejected")
-);
+        const bookings = response.data.data;
+        setWaitingBookings(
+          bookings.filter((booking: any) => booking.bookingStatus === "waiting")
+        );
+        setAcceptedBookings(
+          bookings.filter(
+            (booking: any) => booking.bookingStatus === "accepted"
+          )
+        );
+        setRejectedBookings(
+          bookings.filter(
+            (booking: any) => booking.bookingStatus === "rejected"
+          )
+        );
       }
     }
     fetchData();
-
-   
   }, []);
 
   const [avatar, setAvatar] = useState<File[]>([]);
- 
+
   const handleFileChangeProfile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = e.target.files;
     if (selectedFiles && selectedFiles.length > 0) {
@@ -95,16 +99,21 @@ setRejectedBookings(
     }
   };
   useEffect(() => {
-    socket.on("update-booking", (data:any) => {
+    socket.on("update-booking", (data: any) => {
       console.log(data);
       // if(data.data.booking.)
-    })
+      if (data.bookingStatus === "accepted") {
+      setAcceptedBookings((prevMyBooking) => [data.data, ...prevMyBooking]);
+      } else {
+      setRejectedBookings((prevMyBooking) => [data.data, ...prevMyBooking]);
+        
+      }
+    });
     socket.on("new-booking", (data: any) => {
       console.log(data);
       setWaitingBookings((prevMyBooking) => [data.data, ...prevMyBooking]);
     });
-  
-  }, [])
+  }, []);
   return (
     <div className="profile-container">
       <div className="profile-page">

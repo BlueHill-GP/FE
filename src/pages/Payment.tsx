@@ -13,12 +13,11 @@ import { createPaymentPayload, getVNPayParams } from "../utils/VNPayUtils";
 const VNPay = () => {
   useEffect(() => {
     messageWaning("Vui lòng xác nhận thông tin");
-    
-  },[])
+  }, []);
 
   const [openPayment, setOpenPayment] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const data = location.state.data;
   console.log(data);
 
@@ -55,11 +54,7 @@ const VNPay = () => {
   const onFinish = async () => {
     console.log(bookingData);
 
-    const response = await createBooking(bookingData);
-    if (response.data.data) {
-      setOpenPayment(!openPayment);
-    } else {
-    }
+    setOpenPayment(!openPayment);
   };
 
   return (

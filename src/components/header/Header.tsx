@@ -70,9 +70,9 @@ function Header(props: IProp) {
 
           <div className="search row">
             <input className="box_Input" />
-            <button type="submit" className="search_Button">
+            <div  className="search_Button">
               <i className="fa-solid fa-magnifying-glass"></i>
-            </button>
+            </div>
           </div>
 
           {user.userType === "couple" ? (

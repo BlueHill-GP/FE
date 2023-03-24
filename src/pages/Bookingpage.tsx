@@ -295,7 +295,7 @@ const BookingForm = () => {
       </Form>
 
       {servicePackage && (
-        <div className={"container"}>
+        <div className={"container-qwe"}>
           <div>
             {servicePackage &&
               servicePackage.image.map((imageUrl: string, index: number) => (
