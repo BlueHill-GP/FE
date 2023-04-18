@@ -123,6 +123,7 @@
 
 .img-card{
   object-fit: cover;
+  min-width: 50px;
 }
 
 .btn-accept{
